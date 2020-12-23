@@ -1,6 +1,13 @@
 // Custom.scss
 // TODO: Include only necessary files from bootstrap module
 
+// Load bootstrap functions & vars
+@import "../../node_modules/bootstrap/scss/functions.scss";
+@import "../../node_modules/bootstrap/scss/variables.scss";
+
+// To overwrite bootstrap settings
+@import "./helper/variables";
+
 @import "../../node_modules/bootstrap/scss/bootstrap.scss";
 
 // Import own scss files
@@ -9,6 +16,5 @@
 @import "./components/todoItem";
 @import "./helper/functions";
 @import "./helper/mixins";
-@import "./helper/variables";
 @import "./layout/grid";
 @import "./pages/home";

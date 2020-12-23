@@ -10,26 +10,15 @@
 </head>
 <body>
     <div class="container-fluid p-5">
-        <!-- TODO: Change this layout to item layout -->
-        <div class="row justify-content-center" id="card">
-            <div class="col">
-                <div class="card">
-                    <div class="card-body px-3 py-3" style="padding-top:.7rem !important;">
-                        <form id="card-form">
-                            <div class="row justify-content-center align-items-center">
-                                <di class="col form-floating">
-                                    <!-- TODO: See Readme -->
-                                    <div contenteditable="true" class="border-0 m-0 form-control" style="margin-top:-4px !important;" id="commandLine" placeholder=" "></div>
-                                    <label for="commandLine" style="margin-left:0.6rem; color:#000;">Describe your task #tags due:date prio @assign</label>
-                                    
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
+        <div class="row justify-content-center align-items-center">
+            <div class="col form">
+                <div class="position-relative">
+                    <div contenteditable="true" class="border-0 m-0 command-line"></div>
+                <label class="border-0">Describe your task #tags due:date prio @assign here...</label>
+                </div>               
             </div>
         </div>
-        <div class="row justify-content-center mt-3" id="card-list"></div>
+        <!-- <div class="row justify-content-center mt-3" id="card-list"></div> -->
     </div>
 </body>
 </html>

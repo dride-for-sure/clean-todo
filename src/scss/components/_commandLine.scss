@@ -1,0 +1,45 @@
+// Vars
+$labelOpacityTo: 0;
+
+// Label Transition, when div: focus or !empty
+.form {
+    .command-line{
+
+        padding: .5rem 0;
+        outline: none;
+
+        &::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width:30%;
+            min-width:200px;
+            border-top: 1px solid black;
+        }
+
+        ~ label {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            padding-top: .5rem;
+            pointer-events: none;
+            transform-origin: 0 0;
+            transition: opacity 0.2s ease-in-out;
+
+        }
+
+        &:not(:empty) {
+            & ~ label {
+                opacity: $labelOpacityTo;
+            }
+        }
+
+        &:focus {
+            & ~ label {
+                opacity: $labelOpacityTo;
+            }
+        }
+    }
+}

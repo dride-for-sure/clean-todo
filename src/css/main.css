@@ -7385,3 +7385,28 @@ textarea.form-control-lg {
     display: inline-flex !important; }
   .d-print-none {
     display: none !important; } }
+
+.form .command-line {
+  padding: .5rem 0;
+  outline: none; }
+  .form .command-line::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 30%;
+    min-width: 200px;
+    border-top: 1px solid black; }
+  .form .command-line ~ label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    padding-top: .5rem;
+    pointer-events: none;
+    transform-origin: 0 0;
+    transition: opacity 0.2s ease-in-out; }
+  .form .command-line:not(:empty) ~ label {
+    opacity: 0; }
+  .form .command-line:focus ~ label {
+    opacity: 0; }

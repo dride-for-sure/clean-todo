@@ -3,18 +3,20 @@ TODO:
         - commandLine
             - html before typing: div
             - html after typing: div.string div.tags div.rest
-            - backspace: deleting chars, when length===0 -> delete div, when cursor position===0 -> select div before
-        - existing todos
+            - commands:
+                - backspace: deleting chars, when length===0 -> delete div, when cursor position===0 -> select div before
+                - search: #tags due: prio: @assign
+                - sort: name #tags due prio @assign
+                - match typing: #tags due prio @assign / Enter accept or ESC abort
+        - todos
+            - change color if due is near (gradient?)
+            - change fonts weight if prio
         - keystrokes
             - up/down -> select before/next item
                 - enter -> start editing
                 - enter+enter -> toggle status
             - enter+enter+enter -> select commandLine & start editing
-                                - enter -> submit
-        - label
-            - down when commandLine.length === 0 && commandline !== fokus
-            - up when commandLine.length >= 0 || commandLine === fokus
-            - js: toggle class up/down
+            - enter -> submit
     - class eventListeners
         - toggles
         - submit
@@ -25,12 +27,5 @@ TODO:
     - init()
     - errorHandler()
     - vscode Highlight (DEBUG / REVIEW)
-
-Features:
-    - CommandLine
-        - search: #tags due: prio: @assign
-        - sort: name #tags due prio @assign
-        - match typing: #tags due prio @assign / Enter accept or ESC abort
-    - Colors
-        - change color if due is near (gradient?)
-        - change fonts weight if prio
+    - SCSS CleanUp
+        - Exclude unwanted bootstrap modules
