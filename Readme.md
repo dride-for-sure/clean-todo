@@ -1,8 +1,16 @@
 TODO: 
-    - ui -> add all properties
-    √ index -> change layout
-    √ index -> remote add button && toggle
-    √ data -> refactor
+    - UI
+        - commandLine
+            - html before typing: div
+            - html after typing: div.string div.tags div.rest
+        - existing todos
+        - keystrokes
+            - up/down -> select before/next item
+                - enter -> start editing
+                - enter+enter -> toggle status
+            - enter+enter+enter -> select commandLine & start editing
+                                - enter -> submit
+        -
     - class eventListeners
         - toggles
         - submit

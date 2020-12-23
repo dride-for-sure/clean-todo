@@ -1,0 +1,14 @@
+// Custom.scss
+// TODO: Include only necessary files from bootstrap module
+
+@import "../../node_modules/bootstrap/scss/bootstrap";
+
+// Import own scss files
+@import "./components/checkbox";
+@import "./components/commandLine";
+@import "./components/todoItem";
+@import "./helper/functions";
+@import "./helper/mixins";
+@import "./helper/variables";
+@import "./layout/grid";
+@import "./pages/home";
