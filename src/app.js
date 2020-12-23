@@ -1,5 +1,5 @@
 // Imports
-import {eventListener} from './components/events.js'
+import {eventListener} from './components/events.js';
 
 // Setup EventListener
 eventListener();

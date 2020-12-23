@@ -3,6 +3,7 @@ TODO:
         - commandLine
             - html before typing: div
             - html after typing: div.string div.tags div.rest
+            - backspace: deleting chars, when length===0 -> delete div, when cursor position===0 -> select div before
         - existing todos
         - keystrokes
             - up/down -> select before/next item
@@ -10,7 +11,10 @@ TODO:
                 - enter+enter -> toggle status
             - enter+enter+enter -> select commandLine & start editing
                                 - enter -> submit
-        -
+        - label
+            - down when commandLine.length === 0 && commandline !== fokus
+            - up when commandLine.length >= 0 || commandLine === fokus
+            - js: toggle class up/down
     - class eventListeners
         - toggles
         - submit
