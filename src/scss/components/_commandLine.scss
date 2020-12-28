@@ -1,24 +1,73 @@
 // Vars
 $labelOpacityTo: 0;
 
-// Label Transition, when div: focus or !empty
-.form {
-    .command-line{
+// Colors
+$color-green: hsl(110, 71%, 66%);
+$color-green-saturated: hsl(110, 53%, 53%);
+$color-red-dark: hsl(0, 18%, 33%);
+$color-red-dark-saturated: hsl(0, 19%, 42%);
+$color-red-light: hsl(0, 71%, 66%);
+$color-red-light-saturated: hsl(0, 100%, 70%);
 
+// TODO: 
+//     - Refactor
+//     - Move Vars
+//     - General Structur
+//     - Fix Label
+
+.todo {
+    .cmd{
+
+        font-family: 'Merriweather', serif;
+        font-weight: 300;
         padding: .5rem 0;
         outline: none;
+        overflow: hidden;
+        //height: (40rem/16);
+        line-height: 1.9rem;
+        font-size: .9rem;
 
-        &::after {
-            content: "";
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width:30%;
-            min-width:200px;
-            border-top: 1px solid black;
+        &.cmd-main {
+            font-size: 1.1rem;
+
+            ~ label {
+                font-size: 1.1rem;
+            }
+
+            &::after {
+                content: "";
+                position: absolute;
+                bottom: .2rem;
+                left: 0;
+                width:30%;
+                min-width:200px;
+                border-top: 1px solid black;
+            }
+        }
+
+        &.due {
+            mark {
+                background-color: $color-red-light;
+
+                &.due {
+                    background-color: $color-red-light-saturated;
+                }
+            }
+        }
+
+        &.done {
+            mark {
+                background-color: $color-green;
+
+                &.due {
+                    background-color: $color-green-saturated;
+                }
+            }
         }
 
         ~ label {
+            font-family: 'Merriweather', serif;
+            font-weight: 400;
             position: absolute;
             top: 0;
             left: 0;
@@ -30,16 +79,54 @@ $labelOpacityTo: 0;
 
         }
 
-        &:not(:empty) {
-            & ~ label {
-                opacity: $labelOpacityTo;
+        > p {
+            white-space:pre;
+
+            > div.cursor {
+                display: inline-block;
+                position: relative;
+                white-space: pre;
+                width: 0px;
+                
+                &::after {
+                    content: "|";
+                    position: absolute;
+                    left: -.2rem;
+                    bottom: -0.1rem;
+                }
             }
         }
 
-        &:focus {
+        &.editable {
             & ~ label {
                 opacity: $labelOpacityTo;
             }
         }
+    }
+
+    &.item {
+        .cmd {
+            &:before{
+                content:">";
+                font-weight: 400;
+            }
+        }
+    }
+}
+
+mark {
+    background-color: #000;
+    color:#fff;
+    border-radius: 3px;
+    padding: .2rem .3rem;
+    margin: 0 0.05rem;
+
+    &.selection {
+        background-color: #d4d4d4;
+        color: inherit;
+        border-radius:0;
+        padding:0;
+        margin:0;
+        display: none;
     }
 }

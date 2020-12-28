@@ -1,8 +1,5 @@
-// Imports
 import {errorHandler} from './error.js';
-import {Item} from './item.js';
 
-// Localstorage
 export class Data {
     constructor() {};
 
@@ -22,14 +19,23 @@ export class Data {
     }
 
     // Read from localStorage
-    // return [{todo_1},...,{todo_n}]
+    // return [{todo_1},...,{todo_n}] or []
     read() {
         if (this.localStorageAvailable) {
-            const todoData = this.parse(localStorage.getItem('todoData'));
-            return Array.isArray(todoData) ? todoData : []
+            const allData = this.parse(localStorage.getItem('todoData'));
+            return Array.isArray(allData) ? allData : [];
         }
     }
 
+    // Get an item
+    // Returns {todo_k} or null
+    item(uuid) {
+        const allData = this.read();
+        const index = allData.findIndex(e => e.uuid === uuid);
+        return index === -1 ? null : allData[index];
+    }
+
+    /*
     // Create: create todoItem in localStorage, unique uuid
     // todoItem {todo_k}
     // return [{todo_1},.{todo_k}.,{todo_n}]
@@ -91,7 +97,7 @@ export class Data {
             errorHandler('delete: nothing to delete');
             return false;
         }
-    }
+    }*/
 
     parse(e) {
         try {

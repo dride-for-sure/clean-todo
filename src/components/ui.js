@@ -1,42 +1,32 @@
-// UI Functionality
-// TODO: Rewrite (new Data handling)
+/**
+ * Generate HTML
+ * @param {Event} e
+ * @param {Array} a [[string_1,type_1],...,[string_n,type_n]
+ */
+export const outputHTML = (e, a) => {
+    let html = '';
+    a.forEach((el,i) => {
+        if (el.type === 'string' && i+2 <= a.length && a[i+1].type !== 'string') {
+            html += el.string;
+        } else if (el.type === 'string') {
+            html += el.string + ' ';
+        } else if (el.type === 'whitespace') {
+            html += el.string;
+        } else if (el.type === 'selection focus') {
+            html += `<div class="selection">${el.string}</div>`;
+        } else if (el.type === 'cursor') {
+            html += '<div class="cursor focus"> </div>';
+        } else {
+            html += `<div class="${el.type}">${el.string}</div>`;
+        }
+    });
+    e.target.nextElementSibling.innerHTML = html;   
+}
 
-export class UI {
-    constructor() {};
+export const editable = (e) => {
+    e.target.parentNode.classList.toggle('editable');
+}
 
-    toogle(event) {
-        const target = event.target.getAttributeNode('data-collapse-target').value;
-        document.querySelector(target).classList.toggle('d-none');
-    }
-
-    // TODO: Add all properties
-    addToHtml(uuid, title, desc) {
-        const cardList = document.querySelector('#card-list');
-        const div = document.createElement('div');
-        div.classList.add('col-12','mb-3');
-        div.setAttribute('data-uuid', uuid);
-        div.innerHTML = 
-                    `<div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">${title}</h5>
-                            <p class="card-text">${desc}</p>
-                            <div class="row justify-content-between mt-2">
-                                <div class="col-auto">
-                                    <button class="btn btn-outline-primary">Edit</button>
-                                </div>
-                                <div class="col-auto"0>
-                                    <button class="btn btn-outline-danger" data-delete-target="${uuid}">Delete</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>`;
-        cardList.appendChild(div);
-    }
-
-    deleteFromHtml(uuid) {
-        const cardList = document.querySelector('#card-list');
-        const card = document.querySelector([`[data-uuid="${uuid}"]`]);
-        cardList.removeChild(card);
-        eventListener();
-    }
+export const focus = (e) => {
+    e.target.nextElementSibling.querySelectorAll('.cursor, .selection').forEach(e => e.classList.remove('focus'));
 }

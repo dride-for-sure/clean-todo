@@ -1,4 +1,3 @@
-// Todo item
 export class Item {
     constructor(title, note, due, priority = 0, status = true, uuid) {
         this.title = title;
