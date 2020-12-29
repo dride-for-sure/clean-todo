@@ -1,15 +1,17 @@
 # ToDos
 
 ## Tasks
-- Events.js -> Refactor
-- DoubleClick/Click -> https://developer.mozilla.org/en-US/docs/Web/API/Element/click_event for detail
-√ Selection Problem (Node Updates so slow!)
-- Label visible with selection
-√ Remove Selection/Cursor when blur
-- scss -> refactor
+### Tomorrow
+- > Events.js -> Refactor
+- > DoubleClick useful? -> https://developer.mozilla.org/en-US/docs/Web/API/Element/click_event for detail
+- > scss -> refactor
+- > scss -> colorize due/overdue
+- > scss -> label visible with selection
+### Later
+- [x] Selection Problem (Node Updates so slow!)
+- [x] Remove Selection/Cursor when blur
 - New ToDos to DOM
 - Events for Keystrokes
-- scss -> colorize due/overdue
 - LocalStorage Init/Read/Write/Update/Delete
 
 ## UI
