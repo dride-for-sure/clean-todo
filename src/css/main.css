@@ -7402,19 +7402,11 @@ textarea.form-control-lg {
     .todo .cmd.cmd-main::after {
       content: "";
       position: absolute;
-      bottom: .2rem;
-      left: 0;
+      top: 2.8rem;
+      left: -.1rem;
       width: 30%;
       min-width: 200px;
       border-top: 1px solid black; }
-  .todo .cmd.due mark, .todo .cmd.due .mark {
-    background-color: #e66b6b; }
-    .todo .cmd.due mark.due, .todo .cmd.due .due.mark {
-      background-color: #ff6666; }
-  .todo .cmd.done mark, .todo .cmd.done .mark {
-    background-color: #7fe66b; }
-    .todo .cmd.done mark.due, .todo .cmd.done .due.mark {
-      background-color: #5dc748; }
   .todo .cmd ~ label {
     font-family: 'Merriweather', serif;
     font-weight: 400;
@@ -7422,22 +7414,56 @@ textarea.form-control-lg {
     top: 0;
     left: 0;
     height: 100%;
-    padding-top: .5rem;
+    padding-top: .65rem;
     pointer-events: none;
     transform-origin: 0 0;
     transition: opacity 0.2s ease-in-out; }
+    .todo .cmd ~ label.visible {
+      opacity: 0; }
+  .todo .cmd > input {
+    position: absolute;
+    background-color: transparent;
+    color: transparent;
+    font-family: 'Merriweather', serif;
+    font-weight: 400;
+    left: -.1rem;
+    top: .45rem;
+    outline: none; }
+    .todo .cmd > input::selection {
+      background: transparent; }
   .todo .cmd > p {
-    white-space: pre; }
-    .todo .cmd > p > div.cursor {
-      display: inline-block;
-      position: relative;
-      white-space: pre;
-      width: 0px; }
-      .todo .cmd > p > div.cursor::after {
-        content: "|";
-        position: absolute;
-        left: -.2rem;
-        bottom: -0.1rem; }
+    white-space: pre;
+    user-select: none;
+    font-family: 'Merriweather', serif;
+    font-weight: 400; }
+    .todo .cmd > p > div {
+      display: inline; }
+      .todo .cmd > p > div.due, .todo .cmd > p > div.tag, .todo .cmd > p > div.prio, .todo .cmd > p > div.assign {
+        background-color: #000;
+        color: #fff;
+        border-radius: 3px;
+        padding: .1rem 0.15rem;
+        margin: 0 -.15rem; }
+      .todo .cmd > p > div.selection {
+        background-color: unset;
+        color: inherit;
+        border-radius: 0;
+        padding: 0;
+        margin: 0; }
+        .todo .cmd > p > div.selection.focus {
+          background-color: #d4d4d4; }
+      .todo .cmd > p > div.cursor {
+        display: none;
+        position: relative;
+        white-space: pre;
+        width: 0px; }
+        .todo .cmd > p > div.cursor::after {
+          content: "|";
+          position: absolute;
+          left: -.2rem;
+          bottom: -0.1rem; }
+        .todo .cmd > p > div.cursor.focus {
+          display: inline-block; }
   .todo .cmd.editable ~ label {
     opacity: 0; }
 
@@ -7449,12 +7475,5 @@ mark, .mark {
   background-color: #000;
   color: #fff;
   border-radius: 3px;
-  padding: .2rem .3rem;
-  margin: 0 0.05rem; }
-  mark.selection, .selection.mark {
-    background-color: #d4d4d4;
-    color: inherit;
-    border-radius: 0;
-    padding: 0;
-    margin: 0;
-    display: none; }
+  padding: .1rem 0.15rem;
+  margin: 0 -.15rem; }

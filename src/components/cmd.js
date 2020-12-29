@@ -1,4 +1,3 @@
-import {Data} from '../components/data.js';
 import * as ui from '../components/ui.js';
 
 export class CMD {
@@ -6,47 +5,16 @@ export class CMD {
     constructor() {};
 
     /**
-     * TODO:
-     * @param {Event} e 
-     */
-    init(e) {
-        // uuid
-        // get existing or new uuid
-        const uuid = this.uuidv4;
-        // data
-        // try to get data
-        const data = new Data();
-        const itemData = data.item(uuid);
-        // check existing data
-        if (itemData === null) {
-            // -> empty
-            // --> generate html with input field
-            // console.log('No data at local storage');
-        } else {
-            // -> not empty
-            // --> generate html with existing Data
-            // --> set focus to new input field
-            // console.log('Data -> generate html');
-        }
-    }
-
-    /**
      * Analyze the cmd and generate HTML output
      * @param {Event} e
      */
     analyze(e) {
         const inputValue = this.extractInputString(e);
-        const splitString = this.getSelection(e, inputValue);
-        const output = splitString.map(e => { // [e={string},{string, selection},{string}]
-            // return this.addTypes(e);
-            if (e.type === 'selection' || e.type === 'cursor') {
-                return e;
-            } else {
-                return this.addTypes(e.string);
-            }
-        })
-        ui.outputHTML(e, output.flat());
-        //ui.outputHTML(e, this.cloneCursor(e, this.addTypes(this.extractInputString(e.target))));
+        const dividedBySelection = this.getSelection(e, inputValue);
+        const output = dividedBySelection.map(obj => {
+            return this.matchTypes(obj);
+        });
+        ui.outputHTML(e, output);
     }
 
    /**
@@ -60,23 +28,26 @@ export class CMD {
     
     /**
      * Create Array [string, type]
-     * @param {string} s
+     * @param {Object} o {string}
      * @returns {Array} [{string, type}]
      */
-    addTypes(s) {
-        return s.split(' ').map( e => {
+    matchTypes(o) {
+        if (o.type === 'selection' || o.type === 'cursor') {
+            return [o];
+        }
+
+        const arr = o.string.split(' ');
+        return arr.map(e => {
             if (e.startsWith('#') && e.length > 1){
                 return {string: e, type: 'tag'};
             } else if (e.startsWith('due:') && e.length > 4) {
-                return {string: e, type: 'due'}; //TODO: pase date for invalid format
+                return {string: e, type: 'due'};
             } else if (e.startsWith('@') && e.length > 1) {
                 return {string: e, type: 'assign'};
             } else if (e === 'prio') {
                 return {string: 'prio', type: 'prio'};
-            } else if (e === '') {
-                return {string: ' ', type: 'whitespace'};
             } else {
-               return {string: e, type: 'string'};
+                return {string: e, type: 'string'};
             }
         })
     }
@@ -88,23 +59,17 @@ export class CMD {
     * @returns {Array} [{string, selection},{string, selection},{string, selection}]
     */
     getSelection(e, s) {
+        
         const selectionStart = e.target.selectionStart;
         const selectionEnd = e.target.selectionEnd;
-        const beforeSelection = s.substr(0, selectionStart);
-        const theSelection = s.substr(selectionStart, selectionEnd - selectionStart);
-        const afterSelection = s.substr(selectionEnd);
+        console.log('CLICK: ', selectionStart, selectionEnd);
+
         let output = [];
-        if (beforeSelection !== '') {
-            output.push({string: beforeSelection});
-        }
-        if (theSelection !== '') {
-            output.push({string: theSelection, type: 'selection' });
-        } else {
-            output.push({string: theSelection, type: 'cursor' });
-        }
-        if (afterSelection !== '') {
-            output.push({string: afterSelection});
-        }
+        output.push({string: s.substr(0, selectionStart)}); // before
+        output.push({string: s.substr(selectionStart, selectionEnd - selectionStart)});
+        output.push({string: s.substr(selectionEnd)}); // after
+        output[1].string === '' ? output[1].type = 'cursor' : output[1].type = 'selection'; // selection or cursor
+
         return output;
     }
 

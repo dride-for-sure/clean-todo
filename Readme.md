@@ -1,17 +1,20 @@
-# TODO:
-    - UPDATE!
+# ToDos
+
+## Tasks
+- Events.js -> Refactor
+- DoubleClick/Click -> https://developer.mozilla.org/en-US/docs/Web/API/Element/click_event for detail
+√ Selection Problem (Node Updates so slow!)
+- Label visible with selection
+√ Remove Selection/Cursor when blur
 
 ## UI
 - commandLine
-  - parse plain text with 1s delay while typing and insert/remove 'mark' if necessary
   - commands:
-    - backspace: deleting chars
     - search: #tags due: prio: @assign
     - sort: name #tags due prio @assign
     - match typing: #tags due prio @assign / Enter accept or ESC abort
     - enter: preventDefault -> submit
 - todos
-  -  
   - change color if due is near (gradient?)
   - change fonts weight if prio
   - keystrokes
@@ -30,15 +33,4 @@
 - init()
 - errorHandler()
 - vscode Highlight (DEBUG / REVIEW)
-- SCSS CleanUp
-  - Exclude unwanted bootstrap modules
-  - fonts scss vars etc. pp. -> base font size = todoItems f. size
-
-
-### commandline concept:
-- keydown (input / enter)
-  - everything is a div, except the div with aktiv with the cursor
-  - CMD+A -> js, copy all
-  - backspace: 
-    - when prompt position in input === 0 -> convert div before to input -> move cursor on input.length
-    - when leaving input -> convert back to div
+- Exclude unwanted bootstrap modules

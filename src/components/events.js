@@ -1,6 +1,8 @@
 import {CMD} from '../components/cmd.js';
 import * as ui from '../components/ui.js';
 
+
+//TODO: Combine same EventListener!
 export const eventListener = () => {
 
     // Initialize cmd class
@@ -10,7 +12,7 @@ export const eventListener = () => {
     // Editable
     document.querySelectorAll('.cmd > *').forEach(el => {
         el.addEventListener('focus', (e) => {
-            cmd.init(e);
+            //cmd.init(e);
             ui.editable(e);
         })
     })
@@ -28,7 +30,7 @@ export const eventListener = () => {
     // Analyze or save
     document.querySelectorAll('.cmd > input').forEach(el => {
         el.addEventListener('input', (e) => {
-                cmd.analyze(e);
+            cmd.analyze(e);
         })
     })
 
@@ -44,7 +46,16 @@ export const eventListener = () => {
     // Analyze
     document.querySelectorAll('.cmd > input').forEach(el => {
         el.addEventListener('click', (e) => {
-            cmd.analyze(e);
+            setTimeout(function(){
+                cmd.analyze(e);
+           },20);
         })
     })
 }
+
+const compensateDOMDelay = () => {
+    setTimeout(function(){
+        cmd.analyze(e);
+   }, 20);
+}
+

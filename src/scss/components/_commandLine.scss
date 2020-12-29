@@ -9,15 +9,16 @@ $color-red-dark-saturated: hsl(0, 19%, 42%);
 $color-red-light: hsl(0, 71%, 66%);
 $color-red-light-saturated: hsl(0, 100%, 70%);
 
+
 // TODO: 
 //     - Refactor
 //     - Move Vars
 //     - General Structur
 //     - Fix Label
+//     - Fix Cursor/Selection
 
 .todo {
     .cmd{
-
         font-family: 'Merriweather', serif;
         font-weight: 300;
         padding: .5rem 0;
@@ -37,31 +38,11 @@ $color-red-light-saturated: hsl(0, 100%, 70%);
             &::after {
                 content: "";
                 position: absolute;
-                bottom: .2rem;
-                left: 0;
+                top: 2.8rem;
+                left: -.1rem;
                 width:30%;
                 min-width:200px;
                 border-top: 1px solid black;
-            }
-        }
-
-        &.due {
-            mark {
-                background-color: $color-red-light;
-
-                &.due {
-                    background-color: $color-red-light-saturated;
-                }
-            }
-        }
-
-        &.done {
-            mark {
-                background-color: $color-green;
-
-                &.due {
-                    background-color: $color-green-saturated;
-                }
             }
         }
 
@@ -72,33 +53,83 @@ $color-red-light-saturated: hsl(0, 100%, 70%);
             top: 0;
             left: 0;
             height: 100%;
-            padding-top: .5rem;
+            padding-top: .65rem;
             pointer-events: none;
             transform-origin: 0 0;
             transition: opacity 0.2s ease-in-out;
 
+            &.visible {
+                opacity: $labelOpacityTo;
+            }
+
+        }
+
+        > input {
+            position: absolute;
+            background-color: transparent;
+            color: transparent;
+            font-family: 'Merriweather', serif;
+            font-weight: 400;
+            left: -.1rem;
+            top: .45rem;
+            outline: none;
+
+            &::selection {
+                background: transparent;
+            }
         }
 
         > p {
-            white-space:pre;
+            white-space: pre;
+            user-select: none;
+            font-family: 'Merriweather', serif;
+            font-weight: 400;
 
-            > div.cursor {
-                display: inline-block;
-                position: relative;
-                white-space: pre;
-                width: 0px;
+            > div {
+                display: inline;
+
+                &.due, &.tag, &.prio, &.assign {
+                    background-color: #000;
+                    color:#fff;
+                    border-radius: 3px;
+                    padding: .1rem 0.15rem;
+                    margin: 0 -.15rem;
+                }
                 
-                &::after {
-                    content: "|";
-                    position: absolute;
-                    left: -.2rem;
-                    bottom: -0.1rem;
+                &.selection {
+                    background-color: unset;
+                    color: inherit;
+                    border-radius:0;
+                    padding:0;
+                    margin:0;
+    
+                    &.focus {
+                        background-color: #d4d4d4;
+                    }
+                }
+
+                &.cursor {
+                    display: none;
+                    position: relative;
+                    white-space: pre;
+                    width: 0px;
+                    
+                    &::after {
+                        content: "|";
+                        position: absolute;
+                        left: -.2rem;
+                        bottom: -0.1rem;
+                    }
+    
+                    &.focus {
+                        display: inline-block;
+                    }
                 }
             }
         }
 
         &.editable {
-            & ~ label {
+            ~ label {
                 opacity: $labelOpacityTo;
             }
         }
@@ -118,15 +149,6 @@ mark {
     background-color: #000;
     color:#fff;
     border-radius: 3px;
-    padding: .2rem .3rem;
-    margin: 0 0.05rem;
-
-    &.selection {
-        background-color: #d4d4d4;
-        color: inherit;
-        border-radius:0;
-        padding:0;
-        margin:0;
-        display: none;
-    }
+    padding: .1rem 0.15rem;
+    margin: 0 -.15rem;
 }
