@@ -6,6 +6,11 @@
 √ Selection Problem (Node Updates so slow!)
 - Label visible with selection
 √ Remove Selection/Cursor when blur
+- scss -> refactor
+- New ToDos to DOM
+- Events for Keystrokes
+- scss -> colorize due/overdue
+- LocalStorage Init/Read/Write/Update/Delete
 
 ## UI
 - commandLine
@@ -23,13 +28,6 @@
     - enter+enter -> toggle status
     - enter+enter+enter -> select commandLine & start editing
     - enter -> submit    
-- class eventListeners
-  - toggles
-  - submit
-  - edit
-  - delete
-  - done
-  - drag
 - init()
 - errorHandler()
 - vscode Highlight (DEBUG / REVIEW)
