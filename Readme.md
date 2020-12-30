@@ -11,8 +11,8 @@
   - [x] refactor
   - [x] colorize due
   - [x] label visible with selection
-- [ ] Remove invisible class, check if **input** is **empty**
-- [ ] Remove focus class, check if **input** has **focus**
+- [x] Remove invisible class, check if **input** is **empty**
+- [x] Remove focus class, check if **input** has **focus**
 - [ ] add github as remote
 - [ ] ~~DoubleClick useful? -> https://developer.mozilla.org/en-US/docs/Web/API/Element/click_event for detail~~
 ### Later

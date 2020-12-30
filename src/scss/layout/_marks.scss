@@ -1,27 +1,12 @@
 .cmd {
-	~ label > span.types.type-none {
-		background-color: #000;
-		color: #fff;
-		border-radius: 3px;
-		padding: 0.1rem 0.15rem;
-		margin: 0 -0.15rem;
-	}
-
 	span.types {
 		display: inline;
-
-		&.type-none {
-			background-color: #000;
-			color: #fff;
-			border-radius: 3px;
-			padding: 0.1rem 0.15rem;
-			margin: 0 -0.15rem;
-		}
 
 		&.type-due,
 		&.type-tag,
 		&.type-prio,
-		&.type-assign {
+		&.type-assign,
+		&.type {
 			background-color: #000;
 			color: #fff;
 			border-radius: 3px;
@@ -30,22 +15,21 @@
 		}
 
 		&.type-selection {
-			background-color: unset;
+			background-color: #d4d4d4;
 			color: inherit;
 			border-radius: 0;
 			padding: 0;
 			margin: 0;
-
-			&.focus {
-				background-color: #d4d4d4;
-			}
+			transition-delay: 0.1s;
 		}
 
 		&.type-cursor {
-			display: none;
+			display: inline-block;
 			position: relative;
 			white-space: pre;
 			width: 0px;
+			visibility: visible;
+			transition-delay: 0.1s;
 
 			&::after {
 				content: '|';
@@ -53,11 +37,16 @@
 				left: -0.2rem;
 				bottom: -0.1rem;
 			}
-
-			&.focus {
-				display: inline-block;
-			}
 		}
+	}
+
+	> input:not(:focus) ~ * > span.types.type-cursor {
+		visibility: hidden;
+		opacity: 0;
+	}
+
+	> input:not(:focus) ~ * > span.types.type-selection {
+		background-color: unset;
 	}
 
 	&.due {
