@@ -21,3 +21,27 @@ export const addEventListenerMulti = (elements, eventNames, listener) => {
 		});
 	});
 };
+
+/**
+ * Add/Remove from classList
+ * in case of blur
+ * @param {DOMElement} base,
+ * @param {querySelectorAll} elements 'element'
+ * @param {classList} classes 'this','that'
+ * @param {boolean} remove - true: remove, false: add
+ */
+export const modifyClassList = (base, elements, classes, remove) => {
+	base.querySelectorAll(elements).forEach((e) =>
+		e.classList.remove(classes)
+	);
+};
+
+
+/**
+ * Toggle editable class on CMD
+ * @param {DOMElement} element 
+ * @param {String} classes - class
+ */
+export const toggleClass = (element, classes) => {
+	element.classList.toggle(classes);
+};

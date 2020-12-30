@@ -31,14 +31,15 @@ export const insertHTMLTags = (o) => {
 	if (o.type === 'string') {
 		return o.string;
 	} else if (o.type === 'selection') {
-		return `<div class="selection focus">${o.string}</div>`;
+		return `<div class="types type-${o.type} focus">${o.string}</div>`;
 	} else if (o.type === 'cursor') {
-		return '<div class="cursor focus"> </div>';
+		return `<div class="types type-${o.type} focus"> </div>`;
 	} else {
-		return `<div class="${o.type}">${o.string}</div>`;
+		return `<div class="types type-${o.type}">${o.string}</div>`;
 	}
 };
 
+// TODO: Helper Function Toggle!
 /**
  * Toggle editable class on CMD
  * @param {Event} e
@@ -47,18 +48,7 @@ export const editable = (e) => {
 	e.target.parentNode.classList.toggle('editable');
 };
 
-/**
- * Remove focus class on cursor/selection
- * in case of blur
- * @param {Event} e
- */
-export const focus = (e) => {
-	e.target.nextElementSibling
-		.querySelectorAll('.cursor, .selection')
-		.forEach((e) => e.classList.remove('focus'));
-};
-
-// TODO: See Readme.md
+// TODO: Refactor to helper.modifyClassList
 const toggleEmptyClass = (e, b) => {
 	b
 		? e.target.parentNode.nextElementSibling.classList.remove('visible')
