@@ -1,61 +1,39 @@
 import {CMD} from '../components/cmd.js';
 import * as ui from '../components/ui.js';
+import * as helper from '../components/helper.js';
 
-
-//TODO: Combine same EventListener!
 export const eventListener = () => {
 
     // Initialize cmd class
     const cmd = new CMD();
 
-    // Focus
-    // Editable
-    document.querySelectorAll('.cmd > *').forEach(el => {
-        el.addEventListener('focus', (e) => {
-            //cmd.init(e);
-            ui.editable(e);
-        })
-    })
+    /**
+     * Toggle Editable
+     * on blur & focus
+     */
+    helper.addEventListenerMulti(
+        '.cmd > input', 
+        ['blur', 'focus'], 
+        (e) => ui.editable(e)
+    );
 
-    // Blur
-    // Editable and focus
-    document.querySelectorAll('.cmd > *').forEach(el => {
-        el.addEventListener('blur', (e) => {
-            ui.focus(e);
-            ui.editable(e);
-        })
-    })
+    /**
+     * Clear focus
+     * on blur
+     */
+    helper.addEventListenerMulti(
+        '.cmd > input',
+        ['blur'],
+        (e) => ui.focus(e)
+    );
 
-    // Input
-    // Analyze or save
-    document.querySelectorAll('.cmd > input').forEach(el => {
-        el.addEventListener('input', (e) => {
-            cmd.analyze(e);
-        })
-    })
-
-    // Select
-    // Analyze
-    document.querySelectorAll('.cmd > input').forEach(el => {
-        el.addEventListener('select', (e) => {
-            cmd.analyze(e);
-        })
-    })
-
-    // Click
-    // Analyze
-    document.querySelectorAll('.cmd > input').forEach(el => {
-        el.addEventListener('click', (e) => {
-            setTimeout(function(){
-                cmd.analyze(e);
-           },20);
-        })
-    })
+    /**
+     * Analyze input
+     * on input, select & click
+     */
+    helper.addEventListenerMulti(
+        '.cmd > input', 
+        ['input','select','click'], 
+        (e) => helper.setTimeoutFunction(cmd.analyze(e), 20)
+    );
 }
-
-const compensateDOMDelay = () => {
-    setTimeout(function(){
-        cmd.analyze(e);
-   }, 20);
-}
-
