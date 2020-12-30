@@ -62,7 +62,6 @@ export class CMD {
         
         const selectionStart = e.target.selectionStart;
         const selectionEnd = e.target.selectionEnd;
-        console.log('CLICK: ', selectionStart, selectionEnd);
 
         let output = [];
         output.push({string: s.substr(0, selectionStart)}); // before
