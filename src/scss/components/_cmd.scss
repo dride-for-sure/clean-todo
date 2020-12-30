@@ -30,12 +30,6 @@
 		padding: 0.5rem 0;
 		line-height: 1.9rem;
 
-		&.editable {
-			~ label {
-				opacity: $opacity-0;
-			}
-		}
-
 		&::after {
 			content: '';
 			position: absolute;
@@ -46,7 +40,7 @@
 			border-top: 1px solid black;
 		}
 
-		~ label {
+		> label {
 			position: absolute;
 			font-size: 1.1rem;
 			font-weight: $font-weight-bold;
@@ -57,12 +51,14 @@
 			pointer-events: none;
 			transform-origin: 0 0;
 			transition: opacity 0.2s ease-in-out;
-
-			&.invisible {
-				opacity: $opacity-0;
-			}
-		}
+        }
+        
+        > input:valid ~ label, 
+        > input:focus ~ label {
+            opacity: $opacity-0;
+        } 
 	}
 	&.cmd-secondary {
         // Maybe necessary maybe...
+    }
 }

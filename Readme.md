@@ -6,10 +6,13 @@
 - [x] Events.js -> Refactor
 - [x] Ui.js -> Toggle (&& Move ui.js toggle)
 - [x] Ui.js -> toggleEmptyClass -> helper.modifyClassList
-- [ ] scss:
-  - [ ] refactor
-  - [ ] colorize due/overdue
-  - [ ] label visible with selection
+- [x] Switch from div inside p tag to span
+- [x] scss:
+  - [x] refactor
+  - [x] colorize due
+  - [x] label visible with selection
+- [ ] Remove invisible class, check if **input** is **empty**
+- [ ] Remove focus class, check if **input** has **focus**
 - [ ] add github as remote
 - [ ] ~~DoubleClick useful? -> https://developer.mozilla.org/en-US/docs/Web/API/Element/click_event for detail~~
 ### Later
@@ -18,7 +21,7 @@
 - [ ] New ToDos to DOM
 - [ ] Events for Keystrokes
 - [ ] LocalStorage Init/Read/Write/Update/Delete
-- [ ] VSCode Highlights (DEBUG / REVIEW)
+- [x] VSCode Highlights (DEBUG / REVIEW)
 - [ ] Exclude unwanted bootstrap modules
 
 ## Features
