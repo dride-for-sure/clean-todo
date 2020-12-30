@@ -31,15 +31,18 @@ export const addEventListenerMulti = (elements, eventNames, listener) => {
  * @param {boolean} remove - true: remove, false: add
  */
 export const modifyClassList = (base, elements, classes, remove) => {
-	base.querySelectorAll(elements).forEach((e) =>
-		e.classList.remove(classes)
-	);
+	if (elements) {
+		base.querySelectorAll(elements).forEach((e) => {
+			remove ? e.classList.remove(classes) : e.classList.add(classes);
+		});
+	} else {
+		remove ? base.classList.remove(classes) : base.classList.add(classes);
+	}
 };
-
 
 /**
  * Toggle editable class on CMD
- * @param {DOMElement} element 
+ * @param {DOMElement} element
  * @param {String} classes - class
  */
 export const toggleClass = (element, classes) => {

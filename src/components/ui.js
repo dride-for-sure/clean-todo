@@ -1,3 +1,5 @@
+import * as helper from '../components/helper.js';
+
 /**
  * Generate HTML
  * @param {Event} e
@@ -10,16 +12,22 @@ export const outputHTML = (e, a) => {
 		});
 	});
 
+	// 
 	const html =
 		outputWithTags[0].join(' ') +
 		outputWithTags[1].join(' ') +
 		outputWithTags[2].join(' ');
 
+	// Toggle Empty Class if before & after selection/caret are empty
 	if (outputWithTags[0][0] === '' && outputWithTags[2][0] === '') {
-		toggleEmptyClass(e, true);
+		// toggleEmptyClass(e, true);
+		helper.modifyClassList(e.target.parentNode.nextElementSibling, false ,'visible', true);
+
 	} else {
-		toggleEmptyClass(e, false);
+		// toggleEmptyClass(e, false);
+		helper.modifyClassList(e.target.parentNode.nextElementSibling, false ,'visible', false);
 	}
+
 	e.target.nextElementSibling.innerHTML = html;
 };
 
@@ -37,20 +45,4 @@ export const insertHTMLTags = (o) => {
 	} else {
 		return `<div class="types type-${o.type}">${o.string}</div>`;
 	}
-};
-
-// TODO: Helper Function Toggle!
-/**
- * Toggle editable class on CMD
- * @param {Event} e
- */
-export const editable = (e) => {
-	e.target.parentNode.classList.toggle('editable');
-};
-
-// TODO: Refactor to helper.modifyClassList
-const toggleEmptyClass = (e, b) => {
-	b
-		? e.target.parentNode.nextElementSibling.classList.remove('visible')
-		: e.target.parentNode.nextElementSibling.classList.add('visible');
 };
