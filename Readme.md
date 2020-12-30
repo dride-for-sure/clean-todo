@@ -2,8 +2,10 @@
 
 ## Tasks
 ### Now
-- [ ] VSCode Shortcuts
+- [x] VSCode Shortcuts
 - [x] Events.js -> Refactor
+- [x] Ui.js -> Toggle (&& Move ui.js toggle)
+- [x] Ui.js -> toggleEmptyClass -> helper.modifyClassList
 - [ ] scss:
   - [ ] refactor
   - [ ] colorize due/overdue

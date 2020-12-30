@@ -1,0 +1,16 @@
+// TODO: 
+//     - Refactor
+//     - General Structur
+//     - Fix Label
+//     - Fix Cursor/Selection
+
+.todo {
+    &.item {
+        .cmd {
+            &:before{
+                content:">";
+                font-weight: 400;
+            }
+        }
+    }
+}
