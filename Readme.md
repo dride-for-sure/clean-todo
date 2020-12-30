@@ -1,20 +1,26 @@
 # ToDos
 
 ## Tasks
-### Tomorrow
-- > Events.js -> Refactor
-- > DoubleClick useful? -> https://developer.mozilla.org/en-US/docs/Web/API/Element/click_event for detail
-- > scss -> refactor
-- > scss -> colorize due/overdue
-- > scss -> label visible with selection
+### Now
+- [ ] VSCode Shortcuts
+- [x] Events.js -> Refactor
+- [ ] scss:
+  - [ ] refactor
+  - [ ] colorize due/overdue
+  - [ ] label visible with selection
+- [ ] add github as remote
+- [ ] ~~DoubleClick useful? -> https://developer.mozilla.org/en-US/docs/Web/API/Element/click_event for detail~~
 ### Later
 - [x] Selection Problem (Node Updates so slow!)
 - [x] Remove Selection/Cursor when blur
-- New ToDos to DOM
-- Events for Keystrokes
-- LocalStorage Init/Read/Write/Update/Delete
+- [ ] New ToDos to DOM
+- [ ] Events for Keystrokes
+- [ ] LocalStorage Init/Read/Write/Update/Delete
+- [ ] VSCode Highlights (DEBUG / REVIEW)
+- [ ] Exclude unwanted bootstrap modules
 
-## UI
+## Features
+### UI
 - commandLine
   - commands:
     - search: #tags due: prio: @assign
@@ -32,5 +38,3 @@
     - enter -> submit    
 - init()
 - errorHandler()
-- vscode Highlight (DEBUG / REVIEW)
-- Exclude unwanted bootstrap modules
