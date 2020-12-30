@@ -1,18 +1,5 @@
-mark {
-	background-color: #000;
-	color: #fff;
-	border-radius: 3px;
-	padding: 0.1rem 0.15rem;
-	margin: 0 -0.15rem;
-}
-
-.types {
-	display: inline;
-
-	&.type-due,
-	&.type-tag,
-	&.type-prio,
-	&.type-assign {
+.cmd {
+	~ label > span.types.type-none {
 		background-color: #000;
 		color: #fff;
 		border-radius: 3px;
@@ -20,33 +7,78 @@ mark {
 		margin: 0 -0.15rem;
 	}
 
-	&.type-selection {
-		background-color: unset;
-		color: inherit;
-		border-radius: 0;
-		padding: 0;
-		margin: 0;
+	span.types {
+		display: inline;
 
-		&.focus {
-			background-color: #d4d4d4;
+		&.type-none {
+			background-color: #000;
+			color: #fff;
+			border-radius: 3px;
+			padding: 0.1rem 0.15rem;
+			margin: 0 -0.15rem;
+		}
+
+		&.type-due,
+		&.type-tag,
+		&.type-prio,
+		&.type-assign {
+			background-color: #000;
+			color: #fff;
+			border-radius: 3px;
+			padding: 0.1rem 0.15rem;
+			margin: 0 -0.15rem;
+		}
+
+		&.type-selection {
+			background-color: unset;
+			color: inherit;
+			border-radius: 0;
+			padding: 0;
+			margin: 0;
+
+			&.focus {
+				background-color: #d4d4d4;
+			}
+		}
+
+		&.type-cursor {
+			display: none;
+			position: relative;
+			white-space: pre;
+			width: 0px;
+
+			&::after {
+				content: '|';
+				position: absolute;
+				left: -0.2rem;
+				bottom: -0.1rem;
+			}
+
+			&.focus {
+				display: inline-block;
+			}
 		}
 	}
 
-	&.type-cursor {
-		display: none;
-		position: relative;
-		white-space: pre;
-		width: 0px;
-
-		&::after {
-			content: '|';
-			position: absolute;
-			left: -0.2rem;
-			bottom: -0.1rem;
+	&.due {
+		span.types {
+			&.type-due,
+			&.type-tag,
+			&.type-prio,
+			&.type-assign {
+				background-color: $color-red-light-saturated;
+			}
 		}
+	}
 
-		&.focus {
-			display: inline-block;
+	&.done {
+		span.types {
+			&.type-due,
+			&.type-tag,
+			&.type-prio,
+			&.type-assign {
+				background-color: $color-green-saturated;
+			}
 		}
 	}
 }

@@ -1,18 +1,34 @@
-// TODO:
-//     - Refactor
-//     - General Structur
-//     - Fix Label
-//     - Fix Cursor/Selection
+.cmd {
+	> input {
+		position: absolute;
+		background-color: transparent;
+		color: transparent;
+		left: -0.1rem;
+		top: 0.45rem;
+		outline: none;
+		width: 100%;
 
-.todo {
-	.cmd-primary {
+		&::selection {
+			background: transparent;
+		}
+	}
+
+	> p {
+		white-space: pre;
+		user-select: none;
+
+		// Prevent collapse of p element
+		// by adding non-breaking space
+		&::after {
+			content: '\00a0';
+		}
+	}
+
+	&.cmd-primary {
 		font-size: 1.1rem;
 		font-weight: $font-weight-bold;
 		padding: 0.5rem 0;
-		outline: none;
-		overflow: hidden;
 		line-height: 1.9rem;
-		font-size: 1.1rem;
 
 		&.editable {
 			~ label {
@@ -46,24 +62,7 @@
 				opacity: $opacity-0;
 			}
 		}
-
-		> input {
-			position: absolute;
-			background-color: transparent;
-			color: transparent;
-			left: -0.1rem;
-			top: 0.45rem;
-			outline: none;
-			width: 100%;
-
-			&::selection {
-				background: transparent;
-			}
-		}
-
-		> p {
-			white-space: pre;
-			user-select: none;
-		}
 	}
+	&.cmd-secondary {
+    }
 }

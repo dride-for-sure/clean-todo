@@ -39,10 +39,10 @@ export const insertHTMLTags = (o) => {
 	if (o.type === 'string') {
 		return o.string;
 	} else if (o.type === 'selection') {
-		return `<div class="types type-${o.type} focus">${o.string}</div>`;
+		return `<span class="types type-${o.type} focus">${o.string}</span>`;
 	} else if (o.type === 'cursor') {
-		return `<div class="types type-${o.type} focus"> </div>`;
+		return `<span class="types type-${o.type} focus"> </span>`;
 	} else {
-		return `<div class="types type-${o.type}">${o.string}</div>`;
+		return `<span class="types type-${o.type}">${o.string}</span>`;
 	}
 };
