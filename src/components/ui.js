@@ -1,5 +1,3 @@
-import * as helper from '../components/helper.js';
-
 /**
  * Generate HTML
  * @param {Event} e

@@ -11,35 +11,26 @@
   - [x] refactor
   - [x] colorize due
   - [x] label visible with selection
-- [x] Remove invisible class, check if **input** is **empty**
-- [x] Remove focus class, check if **input** has **focus**
-- [ ] add github as remote
-- [ ] ~~DoubleClick useful? -> https://developer.mozilla.org/en-US/docs/Web/API/Element/click_event for detail~~
-### Later
+- [x] Remove invisible class, check if input is empty
+- [x] Remove focus class, check if input has focus
+- [x] add github as remote
+- [ ] Events for Keystrokes
+  - [ ] up/down -> select before/next item
+  - [ ] left/right -> trigger analyze
+  - [ ] enter -> submit / editing
+  - [ ] enter+enter -> toggle status
+  - [ ] Shift+N -> Move to cmd-primary
 - [x] Selection Problem (Node Updates so slow!)
 - [x] Remove Selection/Cursor when blur
-- [ ] New ToDos to DOM
-- [ ] Events for Keystrokes
-- [ ] LocalStorage Init/Read/Write/Update/Delete
+- [ ] Data.js
+  - [ ] CRUD
+  - [ ] Search/Sort
+  - [ ] Match (Types) (Dictionary/Refresh on reload)
+  - [ ] Init()
+    - [ ] Load all ToDo Items
 - [x] VSCode Highlights (DEBUG / REVIEW)
-- [ ] Exclude unwanted bootstrap modules
 
-## Features
-### UI
-- commandLine
-  - commands:
-    - search: #tags due: prio: @assign
-    - sort: name #tags due prio @assign
-    - match typing: #tags due prio @assign / Enter accept or ESC abort
-    - enter: preventDefault -> submit
-- todos
-  - change color if due is near (gradient?)
-  - change fonts weight if prio
-  - keystrokes
-    - up/down -> select before/next item
-    - enter -> start editing
-    - enter+enter -> toggle status
-    - enter+enter+enter -> select commandLine & start editing
-    - enter -> submit    
-- init()
-- errorHandler()
+### Later
+- [ ] Exclude unwanted bootstrap modules
+- [ ] ErrorHandling
+- [ ] Write Tests with Jest

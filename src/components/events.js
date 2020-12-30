@@ -1,5 +1,4 @@
 import { CMD } from '../components/cmd.js';
-import * as ui from '../components/ui.js';
 import * as helper from '../components/helper.js';
 
 export const eventListener = () => {
