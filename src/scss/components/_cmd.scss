@@ -58,11 +58,11 @@
 			transform-origin: 0 0;
 			transition: opacity 0.2s ease-in-out;
 
-			&.visible {
+			&.invisible {
 				opacity: $opacity-0;
 			}
 		}
 	}
 	&.cmd-secondary {
-    }
+        // Maybe necessary maybe...
 }
