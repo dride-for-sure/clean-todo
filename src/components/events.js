@@ -1,4 +1,5 @@
 import { CMD } from '../components/cmd.js';
+import * as keys from '../components/keystrokes.js';
 import * as helper from '../components/helper.js';
 
 export const eventListener = () => {
@@ -6,12 +7,20 @@ export const eventListener = () => {
 	const cmd = new CMD();
 
 	/**
+	 * Input, Select & Click
 	 * Analyze input
-	 * on input, select & click
 	 */
 	helper.addEventListenerMulti(
 		'.cmd > input',
 		['input', 'select', 'click'],
 		(e) => helper.setTimeoutFunction(cmd.analyze(e), 20)
 	);
+
+	/**
+	 * Keystrokes
+	 * ArrowKeys, Enter, Shift+N
+	 */
+	helper.addEventListenerMulti('.cmd > input', ['keydown'], (e) => {
+		keys.manageKeystrokes(e);
+	});
 };
