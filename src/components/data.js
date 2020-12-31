@@ -1,10 +1,10 @@
-import {errorHandler} from './error.js';
+import {error} from './error.js';
 
 export class Data {
     constructor() {};
 
     // Catch localStorage Errors
-    // return true || errorHandler
+    // return true || error
     localStorageAvailable() {
         let storage;
         try {
@@ -14,7 +14,7 @@ export class Data {
             return true;
         }
         catch {
-           errorHandler('localStorageAvailable: false');
+           error('localStorageAvailable: false');
         }
     }
 
@@ -67,13 +67,13 @@ export class Data {
             if (indexItem !== -1) {
                 todoData[indexItem] = todoItem;
              } else {
-                errorHandler('update: uuid not in localStorage -> init html again'); // same indexItem ? update : errorHandler
+                error('update: uuid not in localStorage -> init html again'); // same indexItem ? update : error
                 return this.read(todoData);
              } 
             localStorage.setItem('todoData', this.stringify(todoData));
             return this.read();
         } else { // []
-            errorHandler('update: empty localStorage');
+            error('update: empty localStorage');
             return false;
         }
     }
@@ -88,13 +88,13 @@ export class Data {
             if (indexItem !== -1) {
                 todoData.splice(indexItem,1);
             } else {
-                errorHandler('delete: uuid doesnt exist');
+                error('delete: uuid doesnt exist');
                 return todoData;
             }
             localStorage.setItem('todoData', this.stringify(todoData));
             return this.read();
         } else {
-            errorHandler('delete: nothing to delete');
+            error('delete: nothing to delete');
             return false;
         }
     }*/
@@ -105,7 +105,7 @@ export class Data {
             return json;
         }
         catch {
-            errorHandler('Parse: not a json object');
+            error('Parse: not a json object');
         }
     }
 

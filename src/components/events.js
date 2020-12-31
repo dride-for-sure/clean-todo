@@ -1,11 +1,8 @@
-import { CMD } from '../components/cmd.js';
+import * as cmd from '../components/cmd.js';
 import * as keys from '../components/keystrokes.js';
 import * as helper from '../components/helper.js';
 
 export const eventListener = () => {
-	// Initialize cmd class
-	const cmd = new CMD();
-
 	/**
 	 * Input, Select & Click
 	 * Analyze input
