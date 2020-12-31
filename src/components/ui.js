@@ -1,5 +1,5 @@
 /**
- * Generate HTML
+ * Output HTML
  * @param {Event} e
  * @param {Array} a [[{string_1,type_1}],[{selection/cursor}],[{string_n,type_n}]
  */
@@ -19,7 +19,7 @@ export const outputHTML = (e, a) => {
 };
 
 /**
- * Insert HTML Elements
+ * Generate HTML Types
  * @param {Object} o {string_1, type_1}
  */
 export const insertHTMLTags = (o) => {
