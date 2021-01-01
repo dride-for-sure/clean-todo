@@ -1,10 +1,10 @@
 /**
  * Delay function call
- * @param {Function} callback
+ * @param {Function} fct
  * @param {number} delay - ms
  */
-export const setTimeoutFunction = (callback, delay) => {
-	setTimeout(callback, delay);
+export const setTimeoutFunction = (fct, delay) => {
+	setTimeout(fct, delay);
 };
 
 /**
