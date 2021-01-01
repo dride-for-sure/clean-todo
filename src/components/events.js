@@ -4,20 +4,22 @@ import * as helper from '../components/helper.js';
 
 export const eventListener = () => {
 	/**
-	 * Input, Select & Click
-	 * Analyze input
+	 * Keystrokes for CMD
+	 * Input, select, click, keydown (ArrowLeft/ArrowRight)
 	 */
 	helper.addEventListenerMulti(
 		'.cmd > input',
-		['input', 'select', 'click'],
-		(e) => helper.setTimeoutFunction(cmd.analyze(e), 20)
+		['input', 'select', 'click', 'keydown'],
+		(e) => keys.manageCMDKeys(e)
 	);
 
 	/**
-	 * Keystrokes
-	 * ArrowKeys, Enter, Shift+N
+	 * Keystrokes for document
+	 * ArrowUp, ArrowDown, Shift+N
 	 */
-	helper.addEventListenerMulti('.cmd > input', ['keydown'], (e) => {
-		keys.manageKeystrokes(e);
-	});
+	helper.addEventListenerMulti(
+		'document', 
+		['keydown'], 
+		(e) => keys.manageDocKeys(e)
+	);
 };
