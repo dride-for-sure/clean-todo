@@ -8,18 +8,24 @@ export const setTimeoutFunction = (fct, delay) => {
 };
 
 /**
- * EventListener for multiple events
- * @param {querySelectorAll} elements
+ * EventListener for multiple events on elements or document
+ * @param {querySelectorAll} elements '' === document
  * @param {Array} eventNames
  * @param {Function} listener
  */
 
 export const addEventListenerMulti = (elements, eventNames, listener) => {
-	document.querySelectorAll(elements).forEach((el) => {
-		eventNames.forEach((event) => {
-			el.addEventListener(event, listener, false);
+	if (elements) {
+		document.querySelectorAll(elements).forEach((el) => {
+			eventNames.forEach((event) => {
+				el.addEventListener(event, listener, false);
+			});
 		});
-	});
+	} else {
+		eventNames.forEach((event) => {
+			document.addEventListener(event, listener, false);
+		});
+	}	
 };
 
 /**
@@ -47,4 +53,30 @@ export const modifyClassList = (base, elements, classes, remove) => {
  */
 export const toggleClass = (element, classes) => {
 	element.classList.toggle(classes);
+};
+
+/**
+ * Parse JSON Object
+ * @param {JSON} j
+ * @returns {Array}
+ */
+export const parse = (j) => {
+	try {
+		return JSON.parse(j);
+	} catch {
+		console.error('Parse: not a json object');
+	}
+};
+
+/**
+ * Convert to JSON Object
+ * @param {Array} a
+ * @returns {JSON}
+ */
+export const stringify = (a) => {
+	try {
+		return JSON.stringify(a);
+	} catch {
+		console.error('Stringify: didnt work out');
+	}
 };
