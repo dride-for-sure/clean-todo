@@ -1,4 +1,3 @@
-import * as cmd from '../components/cmd.js';
 import * as keys from '../components/keystrokes.js';
 import * as helper from '../components/helper.js';
 
