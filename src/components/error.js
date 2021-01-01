@@ -1,3 +1,3 @@
-export const errorHandler = (e) => {
+export const log = (e) => {
 	console.log(e);
 };
