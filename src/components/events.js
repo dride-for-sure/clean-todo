@@ -5,7 +5,7 @@ import * as helper from '../components/helper.js';
 export const eventListener = () => {
 	/**
 	 * Keystrokes for CMD
-	 * Input, select, click, keydown (ArrowLeft/ArrowRight)
+	 * Input, select, click, keydown (ArrowLeft/ArrowRight, Enter)
 	 */
 	helper.addEventListenerMulti(
 		'.cmd > input',
