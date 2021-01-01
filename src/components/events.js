@@ -9,16 +9,16 @@ export const eventListener = () => {
 	 */
 	helper.addEventListenerMulti(
 		'.cmd > input',
-		['input', 'select', 'click', 'keydown'],
+		['input', 'select', 'click', 'keydown', 'focus'],
 		(e) => keys.manageCMDKeys(e)
 	);
 
 	/**
 	 * Keystrokes for document
-	 * ArrowUp, ArrowDown, Shift+N
+	 * ArrowUp, ArrowDown, ALT+N
 	 */
 	helper.addEventListenerMulti(
-		'document', 
+		'', 
 		['keydown'], 
 		(e) => keys.manageDocKeys(e)
 	);
