@@ -1,24 +1,30 @@
 import * as keys from '../components/keystrokes.js';
 import * as helper from '../components/helper.js';
+import { init } from './ui.js';
 
 export const eventListener = () => {
 	/**
-	 * Keystrokes for CMD
-	 * Input, select, click, keydown (ArrowLeft/ArrowRight, Enter)
+	 * Init the view
 	 */
-	helper.addEventListenerMulti(
-		'.cmd > input',
-		['input', 'select', 'click', 'keydown', 'focus'],
-		(e) => keys.manageCMDKeys(e)
-	);
+	window.addEventListener('load', () => init());
 
 	/**
-	 * Keystrokes for document
+	 * Keystrokes
 	 * ArrowUp, ArrowDown, ALT+N
 	 */
 	helper.addEventListenerMulti(
-		'', 
-		['keydown'], 
-		(e) => keys.manageDocKeys(e)
+		'',
+		['input', 'select', 'click', 'keydown', 'focus'],
+		(e) => {
+			if (
+				// When target equal to cmc > input
+				e.target.parentNode.tagName === 'DIV' &&
+				e.target.parentNode.classList.contains('cmd')
+			)
+				keys.manageCMDKeys(e);
+			else {
+				keys.manageDocKeys(e);
+			}
+		}
 	);
 };
