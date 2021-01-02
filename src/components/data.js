@@ -18,13 +18,6 @@ import * as helper from '../components/helper.js';
  * status -> data-task-status
  */
 
-/** TODO:
- * Read a specific task
- * @param {Node} n
- * @returns
- */
-export const readTask = (n) => {};
-
 /** REVIEW:
  * Update existing or create a new task
  * @param {Node} n - activeCMD
