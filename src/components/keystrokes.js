@@ -13,10 +13,9 @@ export const manageKeys = (e) => {
 		moveFocus(e);
 	} else if (e.altKey && e.code === 'KeyN') {
 		newCMD(e);
-	} else if (
-		e.target.parentNode.tagName === 'DIV' &&
-		e.target.parentNode.classList.contains('cmd')
-	) {
+	}
+
+	if (e.target.tagName === 'INPUT') {
 		if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') {
 			moveCursor(e);
 		} else if (e.key === 'Enter') {
@@ -82,7 +81,7 @@ const submit = (e) => {
 	if (activeCMD.children[0].value.trim() !== '') {
 		const updatedData = data.updateLocalStorage(activeCMD);
 		if (e.target.parentNode.classList.contains('cmd-primary')) {
-			ui.refresh(updatedData);
+			ui.refresh();
 			ui.clearPrimaryCMD();
 		}
 	}
