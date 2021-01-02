@@ -2,27 +2,18 @@ import * as ui from '../components/ui.js';
 
 /**
  * Analyze the cmd and generate HTML output
- * @param {Event} e
+ * @param {Node} n input
  */
-export const analyze = (e) => {
-	const inputValue = extractInputString(e);
-	const dividedBySelection = getSelection(e, inputValue);
+export const analyze = (n) => {
+	const dividedBySelection = getSelection(n, n.value);
 	const output = dividedBySelection.map((obj) => {
 		return matchTypes(obj);
 	});
-	ui.outputHTML(e, output);
+	ui.generateTaskHTML(n, output);
+	ui.generateDataAttributes(n, output);
 };
 
-/**
- * Extract string from INPUT/DIV
- * @param {Event} e
- * @returns {string} string
- */
-const extractInputString = (e) => {
-	return e.target.value;
-};
-
-/**
+/** TODO: PRIO Check for uniqueness of due and prio
  * Create Array [string, type]
  * @param {Object} o {string}
  * @returns {Array} [{string, type}]
@@ -50,13 +41,13 @@ const matchTypes = (o) => {
 
 /**
  * Add Cursor to Array
- * @param {Event} e
+ * @param {Node} n input
  * @param {String} s [[string_1,type_1],...,[string_n,type_n]
  * @returns {Array} [{string, selection},{string, selection},{string, selection}]
  */
-const getSelection = (e, s) => {
-	const selectionStart = e.target.selectionStart;
-	const selectionEnd = e.target.selectionEnd;
+const getSelection = (n, s) => {
+	const selectionStart = n.selectionStart;
+	const selectionEnd = n.selectionEnd;
 
 	let output = [];
 	output.push({ string: s.substr(0, selectionStart) }); // before

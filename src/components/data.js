@@ -1,207 +1,172 @@
+import { Item } from "./item.js";
+import * as helper from '../components/helper.js';
+
+/**
+ * # Datastructure
+ * ## LocalStorage:
+ * key: tasks
+ * val: [{item_1},...,{item_n}] 
+ * Details see '../components/item.js'
+ * {id: {uuid}, desc: {string}, due: {null/date}, assign: {string}, prio: {boolean}, status: {boolean} (active/done)}
+ * 
+ * ## HTML Element Attributes:
+ * id -> data-task-id
+ * desc -> value
+ * due -> data-task-due
+ * assign -> data-task-assign
+ * prio -> data-task-prio
+ * status -> data-task-status
+ */
+
 /** TODO:
  * Read a specific task
- * @param {Event} e 
+ * @param {Node} n
  * @returns
  */
-export const readTask = (e) => {
-    
-}
+export const readTask = (n) => {};
 
-/** TODO:
+/** REVIEW:
  * Update existing or create a new task
- * @param {Event} e 
+ * @param {Node} n - activeCMD
  * @returns
  */
-export const updateTask = (e) => {
-    
-}
-
-/** TODO:
- * Create a new task
- * @param {Event} e 
- * @returns
- */
-export const createTask = (e) => {
-    
-}
+export const updateTask = (n) => {
+    const data = getLocalStorage();
+    const obj = createTaskObject(n);
+    // Find possible index of exiting task
+    const index = data.findIndex(el => el.id === obj.id);
+    if (index !== -1) { // data includes id -> update task
+        data[index] = obj;
+    } else { // data doesnt include id -> create new task
+		data.unshift(obj);
+    }
+    setLocalStorage(data);
+};
 
 /** TODO:
  * Delete a task
- * @param {Event} e 
+ * @param {Node} n - activeCMD
  * @returns
  */
-export const deleteTask = (e) => {
-    
-}
+export const deleteTask = (n) => {};
 
-/** TODO:
- * Get the localStorage JSON Object
+
+/** REVIEW:
+ * Create a new task Object
+ * @param {Node} n - activeCMD
  * @returns
  */
-const getLocalStorage = () => {
-    
-}
+export const createTaskObject = (n) => {
+    // Get infos about task
+    const id = getUuidv4(n);
+    const desc = getDesc(n);
+    const due = getDue(n);
+    const assign = getAssign(n);
+    const prio = getPrio(n);
+    const status = getStatus(n);
+
+    // Return new task obj
+    return new Item(id, desc, due, assign, prio, status);
+};
+
+/** REVIEW:
+ * Get the task description from HTML
+ * @param {Node} n 
+ * @returns {string} 
+ */
+const getDesc = (n) => {
+    return n.children[0].value;
+} ;
+
+/** REVIEW:
+ * Get the due date from HTML
+ * @param {Node} n 
+ * @returns {Date}
+ */
+const getDue = (n) => {
+    return n.children[0].getAttribute('data-task-due') || null;
+};
+
+/** REVIEW:
+ * Get the assign status from HTML
+ * @param {Node} n 
+ * @returns {boolean}
+ */
+const getAssign = (n) => {
+    return n.children[0].getAttribute('data-task-assign') || null;
+
+};
+
+/** REVIEW:
+ * Get the prio status from HTML
+ * @param {Node} n 
+ * @returns {boolean}
+ */
+const getPrio = (n) => {
+    return n.children[0].getAttribute('data-task-prio') || false;
+
+};
+
+/** REVIEW:
+ * Get the status from HTML
+ * @param {Node} n 
+ * @returns {boolean} active/done 
+ */
+const getStatus = (n) => {
+    return n.children[0].getAttribute('data-task-status') || true;
+};
+
+/** REVIEW:
+ * Check if data-uuid is available, else create uuidv4
+ * @param {Node} n
+ * @returns {string} uuidv4
+ */
+const getUuidv4 = (n) => {
+	const uuid = n.children[0].getAttribute('data-task-id');
+	if (typeof uuid === true) {
+		return uuid;
+	} else {
+		return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(
+			/[xy]/g,
+			function (c) {
+				var r = (Math.random() * 16) | 0,
+					v = c == 'x' ? r : (r & 0x3) | 0x8;
+				return v.toString(16);
+			}
+		);
+	}
+};
+
+/**
+ * Get the localStorage JSON Object
+ * @returns {Array}
+ */
+export const getLocalStorage = () => {
+	if (localStorageAvailable()) {
+		return helper.parse(localStorage.getItem('tasks')) || [];
+	}
+};
+
+/**
+ * Set the localStorage JSON Object
+ * @param {Array}
+ */
+const setLocalStorage = (arr) => {
+	localStorage.setItem('tasks', helper.stringify(arr));
+};
+
 
 /**
  * Check if localStorage is avaiable
- * @return {boolean}
+ * @return {true}
  */
 const localStorageAvailable = () => {
-    try {
-        const x = '__storage_test___';
-        localStorage.setItem(x, x);
-        localStorage.removeItem(x);
-        return true;
-    }
-    catch {
-        console.error('localStorageAvailable: false');
-        return false;
-    }
-}
-
-/** TODO:
- * Parse JSON Object
- * @param {JSON} j 
- * @returns
- */
-const parse = (j) => {
-    try {
-        const json = JSON.parse(j);
-        return json;
-    }
-    catch {
-        console.error('Parse: not a json object');
-        return;
-    }
-}
-
-/**
- * Convert to JSON Object
- * @param {Array/Object} a
- * @returns {JSON}
- */
-const stringify = (a) => {
-    return JSON.stringify(a);
-}
-
-//     Catch localStorage Errors
-//     return true || error
-//     localStorageAvailable() {
-//         let storage;
-//         try {
-//             const x = '__storage_test___';
-//             localStorage.setItem(x, x);
-//             localStorage.removeItem(x);
-//             return true;
-//         }
-//         catch {
-//            error.log('localStorageAvailable: false');
-//         }
-//     }
-
-//     Read from localStorage
-//     return [{todo_1},...,{todo_n}] or []
-//     read() {
-//         if (this.localStorageAvailable) {
-//             const allData = this.parse(localStorage.getItem('todoData'));
-//             return Array.isArray(allData) ? allData : [];
-//         }
-//     }
-
-//     Get an item
-//     Returns {todo_k} or null
-//     item(uuid) {
-//         const allData = this.read();
-//         const index = allData.findIndex(e => e.uuid === uuid);
-//         return index === -1 ? null : allData[index];
-//     }
-
-//     Create: create todoItem in localStorage, unique uuid
-//     todoItem {todo_k}
-//     return [{todo_1},.{todo_k}.,{todo_n}]
-//     create(todoItem) {
-//         const item = new Item(
-//             todoItem.title,
-//             todoItem.note,
-//             todoItem.due,
-//             todoItem.priority,
-//             todoItem.status,
-//             this.uuidv4()
-//         );
-//         const todoData = this.read();
-//         while (todoData.findIndex(e => e.uuid === item.uuid) !== -1 && !item.uuid) { // uuid unique?
-//             item.uuid = this.uuidv4();
-//         }
-//         todoData.unshift(item);
-//         localStorage.setItem('todoData', this.stringify(todoData)); // attach before all other elements
-//         return this.read();
-//     }
-
-//     Update: Write to localStorage
-//     todoItem {todo_k}
-//     return [{todo_1},.{todo_k}..,{todo_n}] || false
-//     update(todoItem) {
-//         const todoData = this.read();
-//         if (todoData.length > 0) { // [...]
-//             const indexItem = todoData.findIndex(item => item.uuid === todoItem.uuid);
-//             if (indexItem !== -1) {
-//                 todoData[indexItem] = todoItem;
-//              } else {
-//                 error('update: uuid not in localStorage -> init html again'); // same indexItem ? update : error
-//                 return this.read(todoData);
-//              } 
-//             localStorage.setItem('todoData', this.stringify(todoData));
-//             return this.read();
-//         } else { // []
-//             error('update: empty localStorage');
-//             return false;
-//         }
-//     }
-
-//     Delete: delete todoItem in localStorage
-//     todoItem {todo_k}
-//     return [{todo_1},.{todo_k}.,{todo_n}] || false
-//     delete(todoItem) {
-//         const todoData = this.read();
-//         if (todoData.length > 0) {
-//             const indexItem = todoData.findIndex(item => item.uuid === todoItem.uuid);
-//             if (indexItem !== -1) {
-//                 todoData.splice(indexItem,1);
-//             } else {
-//                 error('delete: uuid doesnt exist');
-//                 return todoData;
-//             }
-//             localStorage.setItem('todoData', this.stringify(todoData));
-//             return this.read();
-//         } else {
-//             error('delete: nothing to delete');
-//             return false;
-//         }
-//     }
-
-//     parse(e) {
-//         try {
-//             const json = JSON.parse(e);
-//             return json;
-//         }
-//         catch {
-//             error.log('Parse: not a json object');
-//         }
-//     }
-
-//     stringify(e) {
-//         return JSON.stringify(e);
-//     }
-
-//     uuidv4() {
-//         return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
-//             var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
-//             return v.toString(16);
-//         });
-//     }
-// }
-
-// DEBUG: 
-// const data = new Data();
-// console.log(data.create({title:'title1', due:'2020-04-10'}));
-// console.log(data.update({uuid:'277bf745-ab3b-4cc4-ae84-4d6bd48e6aaa', title:'title2'}));
+	try {
+		const x = '__storage_test___';
+		localStorage.setItem(x, x);
+		localStorage.removeItem(x);
+		return true;
+	} catch {
+		console.error('localStorageAvailable: false');
+	}
+};

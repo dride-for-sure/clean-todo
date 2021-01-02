@@ -1,3 +1,3 @@
-export const log = (e) => {
-	console.log(e);
+export const log = (msg) => {
+	console.log(msg);
 };
