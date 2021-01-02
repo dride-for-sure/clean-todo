@@ -10,11 +10,10 @@ export const eventListener = () => {
 
 	/** 
 	 * Keystrokes
-	 * ArrowUp, ArrowDown, ALT+N
 	 */
 	helper.addEventListenerMulti(
 		'',
-		['input', 'select', 'click', 'keydown', 'focus'],
+		['input', 'select', 'click', 'keydown'],
 		(e) => {
 			keys.manageKeys(e);
 		}
