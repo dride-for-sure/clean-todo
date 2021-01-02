@@ -2,51 +2,56 @@ import * as data from '../components/data.js';
 import * as cmd from './cmd.js';
 import { Item } from './item.js';
 
-/** REVIEW:
- * Init the view
- * Read LocalStorage and generate Output
+/**
+ * Refresh the current view
+ * @param {Array} a - LocalStorageArray
  */
-export const init = () => {
+export const refresh = () => {
 	// Get localStorageObject
 	const localStorage = data.getLocalStorage();
 
-	// ForEach Obj in localStorage
-	// Create new DOM Element
-	// Add Data Attributes and input value
-	// Append as child to #container-tasks
-	localStorage.forEach((obj) => {
-		const taskObj = new Item(
-			obj.id,
-			obj.desc,
-			obj.tags,
-			obj.due,
-			obj.assign,
-			obj.prio,
-			obj.status
-		);
-		const task = document.createElement('DIV');
-		task.classList.add(
-			'row','justify-content-center', 'align-items-center', 'pt-2'
-		);
-		task.innerHTML = taskObj.html;
-		
-		const input = task.querySelector('input');
-		input.value = obj.desc;
-		
-		cmd.analyze(input); // Analyze before! appendChild
-		document.querySelector('#container-tasks').appendChild(task);
-	});
-};
-
-/** TODO: PRIO
- * Refresh the current view
- */
-export const refresh = () => {
-
+	// Get all DOM ids
+	let ids = [];
+	document.querySelectorAll('[data-task-id').forEach(cmd => ids.push(cmd.getAttribute('data-task-id')));
+	
+	// If DOM doesnt contain an id from localStorage -> add
+	localStorage.forEach(obj => {
+		if (!ids.includes(obj.id)) {
+			addToDOM(obj, false);
+		}
+	})
 };
 
 /**
- * Generate task HTML
+ * Add task to DOM
+ * @param {Object} o taskObj
+ * @param {boolean} append false -> prepend
+ */
+const addToDOM = (o, append) => {
+	const taskObj = new Item(
+		o.id,
+		o.desc,
+		o.tags,
+		o.due,
+		o.assign,
+		o.prio,
+		o.status
+	);
+	const task = document.createElement('DIV');
+	task.classList.add(...taskObj.containerClasses);
+	task.innerHTML = taskObj.boilerplate;
+	
+	const input = task.querySelector('input');
+	input.value = taskObj.desc;
+	
+	cmd.analyze(input); // Analyze before! prepend
+	append 
+		? document.querySelector('#container-tasks').append(task)
+		: document.querySelector('#container-tasks').prepend(task);
+}
+
+/**
+ * Generate single task HTML
  * @param {Node} n input
  * @param {Array} a [[{string_1,type_1}],[{selection/cursor}],[{string_n,type_n}]
  */
@@ -106,3 +111,10 @@ export const insertHTMLTags = (o) => {
 		return `<span class="types type-${o.type}">${o.string}</span>`;
 	}
 };
+
+export const clearPrimaryCMD = () => {
+	const n = document.querySelector('.cmd-primary');
+	n.children[0].value = '';
+	n.children[0].blur();
+	n.children[1].innerHTML = '';
+}

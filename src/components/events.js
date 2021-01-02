@@ -1,12 +1,12 @@
 import * as keys from '../components/keystrokes.js';
 import * as helper from '../components/helper.js';
-import { init, clearPrimaryCMD } from './ui.js';
+import * as ui from './ui.js';
 
 export const eventListener = () => {
 	/**
 	 * Init the view
 	 */
-	window.addEventListener('load', () => init());
+	window.addEventListener('load', () => ui.refresh());
 
 	/** 
 	 * Keystrokes
