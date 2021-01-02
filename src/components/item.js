@@ -17,7 +17,11 @@ export class Item {
 		this.status = status;
 	}
 
-	get html() {
+    /**
+     * Returns the HTML Boilerplate
+     * @returns {String}
+     */
+	get boilerplate() {
 		return `
             <div class="col">
                 <div class="position-relative">
@@ -35,5 +39,13 @@ export class Item {
                     </div>
                 </div>               
             </div>`;
-	}
+    }
+    
+    /**
+     * Returns Container Classes
+     * @returns {Array}
+     */
+    get containerClasses() {
+        return ['row','justify-content-center', 'align-items-center', 'pt-2'];
+    }
 }
