@@ -1,7 +1,8 @@
 import * as data from '../components/data.js';
 import * as cmd from './cmd.js';
+import { Item } from './item.js';
 
-/** REFACTOR: Extract the HTML Part to item class with getter?
+/** REVIEW:
  * Init the view
  * Read LocalStorage and generate Output
  */
@@ -14,28 +15,30 @@ export const init = () => {
 	// Add Data Attributes and input value
 	// Append as child to #container-tasks
 	localStorage.forEach((obj) => {
+		const taskObj = new Item(
+			obj.id,
+			obj.desc,
+			obj.tags,
+			obj.due,
+			obj.assign,
+			obj.prio,
+			obj.status
+		);
 		const task = document.createElement('DIV');
 		task.classList.add(
 			'row','justify-content-center', 'align-items-center', 'pt-2'
 		);
-		task.innerHTML = `
-			<div class="col">
-				<div class="position-relative">
-					<div class="m-0 cmd cmd-secondary due">
-						<input class="border-0" type="text" data-task-id="${obj.id}">
-						<p></p>
-					</div>
-				</div>               
-			</div>`;
+		task.innerHTML = taskObj.html;
+		
 		const input = task.querySelector('input');
 		input.value = obj.desc;
-		cmd.analyze(input);
+		
+		cmd.analyze(input); // Analyze before! appendChild
 		document.querySelector('#container-tasks').appendChild(task);
-
 	});
 };
 
-/** TODO: PRIO REFACTOR: Extract the HTML Part to item class with getter?
+/** TODO: PRIO
  * Refresh the current view
  */
 export const refresh = () => {
@@ -60,7 +63,7 @@ export const generateTaskHTML = (n, a) => {
 	n.nextElementSibling.innerHTML = html;
 };
 
-/** TODO: PRIO Refactor generateDataAttribues with cmd.matchTypes
+/** TODO: PRIO REFACTOR: Refactor generateDataAttribues with cmd.matchTypes
  * Generate HTML Data Attributes
  * @param {Node} n
  * @param {Array} a [[{string_1,type_1}],[{selection/cursor}],[{string_n,type_n}]
