@@ -21,9 +21,9 @@ import * as helper from '../components/helper.js';
 /** REVIEW:
  * Update existing or create a new task
  * @param {Node} n - activeCMD
- * @returns
+ * @returns {Array} LocalStorageArray
  */
-export const updateTask = (n) => {
+export const updateLocalStorage = (n) => {
     const data = getLocalStorage();
     const obj = createTaskObject(n);
     // Find possible index of exiting task
@@ -33,7 +33,7 @@ export const updateTask = (n) => {
     } else { // data doesnt include id -> create new task
 		data.unshift(obj);
     }
-    setLocalStorage(data);
+	return setLocalStorage(data);
 };
 
 /** TODO:
@@ -44,25 +44,25 @@ export const updateTask = (n) => {
 export const deleteTask = (n) => {};
 
 
-/** REVIEW:
+/**
  * Create a new task Object
  * @param {Node} n - activeCMD
  * @returns
  */
 export const createTaskObject = (n) => {
-    // Get infos about task
-    const id = getUuidv4(n);
-    const desc = getDesc(n);
-    const due = getDue(n);
-    const assign = getAssign(n);
-    const prio = getPrio(n);
-    const status = getStatus(n);
-
     // Return new task obj
-    return new Item(id, desc, due, assign, prio, status);
+    return new Item(
+		getUuidv4(n),
+		getDesc(n), 
+		getTags(n),
+		getDue(n),
+		getAssign(n),
+		getPrio(n),
+		getStatus(n)
+	);
 };
 
-/** REVIEW:
+/**
  * Get the task description from HTML
  * @param {Node} n 
  * @returns {string} 
@@ -71,7 +71,7 @@ const getDesc = (n) => {
     return n.children[0].value;
 } ;
 
-/** REVIEW:
+/**
  * Get the due date from HTML
  * @param {Node} n 
  * @returns {Date}
@@ -80,7 +80,16 @@ const getDue = (n) => {
     return n.children[0].getAttribute('data-task-due') || null;
 };
 
-/** REVIEW:
+/**
+ * Get the due date from HTML
+ * @param {Node} n 
+ * @returns {String}
+ */
+const getTags = (n) => {
+    return n.children[0].getAttribute('data-task-tags') || '';
+};
+
+/**
  * Get the assign status from HTML
  * @param {Node} n 
  * @returns {boolean}
@@ -90,7 +99,7 @@ const getAssign = (n) => {
 
 };
 
-/** REVIEW:
+/**
  * Get the prio status from HTML
  * @param {Node} n 
  * @returns {boolean}
@@ -100,7 +109,7 @@ const getPrio = (n) => {
 
 };
 
-/** REVIEW:
+/**
  * Get the status from HTML
  * @param {Node} n 
  * @returns {boolean} active/done 
@@ -109,14 +118,14 @@ const getStatus = (n) => {
     return n.children[0].getAttribute('data-task-status') || true;
 };
 
-/** REVIEW:
+/**
  * Check if data-uuid is available, else create uuidv4
  * @param {Node} n
  * @returns {string} uuidv4
  */
 const getUuidv4 = (n) => {
 	const uuid = n.children[0].getAttribute('data-task-id');
-	if (typeof uuid === true) {
+	if (uuid) {
 		return uuid;
 	} else {
 		return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(
@@ -143,9 +152,11 @@ export const getLocalStorage = () => {
 /**
  * Set the localStorage JSON Object
  * @param {Array}
+ * @returns {Array}
  */
 const setLocalStorage = (arr) => {
 	localStorage.setItem('tasks', helper.stringify(arr));
+	return helper.parse(localStorage.getItem('tasks'));
 };
 
 
