@@ -4,31 +4,28 @@ import * as data from '../components/data.js';
 import * as ui from '../components/ui.js';
 
 /**
- * Keystroke Logic for Document
- * ArrowUp, ArrowDown, ALT+N
- * @param {Event} e // target === document node
- */
-export const manageDocKeys = (e) => {
-    if (e.key === 'ArrowUp' || e.key === 'ArrowDown') {
-		moveFocusUpDown(e);
-	} else if (e.altKey && e.code === 'KeyN') {
-		newCMD(e);
-	}
-}
-
-/**
  * Keystroke Logic for CMD
  * Input, select, click, keydown (ArrowLeft/ArrowRight)
  * @param {Event} e // target === cmd > input
  */
-export const manageCMDKeys = (e) => {
-	if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') {
-		moveCursor(e);
-	} else if (e.key === 'Enter') {
-		submit(e);
-	} else { // Others keys, select or click
-        helper.setTimeoutFunction(() => cmd.analyze(e.target), 20);
-    }
+export const manageKeys = (e) => {
+	if (e.key === 'ArrowUp' || e.key === 'ArrowDown') {
+		moveFocus(e);
+	} else if (e.altKey && e.code === 'KeyN') {
+		newCMD(e);
+	} else if (
+		e.target.parentNode.tagName === 'DIV' &&
+		e.target.parentNode.classList.contains('cmd')
+	) {
+		if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') {
+			moveCursor(e);
+		} else if (e.key === 'Enter') {
+			submit(e);
+		} else {
+			// Others keys, select or click
+			helper.setTimeoutFunction(() => cmd.analyze(e.target), 20);
+		}
+	}
 };
 
 /**
@@ -36,62 +33,76 @@ export const manageCMDKeys = (e) => {
  * @param {Event} e - e.key === ArrowLeft || ArrowRight
  */
 const moveCursor = (e) => {
-	helper.setTimeoutFunction(cmd.analyze(e.target), 20);
+	helper.setTimeoutFunction(() => cmd.analyze(e.target), 20);
 };
 
 /**
  * Move focus
  * @param {Event} e - ArrowUp || ArrowDown
  */
-const moveFocusUpDown = (e) => {
+const moveFocus = (e) => {
 	const activeCMD = helper.getActiveCMD();
-    const cmds = document.querySelectorAll('.cmd');
-    
+	const cmds = document.querySelectorAll('.cmd');
+
 	// Iterate over NodeList
 	for (let i = 0; i < cmds.length; i++) {
 		if (cmds[i] === activeCMD) {
 			// Move up only when its not the last element
 			if (e.key === 'ArrowUp' && i > 0) {
-				cmds[i - 1].children[0].focus();
+				setFocus(cmds[i - 1].children[0]);
 			}
 			// Move down only when its not the first element
 			if (e.key === 'ArrowDown' && i + 1 < cmds.length) {
-				cmds[i + 1].children[0].focus();
+				setFocus(cmds[i + 1].children[0]);
 			}
 		}
 	}
 };
 
 /**
+ * Set Focus and move cursor to the end
+ * @param {Node} n
+ */
+const setFocus = (n) => {
+	n.focus();
+	helper.setTimeoutFunction(() => {
+		n.setSelectionRange(0, 0);
+		cmd.analyze(n);
+	}, 20);
+};
+
+/** REVIEW:
  * Submit if value === '' on Enter
  * @param {Event} e - e.key === Enter
  */
 const submit = (e) => {
-    const activeCMD = helper.getActiveCMD();
+	const activeCMD = helper.getActiveCMD();
 
-    // Input has value (Remove unwanted whitespace)
-    if (activeCMD.children[0].value.trim() !== '') {
-		data.updateTask(activeCMD);
-		ui.refresh();
-    }
+	// Input has value (Remove unwanted whitespace)
+	if (activeCMD.children[0].value.trim() !== '') {
+		const updatedData = data.updateLocalStorage(activeCMD);
+		if (e.target.parentNode.classList.contains('cmd-primary')) {
+			ui.refresh(updatedData);
+			ui.clearPrimaryCMD();
+		}
+	}
 };
 
-/** REVIEW:
+/** FIXME:
  * New Task - Move focus to cmd-primary and set cursor
  * @param {Event} e - e.shiftKey === true && e.key === D
  */
 const newCMD = (e) => {
-    const activeCMD = helper.getActiveCMD();
-    
-    // Check if there is something to submit
-    if (activeCMD.children[0].value.trim() !== '') {
-        data.updateTask(activeCMD); // Update the task
+	const activeCMD = helper.getActiveCMD();
 
-    } else if (activeCMD.children[0].value.trim() === '') {
-        data.deleteTask(activeCMD); // Delete the empty task
-    }
+	// Check if there is something to submit
+	if (activeCMD.children[0].value.trim() !== '') {
+		const updatedData = data.updateLocalStorage(activeCMD); // Update the task
+	} else if (activeCMD.children[0].value.trim() === '') {
+		data.deleteTask(activeCMD); // Delete the empty task
+	}
 
-    // Get cmd-primary and move focus
-    const cmd = document.querySelector('.cmd.cmd-primary');
-    helper.setTimeoutFunction(() => cmd.children[0].focus(), 20);
+	// Get cmd-primary and move focus
+	const cmd = document.querySelector('.cmd.cmd-primary');
+	helper.setTimeoutFunction(() => cmd.children[0].focus(), 20);
 };
