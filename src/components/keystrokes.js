@@ -11,7 +11,7 @@ import * as ui from '../components/ui.js';
 export const manageKeys = (e) => {
 	if (e.key === 'ArrowUp' || e.key === 'ArrowDown') {
 		moveFocus(e);
-	} else if (e.altKey && e.code === 'KeyN') {
+	} else if (e.altKey && e.code === 'KeyN') { // FIXME: When focus lost -> error
 		newCMD(e);
 	}
 

@@ -13,7 +13,7 @@ export const analyze = (n) => {
 	ui.generateDataAttributes(n, output);
 };
 
-/** TODO: PRIO Check for uniqueness of due and prio
+/** TODO: Check for uniqueness of due and prio
  * Create Array [string, type]
  * @param {Object} o {string}
  * @returns {Array} [{string, type}]

@@ -112,6 +112,9 @@ export const insertHTMLTags = (o) => {
 	}
 };
 
+/** FIXME: Focus lost. Is it better to leave the focus on primary? Alternative ALT+N
+ * Clear the primary cmd
+ */
 export const clearPrimaryCMD = () => {
 	const n = document.querySelector('.cmd-primary');
 	n.children[0].value = '';
