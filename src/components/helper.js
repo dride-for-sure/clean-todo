@@ -80,3 +80,23 @@ export const stringify = (a) => {
 		console.error('Stringify: didnt work out');
 	}
 };
+
+/**
+ * Return the active CMD
+ * @returns {Element} Node
+ */
+export const getActiveCMD = () => {
+	const activeElement = document.activeElement;
+	if (
+		activeElement.nodeName === 'DIV' &&
+		activeElement.classList.contains('cmd')
+	) {
+		return activeElement;
+	}
+	if (
+		activeElement.nodeName === 'INPUT' &&
+		activeElement.parentNode.classList.contains('cmd')
+	) {
+		return activeElement.parentNode;
+	}
+};
