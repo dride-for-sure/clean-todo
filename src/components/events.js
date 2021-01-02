@@ -1,6 +1,6 @@
 import * as keys from '../components/keystrokes.js';
 import * as helper from '../components/helper.js';
-import { init } from './ui.js';
+import { init, clearPrimaryCMD } from './ui.js';
 
 export const eventListener = () => {
 	/**
@@ -8,7 +8,7 @@ export const eventListener = () => {
 	 */
 	window.addEventListener('load', () => init());
 
-	/**
+	/** 
 	 * Keystrokes
 	 * ArrowUp, ArrowDown, ALT+N
 	 */
@@ -16,15 +16,7 @@ export const eventListener = () => {
 		'',
 		['input', 'select', 'click', 'keydown', 'focus'],
 		(e) => {
-			if (
-				// When target equal to cmc > input
-				e.target.parentNode.tagName === 'DIV' &&
-				e.target.parentNode.classList.contains('cmd')
-			)
-				keys.manageCMDKeys(e);
-			else {
-				keys.manageDocKeys(e);
-			}
+			keys.manageKeys(e);
 		}
 	);
 };
