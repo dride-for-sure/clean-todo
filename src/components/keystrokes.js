@@ -11,7 +11,7 @@ import * as ui from '../components/ui.js';
 export const manageKeys = (e) => {
 	if (e.key === 'ArrowUp' || e.key === 'ArrowDown') {
 		moveFocus(e);
-	} else if (e.altKey && e.code === 'KeyN') { // FIXME: When focus lost -> error
+	} else if (e.altKey && e.code === 'KeyN') {
 		newCMD(e);
 	}
 
@@ -87,18 +87,22 @@ const submit = (e) => {
 	}
 };
 
-/** FIXME:
+/**
  * New Task - Move focus to cmd-primary and set cursor
  * @param {Event} e - e.shiftKey === true && e.key === D
  */
 const newCMD = (e) => {
 	const activeCMD = helper.getActiveCMD();
 
-	// Check if there is something to submit
-	if (activeCMD.children[0].value.trim() !== '') {
-		const updatedData = data.updateLocalStorage(activeCMD); // Update the task
-	} else if (activeCMD.children[0].value.trim() === '') {
-		data.deleteTask(activeCMD); // Delete the empty task
+	if (activeCMD) {
+		// Check if there is something to submit
+		if (activeCMD.children[0].value.trim() !== '') {
+			// Update the task
+			const updatedData = data.updateLocalStorage(activeCMD);
+		} else {
+			// Delete the empty task
+			data.deleteTask(activeCMD);
+		}
 	}
 
 	// Get cmd-primary and move focus
