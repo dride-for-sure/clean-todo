@@ -4,24 +4,27 @@ import * as data from '../components/data.js';
 import * as ui from '../components/ui.js';
 
 /**
- * Keystroke Logic for CMD
- * Input, select, click, keydown (ArrowLeft/ArrowRight)
+ * Keystroke Logic
+ * Click and keydown (ArrowKeys/Submit/Shift+N)
  * @param {Event} e // target === cmd > input
  */
 export const manageKeys = (e) => {
+	// Shortscuts on document
 	if (e.key === 'ArrowUp' || e.key === 'ArrowDown') {
 		moveFocus(e);
-	} else if (e.altKey && e.code === 'KeyN') {
+	} else if (e.shiftKey && e.code === 'KeyN') {
+		// Prevent add to input
+		e.preventDefault();
 		newCMD(e);
 	}
 
-	if (e.target.tagName === 'INPUT') {
+	// Shortcuts on cmd
+	if (e.target.tagName === 'INPUT' && !e.altKey) {
 		if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') {
 			moveCursor(e);
 		} else if (e.key === 'Enter') {
 			submit(e);
 		} else {
-			// Others keys, select or click
 			helper.setTimeoutFunction(() => cmd.analyze(e.target), 20);
 		}
 	}
@@ -70,19 +73,23 @@ const setFocus = (n) => {
 	}, 20);
 };
 
-/** REVIEW:
- * Submit if value === '' on Enter
+/**
+ * Submit if value, else delete
  * @param {Event} e - e.key === Enter
  */
 const submit = (e) => {
 	const activeCMD = helper.getActiveCMD();
-
-	// Input has value (Remove unwanted whitespace)
-	if (activeCMD.children[0].value.trim() !== '') {
-		const updatedData = data.updateLocalStorage(activeCMD);
-		if (e.target.parentNode.classList.contains('cmd-primary')) {
-			ui.refresh();
-			ui.clearPrimaryCMD();
+	
+	if (activeCMD) {
+		// Input has value (Remove unwanted whitespace)
+		if (activeCMD.children[0].value.trim() !== '') {
+			data.updateLocalStorage(activeCMD);
+			if (e.target.parentNode.classList.contains('cmd-primary')) {
+				ui.refreshList();
+				ui.clearPrimaryCMD();
+			}
+		} else {
+			ui.deleteTask(activeCMD);
 		}
 	}
 };
@@ -97,11 +104,11 @@ const newCMD = (e) => {
 	if (activeCMD) {
 		// Check if there is something to submit
 		if (activeCMD.children[0].value.trim() !== '') {
-			// Update the task
-			const updatedData = data.updateLocalStorage(activeCMD);
+			// Update LocalStorage
+			data.updateLocalStorage(activeCMD);
 		} else {
 			// Delete the empty task
-			data.deleteTask(activeCMD);
+			ui.deleteTask(activeCMD);
 		}
 	}
 

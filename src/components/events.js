@@ -6,15 +6,16 @@ export const eventListener = () => {
 	/**
 	 * Init the view
 	 */
-	window.addEventListener('load', () => ui.refresh());
+	window.addEventListener('load', () => ui.refreshList());
 
 	/** 
 	 * Keystrokes
 	 */
 	helper.addEventListenerMulti(
 		'',
-		['input', 'click', 'keydown'],
+		['click', 'keydown'],
 		(e) => {
+			console.log(e);
 			keys.manageKeys(e);
 		}
 	);
