@@ -83,7 +83,7 @@ export const stringify = (a) => {
 
 /**
  * Return the active CMD
- * @returns {Element} Node
+ * @returns {Element} Node or undefined
  */
 export const getActiveCMD = () => {
 	const activeElement = document.activeElement;
@@ -99,4 +99,5 @@ export const getActiveCMD = () => {
 	) {
 		return activeElement.parentNode;
 	}
+	return;
 };
