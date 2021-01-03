@@ -18,7 +18,7 @@ import * as helper from '../components/helper.js';
  * status -> data-task-status
  */
 
-/** REVIEW:
+/**
  * Update existing or create a new task
  * @param {Node} n - activeCMD
  * @returns {Array} LocalStorageArray
