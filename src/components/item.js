@@ -21,7 +21,7 @@ export class Item {
      * Returns the HTML Boilerplate
      * @returns {String}
      */
-	get boilerplate() {
+	getboilerplate() {
 		return `
             <div class="col">
                 <div class="position-relative">
@@ -45,7 +45,7 @@ export class Item {
      * Returns Container Classes
      * @returns {Array}
      */
-    get containerClasses() {
+    getcontainerClasses() {
         return ['row','justify-content-center', 'align-items-center', 'pt-2'];
     }
 }
