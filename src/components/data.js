@@ -2,30 +2,13 @@ import { Item } from "./item.js";
 import * as helper from '../components/helper.js';
 
 /**
- * # Datastructure
- * ## LocalStorage:
- * key: tasks
- * val: [{item_1},...,{item_n}] 
- * Details see '../components/item.js'
- * {id: {uuid}, desc: {string}, due: {null/date}, assign: {string}, prio: {boolean}, status: {boolean} (active/done)}
- * 
- * ## HTML Element Attributes:
- * id -> data-task-id
- * desc -> value
- * due -> data-task-due
- * assign -> data-task-assign
- * prio -> data-task-prio
- * status -> data-task-status
- */
-
-/**
  * Update existing or create a new task
  * @param {Node} n - activeCMD
  * @returns {Array} LocalStorageArray
  */
 export const updateLocalStorage = (n) => {
     const data = getLocalStorage();
-    const obj = createTaskObject(n);
+	const obj = createTaskObject(n);
     // Find possible index of exiting task
     const index = data.findIndex(el => el.id === obj.id);
     if (index !== -1) { // data includes id -> update task
@@ -45,78 +28,38 @@ export const deleteTask = (n) => {};
 
 
 /**
- * Create a new task Object
+ * Create a new task object
  * @param {Node} n - activeCMD
- * @returns
+ * @returns {Object} - task object
  */
 export const createTaskObject = (n) => {
     // Return new task obj
     return new Item(
-		getUuidv4(n),
-		getDesc(n), 
-		getTags(n),
-		getDue(n),
-		getAssign(n),
-		getPrio(n),
-		getStatus(n)
+		getDataAttributes(n, 'id'),
+		getDataAttributes(n, 'desc'),
+		getDataAttributes(n, 'tags'),
+		getDataAttributes(n, 'due'),
+		getDataAttributes(n, 'assign'),
+		getDataAttributes(n, 'prio'),
+		getDataAttributes(n, 'status')
 	);
 };
 
-/**
- * Get the task description from HTML
- * @param {Node} n 
- * @returns {string} 
- */
-const getDesc = (n) => {
-    return n.children[0].value;
-} ;
 
 /**
- * Get the due date from HTML
- * @param {Node} n 
- * @returns {Date}
+ * Get Data Attributes from HTML
+ * @param {Node} n - activeCMD
+ * @param {String} s - attributes
  */
-const getDue = (n) => {
-    return n.children[0].getAttribute('data-task-due') || null;
-};
-
-/**
- * Get the due date from HTML
- * @param {Node} n 
- * @returns {String}
- */
-const getTags = (n) => {
-    return n.children[0].getAttribute('data-task-tags') || '';
-};
-
-/**
- * Get the assign status from HTML
- * @param {Node} n 
- * @returns {boolean}
- */
-const getAssign = (n) => {
-    return n.children[0].getAttribute('data-task-assign') || null;
-
-};
-
-/**
- * Get the prio status from HTML
- * @param {Node} n 
- * @returns {boolean}
- */
-const getPrio = (n) => {
-    return n.children[0].getAttribute('data-task-prio') || false;
-
-};
-
-/**
- * Get the status from HTML
- * @param {Node} n 
- * @returns {boolean} active/done 
- */
-const getStatus = (n) => {
-    return n.children[0].getAttribute('data-task-status') || true;
-};
+const getDataAttributes = (n, s) => {
+	if (s === 'desc') {
+		return n.children[0].value;
+	} else if (s === 'id') {
+		return getUuidv4(n);
+	} else {
+		return n.children[0].getAttribute(`data-task-${s}`);
+	}
+}
 
 /**
  * Check if data-uuid is available, else create uuidv4
@@ -140,7 +83,7 @@ const getUuidv4 = (n) => {
 };
 
 /**
- * Get the localStorage JSON Object
+ * Get localStorage object
  * @returns {Array}
  */
 export const getLocalStorage = () => {
@@ -150,7 +93,7 @@ export const getLocalStorage = () => {
 };
 
 /**
- * Set the localStorage JSON Object
+ * Set localStorage object
  * @param {Array}
  * @returns {Array}
  */
