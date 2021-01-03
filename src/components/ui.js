@@ -6,7 +6,7 @@ import { Item } from './item.js';
  * Refresh the current view
  * @param {Array} a - LocalStorageArray
  */
-export const refresh = () => {
+export const refreshList = () => {
 	// Get localStorageObject
 	const localStorage = data.getLocalStorage();
 
@@ -21,6 +21,13 @@ export const refresh = () => {
 		}
 	})
 };
+
+/** TODO:
+ * Delete the current Task
+ */
+export const deleteTask = () => {
+
+}
 
 /**
  * Add task to DOM
@@ -113,10 +120,10 @@ export const insertHTMLTags = (o) => {
 };
 
 /** 
- * Clear and blur primary cmd
+ * Clear and blur cmd
+ * @param {Node} n - cmd
  */
-export const clearPrimaryCMD = () => {
-	const n = document.querySelector('.cmd-primary');
+export const clearCMD = (n) => {
 	n.children[0].value = '';
 	n.children[0].blur();
 	n.children[1].innerHTML = '';
