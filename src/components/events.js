@@ -13,9 +13,8 @@ export const eventListener = () => {
 	 */
 	helper.addEventListenerMulti(
 		'',
-		['click', 'keydown'],
+		['input','click', 'keydown'],
 		(e) => {
-			console.log(e);
 			keys.manageKeys(e);
 		}
 	);
