@@ -38,8 +38,8 @@ const addToDOM = (o, append) => {
 		o.status
 	);
 	const task = document.createElement('DIV');
-	task.classList.add(...taskObj.containerClasses);
-	task.innerHTML = taskObj.boilerplate;
+	task.classList.add(...taskObj.getContainerClasses());
+	task.innerHTML = taskObj.getBoilerplate();
 	
 	const input = task.querySelector('input');
 	input.value = taskObj.desc;
@@ -112,8 +112,8 @@ export const insertHTMLTags = (o) => {
 	}
 };
 
-/** FIXME: Focus lost. Is it better to leave the focus on primary? Alternative ALT+N
- * Clear the primary cmd
+/** 
+ * Clear and blur primary cmd
  */
 export const clearPrimaryCMD = () => {
 	const n = document.querySelector('.cmd-primary');
