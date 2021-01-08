@@ -6,17 +6,17 @@
 @import "../../node_modules/bootstrap/scss/variables.scss";
 
 // To overwrite bootstrap settings
-@import "./helper/variables";
+@import "helper/variables";
 
 @import "../../node_modules/bootstrap/scss/bootstrap.scss";
 
 // Import own scss files
-@import "./components/cmd";
-@import "./components/checkbox";
-@import "./helper/functions";
-@import "./helper/mixins";
-@import "./layout/grid";
-@import "./layout/fonts";
-@import "./layout/marks";
-@import "./pages/home";
+@import "components/cmd";
+@import "components/checkbox";
+@import "helper/functions";
+@import "helper/mixins";
+@import "layout/grid";
+@import "layout/fonts";
+@import "layout/marks";
+@import "pages/home";
 

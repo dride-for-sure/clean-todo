@@ -1,5 +1,4 @@
-// Imports
-import {eventListener} from './components/events.js';
-
-// Setup EventListener
-eventListener();
+// CSS
+import './scss/main.scss';
+// JS
+require('./js/init');
