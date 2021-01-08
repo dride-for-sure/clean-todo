@@ -1,22 +1,30 @@
-// Custom.scss
-// TODO: Include only necessary files from bootstrap module
+// Required
+@import "/node_modules/bootstrap/scss/functions";
+@import "/node_modules/bootstrap/scss/variables";
+@import "/node_modules/bootstrap/scss/mixins";
 
-// Load bootstrap functions & vars
-@import "../../node_modules/bootstrap/scss/functions.scss";
-@import "../../node_modules/bootstrap/scss/variables.scss";
+// Optional
+@import "/node_modules/bootstrap/scss/root";
+@import "/node_modules/bootstrap/scss/reboot";
+@import "/node_modules/bootstrap/scss/type";
+@import "/node_modules/bootstrap/scss/images";
+@import "/node_modules/bootstrap/scss/containers";
+@import "/node_modules/bootstrap/scss/grid";
 
-// To overwrite bootstrap settings
+// Helper
 @import "helper/variables";
-
-@import "../../node_modules/bootstrap/scss/bootstrap.scss";
-
-// Import own scss files
-@import "components/cmd";
-@import "components/checkbox";
 @import "helper/functions";
 @import "helper/mixins";
+
+// Components
+@import "components/cmd";
+@import "components/checkbox";
+
+// Layout
 @import "layout/grid";
 @import "layout/fonts";
 @import "layout/marks";
+
+// Pages
 @import "pages/home";
 
