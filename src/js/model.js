@@ -38,6 +38,7 @@ export default class Model {
     this.tasks.push(task);
     this.commit();
   }
+  
 
   /**
      * Map through all tasks and update text
