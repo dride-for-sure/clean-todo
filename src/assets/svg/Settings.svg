@@ -1,0 +1,234 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="338" height="812" viewBox="0 0 338 812">
+  <defs>
+    <style>
+      .cls-1, .cls-11, .cls-7, .cls-8 {
+        fill: none;
+      }
+
+      .cls-2 {
+        clip-path: url(#clip-Settings);
+      }
+
+      .cls-3 {
+        clip-path: url(#clip-path);
+      }
+
+      .cls-10, .cls-4, .cls-6 {
+        fill: #fff;
+      }
+
+      .cls-4 {
+        font-size: 24px;
+      }
+
+      .cls-10, .cls-4 {
+        font-family: DMSerifDisplay-Regular, DM Serif Display;
+      }
+
+      .cls-5 {
+        clip-path: url(#clip-path-2);
+      }
+
+      .cls-6 {
+        font-size: 20px;
+        font-family: SourceSerifPro-Regular, Source Serif Pro;
+      }
+
+      .cls-11, .cls-7, .cls-8 {
+        stroke: #fff;
+        stroke-linecap: round;
+      }
+
+      .cls-11, .cls-7 {
+        stroke-linejoin: round;
+      }
+
+      .cls-7, .cls-8 {
+        stroke-width: 1.5px;
+      }
+
+      .cls-9 {
+        fill: #eef1f5;
+        opacity: 0;
+      }
+
+      .cls-10 {
+        font-size: 28px;
+      }
+
+      .cls-11 {
+        stroke-width: 2px;
+      }
+
+      .cls-12 {
+        stroke: none;
+      }
+
+      .cls-13 {
+        fill: #83c6ae;
+      }
+    </style>
+    <clipPath id="clip-path">
+      <rect class="cls-1" width="282" height="520"/>
+    </clipPath>
+    <clipPath id="clip-path-2">
+      <rect class="cls-1" width="282" height="108"/>
+    </clipPath>
+    <clipPath id="clip-Settings">
+      <rect width="338" height="812"/>
+    </clipPath>
+  </defs>
+  <g id="Settings" class="cls-2">
+    <rect class="cls-13" width="338" height="812"/>
+    <g id="Repeat_Grid_10" data-name="Repeat Grid 10" class="cls-3" transform="translate(31 93)">
+      <g transform="translate(-31 -93)">
+        <g id="LIST_Settings" transform="translate(31 93)">
+          <text id="Toggle_lists" data-name="Toggle lists" class="cls-4"><tspan x="0" y="25">Toggle lists</tspan></text>
+          <g id="Item" class="cls-5" transform="translate(0 49)">
+            <g id="Item-2" data-name="Item">
+              <text id="Today" class="cls-6"><tspan x="0" y="18">Today</tspan></text>
+              <g id="ICON_Check" transform="translate(260 1)">
+                <g id="Ellipse_7" data-name="Ellipse 7" class="cls-7">
+                  <circle class="cls-12" cx="11" cy="11" r="11"/>
+                  <circle class="cls-1" cx="11" cy="11" r="10.25"/>
+                </g>
+                <g id="Group_14" data-name="Group 14" transform="translate(-25 -772.8)">
+                  <path id="Path_16" data-name="Path 16" class="cls-8" d="M4.1,4.556,0,0" transform="translate(31.5 784.048)"/>
+                  <line id="Line_2" data-name="Line 2" class="cls-8" x1="4.135" y2="9.096" transform="translate(35.635 779.5)"/>
+                </g>
+              </g>
+            </g>
+            <g id="Item-3" data-name="Item" transform="translate(0 40)">
+              <text id="Today-2" data-name="Today" class="cls-6"><tspan x="0" y="18">Today</tspan></text>
+              <g id="ICON_Check-2" data-name="ICON_Check" transform="translate(260 1)">
+                <g id="Ellipse_7-2" data-name="Ellipse 7" class="cls-7">
+                  <circle class="cls-12" cx="11" cy="11" r="11"/>
+                  <circle class="cls-1" cx="11" cy="11" r="10.25"/>
+                </g>
+                <g id="Group_14-2" data-name="Group 14" transform="translate(-25 -772.8)">
+                  <path id="Path_16-2" data-name="Path 16" class="cls-8" d="M4.1,4.556,0,0" transform="translate(31.5 784.048)"/>
+                  <line id="Line_2-2" data-name="Line 2" class="cls-8" x1="4.135" y2="9.096" transform="translate(35.635 779.5)"/>
+                </g>
+              </g>
+            </g>
+            <g id="Item-4" data-name="Item" transform="translate(0 80)">
+              <text id="Today-3" data-name="Today" class="cls-6"><tspan x="0" y="18">Today</tspan></text>
+              <g id="ICON_Check-3" data-name="ICON_Check" transform="translate(260 1)">
+                <g id="Ellipse_7-3" data-name="Ellipse 7" class="cls-7">
+                  <circle class="cls-12" cx="11" cy="11" r="11"/>
+                  <circle class="cls-1" cx="11" cy="11" r="10.25"/>
+                </g>
+                <g id="Group_14-3" data-name="Group 14" transform="translate(-25 -772.8)">
+                  <path id="Path_16-3" data-name="Path 16" class="cls-8" d="M4.1,4.556,0,0" transform="translate(31.5 784.048)"/>
+                  <line id="Line_2-3" data-name="Line 2" class="cls-8" x1="4.135" y2="9.096" transform="translate(35.635 779.5)"/>
+                </g>
+              </g>
+            </g>
+          </g>
+        </g>
+      </g>
+      <g transform="translate(-31 89)">
+        <g id="LIST_Settings-2" data-name="LIST_Settings" transform="translate(31 93)">
+          <text id="Sync" class="cls-4"><tspan x="0" y="25">Sync</tspan></text>
+          <g id="Item-5" data-name="Item" class="cls-5" transform="translate(0 49)">
+            <g id="Item-6" data-name="Item">
+              <text id="Dropbox" class="cls-6"><tspan x="0" y="18">Dropbox</tspan></text>
+              <g id="ICON_Check-4" data-name="ICON_Check" transform="translate(260 1)">
+                <g id="Ellipse_7-4" data-name="Ellipse 7" class="cls-7">
+                  <circle class="cls-12" cx="11" cy="11" r="11"/>
+                  <circle class="cls-1" cx="11" cy="11" r="10.25"/>
+                </g>
+                <g id="Group_14-4" data-name="Group 14" transform="translate(-25 -772.8)">
+                  <path id="Path_16-4" data-name="Path 16" class="cls-8" d="M4.1,4.556,0,0" transform="translate(31.5 784.048)"/>
+                  <line id="Line_2-4" data-name="Line 2" class="cls-8" x1="4.135" y2="9.096" transform="translate(35.635 779.5)"/>
+                </g>
+              </g>
+            </g>
+            <g id="Item-7" data-name="Item" transform="translate(0 40)">
+              <text id="Github_Repository" data-name="Github Repository" class="cls-6"><tspan x="0" y="18">Github Repository</tspan></text>
+              <g id="ICON_Check-5" data-name="ICON_Check" transform="translate(260 1)">
+                <g id="Ellipse_7-5" data-name="Ellipse 7" class="cls-7">
+                  <circle class="cls-12" cx="11" cy="11" r="11"/>
+                  <circle class="cls-1" cx="11" cy="11" r="10.25"/>
+                </g>
+                <g id="Group_14-5" data-name="Group 14" transform="translate(-25 -772.8)">
+                  <path id="Path_16-5" data-name="Path 16" class="cls-8" d="M4.1,4.556,0,0" transform="translate(31.5 784.048)"/>
+                  <line id="Line_2-5" data-name="Line 2" class="cls-8" x1="4.135" y2="9.096" transform="translate(35.635 779.5)"/>
+                </g>
+              </g>
+            </g>
+            <g id="Item-8" data-name="Item" transform="translate(0 80)">
+              <text id="SFTP" class="cls-6"><tspan x="0" y="18">SFTP</tspan></text>
+              <g id="ICON_Check-6" data-name="ICON_Check" transform="translate(260 1)">
+                <g id="Ellipse_7-6" data-name="Ellipse 7" class="cls-7">
+                  <circle class="cls-12" cx="11" cy="11" r="11"/>
+                  <circle class="cls-1" cx="11" cy="11" r="10.25"/>
+                </g>
+                <g id="Group_14-6" data-name="Group 14" transform="translate(-25 -772.8)">
+                  <path id="Path_16-6" data-name="Path 16" class="cls-8" d="M4.1,4.556,0,0" transform="translate(31.5 784.048)"/>
+                  <line id="Line_2-6" data-name="Line 2" class="cls-8" x1="4.135" y2="9.096" transform="translate(35.635 779.5)"/>
+                </g>
+              </g>
+            </g>
+          </g>
+        </g>
+      </g>
+      <g transform="translate(-31 271)">
+        <g id="LIST_Settings-3" data-name="LIST_Settings" transform="translate(31 93)">
+          <text id="Export" class="cls-4"><tspan x="0" y="25">Export</tspan></text>
+          <g id="Item-9" data-name="Item" class="cls-5" transform="translate(0 49)">
+            <g id="Item-10" data-name="Item">
+              <text id="JSON" class="cls-6"><tspan x="0" y="18">JSON</tspan></text>
+              <g id="ICON_Check-7" data-name="ICON_Check" transform="translate(260 1)">
+                <g id="Ellipse_7-7" data-name="Ellipse 7" class="cls-7">
+                  <circle class="cls-12" cx="11" cy="11" r="11"/>
+                  <circle class="cls-1" cx="11" cy="11" r="10.25"/>
+                </g>
+                <g id="Group_14-7" data-name="Group 14" transform="translate(-25 -772.8)">
+                  <path id="Path_16-7" data-name="Path 16" class="cls-8" d="M4.1,4.556,0,0" transform="translate(31.5 784.048)"/>
+                  <line id="Line_2-7" data-name="Line 2" class="cls-8" x1="4.135" y2="9.096" transform="translate(35.635 779.5)"/>
+                </g>
+              </g>
+            </g>
+            <g id="Item-11" data-name="Item" transform="translate(0 40)">
+              <text id="CSV" class="cls-6"><tspan x="0" y="18">CSV</tspan></text>
+              <g id="ICON_Check-8" data-name="ICON_Check" transform="translate(260 1)">
+                <g id="Ellipse_7-8" data-name="Ellipse 7" class="cls-7">
+                  <circle class="cls-12" cx="11" cy="11" r="11"/>
+                  <circle class="cls-1" cx="11" cy="11" r="10.25"/>
+                </g>
+                <g id="Group_14-8" data-name="Group 14" transform="translate(-25 -772.8)">
+                  <path id="Path_16-8" data-name="Path 16" class="cls-8" d="M4.1,4.556,0,0" transform="translate(31.5 784.048)"/>
+                  <line id="Line_2-8" data-name="Line 2" class="cls-8" x1="4.135" y2="9.096" transform="translate(35.635 779.5)"/>
+                </g>
+              </g>
+            </g>
+            <g id="Item-12" data-name="Item" transform="translate(0 80)">
+              <text id="TXT" class="cls-6"><tspan x="0" y="18">TXT</tspan></text>
+              <g id="ICON_Check-9" data-name="ICON_Check" transform="translate(260 1)">
+                <g id="Ellipse_7-9" data-name="Ellipse 7" class="cls-7">
+                  <circle class="cls-12" cx="11" cy="11" r="11"/>
+                  <circle class="cls-1" cx="11" cy="11" r="10.25"/>
+                </g>
+                <g id="Group_14-9" data-name="Group 14" transform="translate(-25 -772.8)">
+                  <path id="Path_16-9" data-name="Path 16" class="cls-8" d="M4.1,4.556,0,0" transform="translate(31.5 784.048)"/>
+                  <line id="Line_2-9" data-name="Line 2" class="cls-8" x1="4.135" y2="9.096" transform="translate(35.635 779.5)"/>
+                </g>
+              </g>
+            </g>
+          </g>
+        </g>
+      </g>
+    </g>
+    <g id="Header">
+      <rect id="Rectangle_6" data-name="Rectangle 6" class="cls-9" width="338" height="78"/>
+      <g id="HITBOX">
+        <text id="Settings-2" data-name="Settings" class="cls-10" transform="translate(60 50)"><tspan x="0" y="0">Settings</tspan></text>
+        <g id="ICON_Arrow" transform="translate(25.839 51.93) rotate(-90)">
+          <rect id="Rectangle_22" data-name="Rectangle 22" class="cls-1" width="22" height="21"/>
+          <path id="Path_37" data-name="Path 37" class="cls-11" d="M42.622,36.178l-5.965,5.965,5.965,5.965" transform="translate(-28.675 -32.001)"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

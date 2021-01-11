@@ -1,0 +1,132 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="338" height="812" viewBox="0 0 338 812">
+  <defs>
+    <style>
+      .cls-1, .cls-4, .cls-8 {
+        fill: none;
+      }
+
+      .cls-2 {
+        clip-path: url(#clip-Assign);
+      }
+
+      .cls-3 {
+        fill: #83c6ae;
+      }
+
+      .cls-4 {
+        stroke: #76b29c;
+      }
+
+      .cls-5, .cls-7 {
+        fill: #fff;
+      }
+
+      .cls-5 {
+        font-size: 22px;
+        font-family: DMSerifDisplay-Regular, DM Serif Display;
+      }
+
+      .cls-6 {
+        clip-path: url(#clip-path);
+      }
+
+      .cls-7 {
+        font-size: 20px;
+        font-family: SourceSerifPro-Regular, Source Serif Pro;
+      }
+
+      .cls-8 {
+        stroke: #fff;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 2px;
+      }
+
+      .cls-9 {
+        filter: url(#Rectangle_1);
+      }
+    </style>
+    <filter id="Rectangle_1" x="0" y="502" width="338" height="310" filterUnits="userSpaceOnUse">
+      <feOffset dy="-1" input="SourceAlpha"/>
+      <feGaussianBlur result="blur"/>
+      <feFlood flood-color="#fff"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <clipPath id="clip-path">
+      <rect class="cls-1" width="276.964" height="226"/>
+    </clipPath>
+    <clipPath id="clip-Assign">
+      <rect width="338" height="812"/>
+    </clipPath>
+  </defs>
+  <g id="Assign" class="cls-2">
+    <g id="MoveUp" transform="translate(0 503)">
+      <g class="cls-9" transform="matrix(1, 0, 0, 1, 0, -503)">
+        <rect id="Rectangle_1-2" data-name="Rectangle 1" class="cls-3" width="338" height="309" transform="translate(0 503)"/>
+      </g>
+      <path id="HRLine" class="cls-4" d="M0,0H338" transform="translate(0 0.5)"/>
+      <text id="Assign_to_" data-name="Assign to …" class="cls-5" transform="translate(60 41)"><tspan x="0" y="0">Assign to …</tspan></text>
+      <g id="Repeat_Grid_8" data-name="Repeat Grid 8" class="cls-6" transform="translate(31 66)">
+        <g transform="translate(-31 -72)">
+          <g id="Group_23" data-name="Group 23" transform="translate(5.663 -35)">
+            <text id="This_is_a_user_list" data-name="This is a user list" class="cls-7" transform="translate(25.337 107)"><tspan x="0" y="18">This is a user list</tspan></text>
+          </g>
+          <g id="ICON_Arrow" transform="translate(314.947 94.108) rotate(180)">
+            <rect id="Rectangle_22" data-name="Rectangle 22" class="cls-1" width="22" height="21"/>
+            <path id="Path_37" data-name="Path 37" class="cls-8" d="M42.622,36.178l-5.965,5.965,5.965,5.965" transform="translate(-28.675 -32.001)"/>
+          </g>
+        </g>
+        <g transform="translate(-31 -32)">
+          <g id="Group_23-2" data-name="Group 23" transform="translate(5.663 -35)">
+            <text id="This_is_a_user_list-2" data-name="This is a user list" class="cls-7" transform="translate(25.337 107)"><tspan x="0" y="18">This is a user list</tspan></text>
+          </g>
+          <g id="ICON_Arrow-2" data-name="ICON_Arrow" transform="translate(314.947 94.108) rotate(180)">
+            <rect id="Rectangle_22-2" data-name="Rectangle 22" class="cls-1" width="22" height="21"/>
+            <path id="Path_37-2" data-name="Path 37" class="cls-8" d="M42.622,36.178l-5.965,5.965,5.965,5.965" transform="translate(-28.675 -32.001)"/>
+          </g>
+        </g>
+        <g transform="translate(-31 8)">
+          <g id="Group_23-3" data-name="Group 23" transform="translate(5.663 -35)">
+            <text id="This_is_a_user_list-3" data-name="This is a user list" class="cls-7" transform="translate(25.337 107)"><tspan x="0" y="18">This is a user list</tspan></text>
+          </g>
+          <g id="ICON_Arrow-3" data-name="ICON_Arrow" transform="translate(314.947 94.108) rotate(180)">
+            <rect id="Rectangle_22-3" data-name="Rectangle 22" class="cls-1" width="22" height="21"/>
+            <path id="Path_37-3" data-name="Path 37" class="cls-8" d="M42.622,36.178l-5.965,5.965,5.965,5.965" transform="translate(-28.675 -32.001)"/>
+          </g>
+        </g>
+        <g transform="translate(-31 48)">
+          <g id="Group_23-4" data-name="Group 23" transform="translate(5.663 -35)">
+            <text id="This_is_a_user_list-4" data-name="This is a user list" class="cls-7" transform="translate(25.337 107)"><tspan x="0" y="18">This is a user list</tspan></text>
+          </g>
+          <g id="ICON_Arrow-4" data-name="ICON_Arrow" transform="translate(314.947 94.108) rotate(180)">
+            <rect id="Rectangle_22-4" data-name="Rectangle 22" class="cls-1" width="22" height="21"/>
+            <path id="Path_37-4" data-name="Path 37" class="cls-8" d="M42.622,36.178l-5.965,5.965,5.965,5.965" transform="translate(-28.675 -32.001)"/>
+          </g>
+        </g>
+        <g transform="translate(-31 88)">
+          <g id="Group_23-5" data-name="Group 23" transform="translate(5.663 -35)">
+            <text id="This_is_a_user_list-5" data-name="This is a user list" class="cls-7" transform="translate(25.337 107)"><tspan x="0" y="18">This is a user list</tspan></text>
+          </g>
+          <g id="ICON_Arrow-5" data-name="ICON_Arrow" transform="translate(314.947 94.108) rotate(180)">
+            <rect id="Rectangle_22-5" data-name="Rectangle 22" class="cls-1" width="22" height="21"/>
+            <path id="Path_37-5" data-name="Path 37" class="cls-8" d="M42.622,36.178l-5.965,5.965,5.965,5.965" transform="translate(-28.675 -32.001)"/>
+          </g>
+        </g>
+        <g transform="translate(-31 128)">
+          <g id="Group_23-6" data-name="Group 23" transform="translate(5.663 -35)">
+            <text id="no_list" data-name="no list" class="cls-7" transform="translate(25.337 107)"><tspan x="0" y="18">no list</tspan></text>
+          </g>
+          <g id="ICON_Arrow-6" data-name="ICON_Arrow" transform="translate(314.947 94.108) rotate(180)">
+            <rect id="Rectangle_22-6" data-name="Rectangle 22" class="cls-1" width="22" height="21"/>
+            <path id="Path_37-6" data-name="Path 37" class="cls-8" d="M42.622,36.178l-5.965,5.965,5.965,5.965" transform="translate(-28.675 -32.001)"/>
+          </g>
+        </g>
+      </g>
+      <g id="ICON_Arrow-7" data-name="ICON_Arrow" transform="translate(25.839 45.93) rotate(-90)">
+        <rect id="Rectangle_22-7" data-name="Rectangle 22" class="cls-1" width="22" height="21"/>
+        <path id="Path_37-7" data-name="Path 37" class="cls-8" d="M42.622,36.178l-5.965,5.965,5.965,5.965" transform="translate(-28.675 -32.001)"/>
+      </g>
+    </g>
+  </g>
+</svg>

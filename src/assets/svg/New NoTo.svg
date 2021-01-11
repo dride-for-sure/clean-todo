@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="338" height="812" viewBox="0 0 338 812">
+  <defs>
+    <style>
+      .cls-1, .cls-4, .cls-8 {
+        fill: none;
+      }
+
+      .cls-2 {
+        clip-path: url(#clip-New_NoTo);
+      }
+
+      .cls-3 {
+        fill: #83c6ae;
+      }
+
+      .cls-4 {
+        stroke: #a5dfc9;
+      }
+
+      .cls-5, .cls-7 {
+        fill: #fff;
+      }
+
+      .cls-5 {
+        font-size: 22px;
+        font-family: DMSerifDisplay-Regular, DM Serif Display;
+      }
+
+      .cls-6 {
+        clip-path: url(#clip-path);
+      }
+
+      .cls-7 {
+        font-size: 20px;
+        font-family: SourceSerifPro-Regular, Source Serif Pro;
+      }
+
+      .cls-8 {
+        stroke: #fff;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 2px;
+      }
+    </style>
+    <clipPath id="clip-path">
+      <rect class="cls-1" width="276.964" height="27"/>
+    </clipPath>
+    <clipPath id="clip-New_NoTo">
+      <rect width="338" height="812"/>
+    </clipPath>
+  </defs>
+  <g id="New_NoTo" data-name="New NoTo" class="cls-2">
+    <g id="MoveUp" transform="translate(0 526.93)">
+      <rect id="Rectangle_1" data-name="Rectangle 1" class="cls-3" width="338" height="109" transform="translate(0 176.07)"/>
+      <path id="HRLine" class="cls-4" d="M0,0H338" transform="translate(0 176.57)"/>
+      <text id="Add_a_NoTo_" data-name="Add a NoTo …" class="cls-5" transform="translate(60 217.07)"><tspan x="0" y="0">Add a NoTo …</tspan></text>
+      <g id="Repeat_Grid_8" data-name="Repeat Grid 8" class="cls-6" transform="translate(31 242.07)">
+        <g transform="translate(-31 -72)">
+          <g id="Group_23" data-name="Group 23" transform="translate(5.663 -35)">
+            <text id="_Tag_is_due:04-03_assign_" data-name="#Tag is due:04-03 @assign |" class="cls-7" transform="translate(25.337 107)"><tspan x="0" y="18">#Tag is due:04-03 @assign |</tspan></text>
+          </g>
+          <g id="ICON_Arrow" transform="translate(314.947 94.108) rotate(180)">
+            <rect id="Rectangle_22" data-name="Rectangle 22" class="cls-1" width="22" height="21"/>
+            <path id="Path_37" data-name="Path 37" class="cls-8" d="M42.622,36.178l-5.965,5.965,5.965,5.965" transform="translate(-28.675 -32.001)"/>
+          </g>
+        </g>
+      </g>
+      <g id="ICON_Arrow-2" data-name="ICON_Arrow" transform="translate(25.839 214.017) rotate(-90)">
+        <rect id="Rectangle_22-2" data-name="Rectangle 22" class="cls-1" width="22" height="21" transform="translate(192.017)"/>
+        <path id="Path_37-2" data-name="Path 37" class="cls-8" d="M42.622,36.178l-5.965,5.965,5.965,5.965" transform="translate(-36.658 -32.001)"/>
+      </g>
+    </g>
+  </g>
+</svg>
