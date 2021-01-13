@@ -1,0 +1,22 @@
+div.overlays {
+  user-select: none;
+  > .list {
+    > .list-item {
+      padding: 0.7rem $distance-default 0.4rem;
+    }
+  }
+
+  &.fixed-bottom {
+    background-color: $color-green-medium;
+    color: $color-light;
+    padding-bottom: 1rem;
+    border-top: 1px solid $green-border;
+  }
+
+  &.fixed-top {
+    background-color: $color-blue-medium;
+    color: $color-light;
+    border-bottom: 1px solid $blue-border;
+    padding: 1rem 0;
+  }
+}

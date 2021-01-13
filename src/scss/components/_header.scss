@@ -1,4 +1,4 @@
-.header {
+div.header {
   display: flex;
   padding: $distance-default $distance-default 2.8rem;
   user-select: none;
@@ -9,30 +9,38 @@
     max-width: 100%;
   }
 
-  #view-main & {
-    &:before {
-      content: '';
-      height: 24px;
-      width: 24px;
-      flex: 0 0 auto;
-      margin-right: 1rem;
-      margin-top: 0.18rem;
-      background-image: url(/src/assets/svg/ICON_Logo.svg);
-      background-repeat: no-repeat;
-      background-position: 0 0;
-    }
-  }
-
   > img {
     flex: 0 0 auto;
     width: auto;
 
-    &:first-of-type {
+    &:nth-of-type(1) {
       margin-right: 0.8rem;
     }
 
-    &:last-of-type {
-      margin-top: 0.4rem;
+    #view-main &:nth-of-type(1) {
+      margin-bottom: 0.05rem;
     }
+  }
+
+  #view-search & {
+    background-color: $color-blue-medium;
+    padding: 1.5rem $distance-default 1.3rem;
+
+    > img {
+      margin-top: 0;
+      margin-bottom: 0.2rem;
+    }
+
+    > input {
+      color: $color-light;
+
+      &::placeholder {
+        color: $color-light;
+      }
+    }
+  }
+
+  div.overlays & {
+    padding-bottom: 1rem;
   }
 }

@@ -19,19 +19,35 @@
   &#view-settings {
     background-color: $color-green-medium;
   }
+
+  &#view-search {
+    background-color: $color-blue-light;
+  }
 }
 
 .container {
   width: 100%;
   max-width: 100%;
   outline: none;
+  z-index: 1;
 
-  &.fixed {
+  &.fixed-bottom {
     position: fixed;
     bottom: 0;
   }
 
-  &:not(.fixed) {
+  &.fixed-top {
+    position: fixed;
+    top: 0;
+  }
+
+  &.overlays {
+    z-index: 2;
+  }
+
+  &:not(.fixed-bottom),
+  &:not(.fixed-top),
+  &:not(.overlays) {
     overflow-y: scroll;
   }
 }

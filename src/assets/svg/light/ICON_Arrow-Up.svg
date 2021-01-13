@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="21" height="22" viewBox="0 0 21 22">
+  <defs>
+    <style>
+      .cls-1, .cls-2 {
+        fill: none;
+      }
+
+      .cls-2 {
+        stroke: #fff;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 2px;
+      }
+    </style>
+  </defs>
+  <g id="ICON_Arrow" transform="translate(21) rotate(90)">
+    <rect id="Rectangle_22" data-name="Rectangle 22" class="cls-1" width="22" height="21"/>
+    <path id="Path_37" data-name="Path 37" class="cls-2" d="M42.622,36.178l-5.965,5.965,5.965,5.965" transform="translate(-28.675 -32.001)"/>
+  </g>
+</svg>
