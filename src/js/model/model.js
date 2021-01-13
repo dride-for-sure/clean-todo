@@ -1,5 +1,5 @@
 import Task from './task';
-import { uuid } from './lib';
+import { uuid } from '../lib';
 
 /**
  * Data management
@@ -38,7 +38,7 @@ export default class Model {
     this.tasks.push(task);
     this.commit();
   }
-  
+
 
   /**
      * Map through all tasks and update text

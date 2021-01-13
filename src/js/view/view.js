@@ -1,4 +1,4 @@
-import { getElements, createElement } from './lib';
+import { getElements, createElement } from '../lib';
 
 /**
  * Represent the model visually
