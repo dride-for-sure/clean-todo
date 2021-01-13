@@ -1,0 +1,46 @@
+div.header {
+  display: flex;
+  padding: $distance-default $distance-default 2.8rem;
+  user-select: none;
+
+  > * {
+    flex: 1 0 0%;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  > img {
+    flex: 0 0 auto;
+    width: auto;
+
+    &:nth-of-type(1) {
+      margin-right: 0.8rem;
+    }
+
+    #view-main &:nth-of-type(1) {
+      margin-bottom: 0.05rem;
+    }
+  }
+
+  #view-search & {
+    background-color: $color-blue-medium;
+    padding: 1.5rem $distance-default 1.3rem;
+
+    > img {
+      margin-top: 0;
+      margin-bottom: 0.2rem;
+    }
+
+    > input {
+      color: $color-light;
+
+      &::placeholder {
+        color: $color-light;
+      }
+    }
+  }
+
+  div.overlays & {
+    padding-bottom: 1rem;
+  }
+}

@@ -1,0 +1,111 @@
+/*
+ * Lists
+ */
+div.list {
+  > h2 {
+    user-select: none;
+    margin-bottom: 0.4rem;
+    padding-left: $distance-default;
+    padding-right: $distance-default;
+    margin-top: $distance-default * 0.8;
+
+    &:first-of-type {
+      margin-top: 0;
+    }
+  }
+
+  #view-list & h2 {
+    padding-left: $distance-default + 2.175rem;
+  }
+
+  /*
+   * Listitems in general
+   */
+  > div.list-item {
+    display: flex;
+    padding: 0.9rem $distance-default 0.7rem;
+
+    &:hover {
+      background-color: $hover-color-light;
+    }
+
+    > div {
+      flex: 1 0 0%;
+      width: 100%;
+      max-width: 100%;
+
+      h4:before {
+        content: '';
+        height: 8px;
+        width: 8px;
+        margin-right: 0.2rem;
+        border-radius: 50%;
+        display: inline-block;
+        background-color: $color-green-medium;
+      }
+    }
+
+    > img.btn {
+      flex: 0 0 auto;
+      align-self: center;
+      margin-bottom: 0.3rem;
+    }
+
+    /*
+     * List with Notos
+    */
+    &.noto {
+      &:hover {
+        background-color: $hover-color-medium;
+      }
+
+      img.btn:first-of-type {
+        flex: 0 0 auto;
+        align-self: flex-start;
+        margin: 0.1rem 0.8rem 0 0;
+      }
+
+      > div {
+        h4:before {
+          display: none;
+        }
+      }
+    }
+
+    #view-settings & {
+      padding: 0.5rem $distance-default 0.3rem;
+    }
+
+    #view-search &.noto {
+      &:hover {
+        background-color: $hover-color-light;
+      }
+    }
+  }
+
+  /*
+   * Predefined Lists within fixed-bottom
+   */
+  &.list-predefined {
+    background-color: $color-blue-light;
+
+    .list-item {
+      margin: 0.125rem 0;
+      background-color: $color-blue-medium;
+    }
+
+    > :first-child {
+      margin-top: 0;
+    }
+
+    > :last-child {
+      margin-bottom: 0;
+    }
+
+    > .list-item {
+      &:hover {
+        background-color: $hover-color-dark;
+      }
+    }
+  }
+}

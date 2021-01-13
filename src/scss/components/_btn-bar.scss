@@ -1,0 +1,7 @@
+.btn-bar {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.75rem $distance-default;
+  border-top: 1px solid $green-border;
+  background-color: $color-green-medium;
+}

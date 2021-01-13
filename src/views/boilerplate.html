@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <link
+      href="/node_modules/bootstrap/dist/css/bootstrap-reboot.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link href="/src/css/main.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <!-- Overlays ############################ -->
+    <!-- Top ################################# -->
+    <div class="container fixed-top overlays">
+      <div class="list">
+        <!-- Listelement -->
+        <!-- Edit mode row::before{content: Hamburger}-->
+        <!-- Edit mode arrow.hide && row::after{content: btn_delete} -->
+        <div class="list-item">
+          <div>
+            <h3>Share by name</h3>
+          </div>
+          <img class="btn" src="/src/assets/svg/light/ICON_Arrow-Right.svg" />
+        </div>
+        <div class="list-item">
+          <div>
+            <h3>Show completed</h3>
+          </div>
+          <img class="btn" src="/src/assets/svg/light/ICON_Arrow-Right.svg" />
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom ############################## -->
+    <div class="container fixed-bottom overlays" style="display: none">
+      <div class="header">
+        <img class="btn" src="/src/assets/svg/light/ICON_Arrow-Down.svg" />
+        <h2>Assign to...</h2>
+      </div>
+
+      <div class="list">
+        <!-- Listelement -->
+        <!-- Edit mode row::before{content: Hamburger}-->
+        <!-- Edit mode arrow.hide && row::after{content: btn_delete} -->
+        <div class="list-item">
+          <div>
+            <h3>ListItem Title</h3>
+          </div>
+          <img class="btn" src="/src/assets/svg/light/ICON_Arrow-Right.svg" />
+        </div>
+        <div class="list-item">
+          <div>
+            <h3>ListItem Title</h3>
+          </div>
+          <img class="btn" src="/src/assets/svg/light/ICON_Arrow-Right.svg" />
+        </div>
+      </div>
+    </div>
+
+    <!-- Views ##################################-->
+    <!-- MainView ############################### -->
+    <!-- Add .editing if necessarry-->
+    <div class="wrapper" style="display: none" id="view-main">
+      <!-- For overflow-y height must be calculated if fixed-bottom exists: h = fixedBottom[0].y -->
+      <!-- Edit mode recalculate height -->
+      <div class="container" tabindex="0">
+        <!-- Header -->
+        <div class="header">
+          <!-- Logo as :before -->
+          <img src="/src/assets/svg/ICON_Logo.svg" />
+          <!-- Breadcrumb -->
+          <h1>Make it so</h1>
+          <!-- Optional Button -->
+          <img class="btn" src="/src/assets/svg/light/ICON_Settings.svg" />
+        </div>
+
+        <!-- List -->
+        <div class="list">
+          <!-- Title -->
+          <h2>ListTitle</h2>
+          <!-- Listelement -->
+          <!-- Edit mode row::before{content: Hamburger}-->
+          <!-- Edit mode arrow.hide && row::after{content: btn_delete} -->
+          <div class="list-item">
+            <div>
+              <h3>ListItem Title</h3>
+              <h4 class="green-medium">Metadata</h4>
+            </div>
+            <img class="btn" src="/src/assets/svg/light/ICON_Arrow-Right.svg" />
+          </div>
+          <div class="list-item">
+            <div>
+              <h3>ListItem Title</h3>
+              <h4 class="green-medium">Metadata</h4>
+            </div>
+            <img class="btn" src="/src/assets/svg/light/ICON_Arrow-Right.svg" />
+          </div>
+          <div class="list-item">
+            <div>
+              <h3>ListItem Title</h3>
+              <h4 class="green-medium">Metadata</h4>
+            </div>
+            <img class="btn" src="/src/assets/svg/light/ICON_Arrow-Right.svg" />
+          </div>
+          <div class="list-item">
+            <div>
+              <h3>ListItem Title</h3>
+              <h4 class="green-medium">Metadata</h4>
+            </div>
+            <img class="btn" src="/src/assets/svg/light/ICON_Arrow-Right.svg" />
+          </div>
+          <div class="list-item">
+            <div>
+              <h3>ListItem Title</h3>
+              <h4 class="green-medium">Metadata</h4>
+            </div>
+            <img class="btn" src="/src/assets/svg/light/ICON_Arrow-Right.svg" />
+          </div>
+          <div class="list-item">
+            <div>
+              <h3>ListItem Title</h3>
+              <h4 class="green-medium">Metadata</h4>
+            </div>
+            <img class="btn" src="/src/assets/svg/light/ICON_Arrow-Right.svg" />
+          </div>
+          <div class="list-item">
+            <div>
+              <h3>ListItem Title</h3>
+              <h4 class="green-medium">Metadata</h4>
+            </div>
+            <img class="btn" src="/src/assets/svg/light/ICON_Arrow-Right.svg" />
+          </div>
+          <div class="list-item">
+            <div>
+              <h3>ListItem Title</h3>
+              <h4 class="green-medium">Metadata</h4>
+            </div>
+            <img class="btn" src="/src/assets/svg/light/ICON_Arrow-Right.svg" />
+          </div>
+        </div>
+      </div>
+
+      <!-- Fixed Bottom++ -->
+      <div class="container fixed-bottom">
+        <!-- Optional predefined Lists -->
+        <!-- Edit mode list-predefined.hide -->
+        <div class="list list-predefined">
+          <!-- Listelement -->
+          <div class="list-item">
+            <div>
+              <h3>List Predefined Item Title</h3>
+              <h4 class="green-medium">Metadata</h4>
+            </div>
+            <img class="btn" src="/src/assets/svg/light/ICON_Arrow-Right.svg" />
+          </div>
+          <div class="list-item">
+            <div>
+              <h3>List Predefined Item Title</h3>
+              <h4 class="green-medium">Metadata</h4>
+            </div>
+            <img class="btn" src="/src/assets/svg/light/ICON_Arrow-Right.svg" />
+          </div>
+          <div class="list-item">
+            <div>
+              <h3>List Predefined Item Title</h3>
+              <h4 class="green-medium">Metadata</h4>
+            </div>
+            <img class="btn" src="/src/assets/svg/light/ICON_Arrow-Right.svg" />
+          </div>
+        </div>
+
+        <!-- BtnBar -->
+        <div class="btn-bar">
+          <!-- Btns -->
+          <!-- For visibility toggle d-none -->
+          <!-- Edit mode btn_search.hide && btn-edit.hide row::after{content: btn_check} -->
+          <img class="btn" src="/src/assets/svg/light/ICON_Plus.svg" />
+          <img class="btn" src="/src/assets/svg/light/ICON_Search.svg" />
+          <img class="btn" src="/src/assets/svg/light/ICON_Sort.svg" />
+        </div>
+      </div>
+    </div>
+
+    <!-- ListView ############################### -->
+    <!-- Add .editing if necessarry-->
+    <div class="wrapper" id="view-list">
+      <!-- For overflow-y height must be calculated if fixed-bottom exists: h = fixedBottom[0].y -->
+      <!-- Edit mode recalculate height -->
+      <div class="container" style="overflow-y: scroll" tabindex="0">
+        <!-- Header -->
+        <div class="header">
+          <img class="btn" src="/src/assets/svg/dark/ICON_Arrow-Left.svg" />
+          <h1>Make it so</h1>
+          <img class="btn" src="/src/assets/svg/dark/ICON_Move.svg" />
+        </div>
+
+        <!-- List -->
+        <div class="list">
+          <!-- Title -->
+          <h2>Date</h2>
+          <!-- Listelement -->
+          <!-- Edit mode checkbox.hide && row::before{content: Hamburger}-->
+          <div class="list-item noto">
+            <img class="btn" src="/src/assets/svg/dark/ICON_Undone.svg" />
+            <div>
+              <!-- Breadcrumb -->
+              <h3>ListItem Noto Title</h3>
+              <h4 class="green-medium">@assign #tag1 #tag2</h4>
+            </div>
+            <img class="btn" src="/src/assets/svg/dark/ICON_Arrow-Right.svg" />
+          </div>
+
+          <!-- Title -->
+          <h2>Date +1</h2>
+          <!-- Listelement -->
+          <!-- Edit mode checkbox.hide && row::before{content: Hamburger}-->
+          <div class="list-item noto">
+            <img class="btn" src="/src/assets/svg/dark/ICON_Undone.svg" />
+            <div>
+              <h3>ListItem Noto Title</h3>
+              <h4 class="green-medium">@assign #tag1 #tag2</h4>
+            </div>
+            <img class="btn" src="/src/assets/svg/dark/ICON_Arrow-Right.svg" />
+          </div>
+          <div class="list-item noto">
+            <img class="btn" src="/src/assets/svg/dark/ICON_Undone.svg" />
+            <div>
+              <h3>ListItem Noto Title</h3>
+              <h4 class="green-medium">@assign #tag1 #tag2</h4>
+            </div>
+            <img class="btn" src="/src/assets/svg/dark/ICON_Arrow-Right.svg" />
+          </div>
+          <div class="list-item noto">
+            <img class="btn" src="/src/assets/svg/dark/ICON_Undone.svg" />
+            <div>
+              <h3>ListItem Noto Title</h3>
+              <h4 class="green-medium">@assign #tag1 #tag2</h4>
+            </div>
+            <img class="btn" src="/src/assets/svg/dark/ICON_Arrow-Right.svg" />
+          </div>
+
+          <!-- Title -->
+          <h2>Date +2</h2>
+          <!-- Listelement -->
+          <!-- Edit mode checkbox.hide && row::before{content: Hamburger}-->
+          <div class="list-item noto">
+            <img class="btn" src="/src/assets/svg/dark/ICON_Undone.svg" />
+            <div>
+              <h3>ListItem Noto Title</h3>
+              <h4 class="green-medium">@assign #tag1 #tag2</h4>
+            </div>
+            <img class="btn" src="/src/assets/svg/dark/ICON_Arrow-Right.svg" />
+          </div>
+        </div>
+        <!-- Edit mode arrow.hide row::after{content: btn_delete}-->
+      </div>
+
+      <!-- Fixed Bottom -->
+      <!-- BtnBar -->
+      <div class="container fixed-bottom">
+        <!-- BtnBar -->
+        <div class="btn-bar">
+          <!-- Btns -->
+          <img class="btn" src="/src/assets/svg/light/ICON_Plus.svg" />
+          <img class="btn" src="/src/assets/svg/light/ICON_Search.svg" />
+          <img class="btn" src="/src/assets/svg/light/ICON_Sort.svg" />
+        </div>
+      </div>
+    </div>
+
+    <!-- Noto ################################ -->
+    <div class="wrapper" style="display: none" id="view-noto">
+      <!-- For overflow-y height must be calculated if fixed-bottom exists: h = fixedBottom[0].y -->
+      <!-- Edit mode recalculate height -->
+      <div class="container" style="overflow-y: scroll" tabindex="0">
+        <!-- Header -->
+        <div class="header">
+          <img class="btn" src="/src/assets/svg/dark/ICON_Arrow-Left.svg" />
+          <h1>This is a NoTo</h1>
+        </div>
+
+        <!-- Input -->
+        <!-- click event -> toggle editing -->
+        <div class="noto-content">
+          <!-- Heights must be calculated for textarea and rendered-->
+          <textarea
+            placeholder="What needs to be done can be written with the help of markdown ..."
+          ></textarea>
+          <div class="rendered">
+            <h1>This is a heading</h1>
+            <h2>This is a subheading</h2>
+            <h3>This is a subsubheading</h3>
+            <h4>This is another subsubheading</h4>
+            <i>Italic</i>, <b>bold</b> and <code>var x = 2;</code> with a
+            subtasklist:
+            <div class="list">
+              <!-- Listelement -->
+              <!-- Edit mode checkbox.hide && row::before{content: Hamburger}-->
+              <div class="list-item noto">
+                <img class="btn" src="/src/assets/svg/dark/ICON_Undone.svg" />
+                <div>
+                  <!-- Breadcrumb -->
+                  <h3>ListItem Noto Title</h3>
+                  <h4 class="green-medium">@assign #tag1 #tag2</h4>
+                </div>
+              </div>
+            </div>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br />Donec
+            elementum posuere metus, sit amet rhoncus leo pulvinar non. Nunc
+            consectetur eros nunc, id sodales sem tempor quis.
+          </div>
+        </div>
+      </div>
+      <!-- Fixed Bottom -->
+      <!-- BtnBar -->
+      <div class="container fixed-bottom">
+        <!-- BtnBar -->
+        <div class="btn-bar">
+          <img class="btn" src="/src/assets/svg/light/ICON_Plus.svg" />
+          <img class="btn" src="/src/assets/svg/light/ICON_Move.svg" />
+          <img class="btn" src="/src/assets/svg/light/ICON_Share.svg" />
+          <img class="btn" src="/src/assets/svg/light/ICON_Delete.svg" />
+        </div>
+      </div>
+    </div>
+
+    <!-- Settings ############################ -->
+    <div class="wrapper" style="display: none" id="view-settings">
+      <!-- For overflow-y height must be calculated if fixed-bottom exists: h = fixedBottom[0].y -->
+      <div class="container" tabindex="0">
+        <!-- Header -->
+        <div class="header">
+          <!-- Close -->
+          <img class="btn" src="/src/assets/svg/light/ICON_Arrow-Down.svg" />
+          <!-- Breadcrumb -->
+          <h1>Make it so</h1>
+        </div>
+
+        <!-- List -->
+        <div class="list">
+          <!-- Title -->
+          <h2>SettingsGroup</h2>
+          <!-- Listelement -->
+          <!-- Edit mode checkbox.hide && row::before{content: Hamburger}-->
+          <div class="list-item">
+            <div>
+              <!-- Breadcrumb -->
+              <h3>Settings1</h3>
+            </div>
+            <img class="btn" src="/src/assets/svg/light/ICON_Check.svg" />
+          </div>
+          <div class="list-item">
+            <div>
+              <!-- Breadcrumb -->
+              <h3>Settings1</h3>
+            </div>
+            <img class="btn" src="/src/assets/svg/light/ICON_Check.svg" />
+          </div>
+          <div class="list-item">
+            <div>
+              <!-- Breadcrumb -->
+              <h3>Settings1</h3>
+            </div>
+            <img class="btn" src="/src/assets/svg/light/ICON_Check.svg" />
+          </div>
+
+          <!-- Title -->
+          <h2>SettingsGroup2</h2>
+          <!-- Listelement -->
+          <!-- Edit mode checkbox.hide && row::before{content: Hamburger}-->
+          <div class="list-item settings">
+            <div>
+              <!-- Breadcrumb -->
+              <h3>Settings1</h3>
+            </div>
+            <img class="btn" src="/src/assets/svg/light/ICON_Check.svg" />
+          </div>
+          <div class="list-item settings">
+            <div>
+              <!-- Breadcrumb -->
+              <h3>Settings1</h3>
+            </div>
+            <img class="btn" src="/src/assets/svg/light/ICON_Check.svg" />
+          </div>
+          <div class="list-item settings">
+            <div>
+              <!-- Breadcrumb -->
+              <h3>Settings1</h3>
+            </div>
+            <img class="btn" src="/src/assets/svg/light/ICON_Check.svg" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Search ############################## -->
+    <div class="wrapper" style="display: none" id="view-search">
+      <div class="container fixed-top">
+        <!-- Header -->
+        <div class="header">
+          <img class="btn" src="/src/assets/svg/light/ICON_Arrow-Up.svg" />
+          <input class="active" placeholder="Search ..." />
+        </div>
+      </div>
+
+      <!-- margin-top must be calculated-->
+      <div
+        class="container"
+        style="overflow-y: scroll; padding-top: 120px"
+        tabindex="0"
+      >
+        <!-- List -->
+        <div class="list">
+          <!-- Listelement -->
+          <!-- Edit mode checkbox.hide && row::before{content: Hamburger}-->
+          <div class="list-item noto">
+            <img class="btn" src="/src/assets/svg/light/ICON_Done.svg" />
+            <div>
+              <!-- Breadcrumb -->
+              <h3>ListItem Noto Title</h3>
+              <h4 class="green-medium">@assign #tag1 #tag2</h4>
+            </div>
+            <img class="btn" src="/src/assets/svg/light/ICON_Arrow-Right.svg" />
+          </div>
+        </div>
+        <!-- List -->
+        <div class="list">
+          <!-- Listelement -->
+          <!-- Edit mode checkbox.hide && row::before{content: Hamburger}-->
+          <div class="list-item noto">
+            <img class="btn" src="/src/assets/svg/light/ICON_Done.svg" />
+            <div>
+              <!-- Breadcrumb -->
+              <h3>ListItem Noto Title</h3>
+              <h4 class="green-medium">@assign #tag1 #tag2</h4>
+            </div>
+            <img class="btn" src="/src/assets/svg/light/ICON_Arrow-Right.svg" />
+          </div>
+        </div>
+        <!-- List -->
+        <div class="list">
+          <!-- Listelement -->
+          <!-- Edit mode checkbox.hide && row::before{content: Hamburger}-->
+          <div class="list-item noto">
+            <img class="btn" src="/src/assets/svg/light/ICON_Done.svg" />
+            <div>
+              <!-- Breadcrumb -->
+              <h3>ListItem Noto Title</h3>
+              <h4 class="green-medium">@assign #tag1 #tag2</h4>
+            </div>
+            <img class="btn" src="/src/assets/svg/light/ICON_Arrow-Right.svg" />
+          </div>
+        </div>
+        <!-- List -->
+        <div class="list">
+          <!-- Listelement -->
+          <!-- Edit mode checkbox.hide && row::before{content: Hamburger}-->
+          <div class="list-item noto">
+            <img class="btn" src="/src/assets/svg/light/ICON_Done.svg" />
+            <div>
+              <!-- Breadcrumb -->
+              <h3>ListItem Noto Title</h3>
+              <h4 class="green-medium">@assign #tag1 #tag2</h4>
+            </div>
+            <img class="btn" src="/src/assets/svg/light/ICON_Arrow-Right.svg" />
+          </div>
+        </div>
+        <!-- List -->
+        <div class="list">
+          <!-- Listelement -->
+          <!-- Edit mode checkbox.hide && row::before{content: Hamburger}-->
+          <div class="list-item noto">
+            <img class="btn" src="/src/assets/svg/light/ICON_Done.svg" />
+            <div>
+              <!-- Breadcrumb -->
+              <h3>ListItem Noto Title</h3>
+              <h4 class="green-medium">@assign #tag1 #tag2</h4>
+            </div>
+            <img class="btn" src="/src/assets/svg/light/ICON_Arrow-Right.svg" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

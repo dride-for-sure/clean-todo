@@ -1,17 +1,43 @@
-@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap"');
+@import url('https://fonts.googleapis.com/css2?family=Source+Serif+Pro:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
 // Colors
-$color-green: hsl(110, 71%, 66%);
-$color-green-saturated: hsl(110, 53%, 53%);
-$color-red-dark: hsl(0, 18%, 33%);
-$color-red-dark-saturated: hsl(0, 19%, 42%);
-$color-red-light: hsl(0, 71%, 66%);
-$color-red-light-saturated: hsl(0, 100%, 70%);
+$color-light: white;
+$color-blue-light: #7c8c9d;
+$color-blue-medium: #4b6a8a;
+$color-blue-dark: #3a444e;
+$color-green-light: #ace3cf;
+$color-green-medium: #83c6ae;
+$color-green-medium-desaturated: #a2c6b9;
+$color-red-light: #ffb1b1;
+$color-grey-light: #eef1f5;
 
-// Opacity
-$opacity-0: 0;
+// Hover
+$hover-color-light: hsla(0, 0%, 100, 0.1);
+$hover-color-medium: hsla(210, 30%, 91%, 1);
+$hover-color-dark: hsla(210, 30%, 38%, 1);
 
+$hover-opacity: 0.5;
+
+// 3D Highlights
+$green-border: #a5dfc9;
+$blue-border: #445f7d;
 // Fonts
-$font-family-default: 'Merriweather', serif;
-$font-weight-default: 300;
-$font-weight-bold: 400;
+// Headings
+$font-family-bold: 'DM Serif Display', serif;
+
+// Continous text
+$font-family-regular: 'Source Serif Pro', serif;
+
+// Sizes
+$font-size-big: 1.75rem;
+$font-size-medium: 1.5rem;
+$font-size-regular: 1.25rem;
+$font-size-small: 0.8rem;
+
+// Weights
+$font-weight-regular: 400;
+$font-weight-bold: 700;
+
+// Paddings
+$distance-default: 1.6rem;

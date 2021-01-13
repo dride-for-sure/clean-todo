@@ -1,0 +1,53 @@
+.wrapper {
+  height: 100vh;
+
+  font-family: $font-family-regular;
+  font-weight: $font-weight-regular;
+  font-size: $font-size-regular;
+  color: $color-light;
+
+  &#view-main {
+    background-color: $color-blue-light;
+  }
+
+  &#view-list,
+  &#view-noto {
+    background-color: $color-grey-light;
+    color: $color-blue-medium;
+  }
+
+  &#view-settings {
+    background-color: $color-green-medium;
+  }
+
+  &#view-search {
+    background-color: $color-blue-light;
+  }
+}
+
+.container {
+  width: 100%;
+  max-width: 100%;
+  outline: none;
+  z-index: 1;
+
+  &.fixed-bottom {
+    position: fixed;
+    bottom: 0;
+  }
+
+  &.fixed-top {
+    position: fixed;
+    top: 0;
+  }
+
+  &.overlays {
+    z-index: 2;
+  }
+
+  &:not(.fixed-bottom),
+  &:not(.fixed-top),
+  &:not(.overlays) {
+    overflow-y: scroll;
+  }
+}
