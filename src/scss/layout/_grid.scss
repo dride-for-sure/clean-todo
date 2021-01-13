@@ -1,0 +1,41 @@
+// Enforce flex
+.d-flex {
+    display: flex;
+}
+
+// Rows
+.row {
+    display:flex;
+
+    > * {
+        width:100%;
+        max-width:100%;
+    }
+}
+
+// Columns
+.col {
+    flex: 1 0 0%; // grow shrink basis
+}
+
+.col-auto {
+    flex: 0 0 auto; // grow shrink basis
+    width: auto;
+}
+
+// Aligns
+.align-items-start {
+    align-items: flex-start;
+}
+
+.align-items-center {
+    align-items: center;
+}
+
+.align-items-baseline {
+    align-items: baseline;
+}
+
+.align-items-end {
+    align-items: flex-end;
+}

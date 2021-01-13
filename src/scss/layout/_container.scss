@@ -1,0 +1,37 @@
+.wrapper {
+  height: 100vh;
+
+  font-family: $font-family-regular;
+  font-weight: $font-weight-regular;
+  font-size: $font-size-regular;
+  color: $color-light;
+
+  &#view-main {
+    background-color: $color-blue-light;
+  }
+
+  &#view-list,
+  &#view-noto {
+    background-color: $color-grey-light;
+    color: $color-blue-medium;
+  }
+
+  &#view-settings {
+    background-color: $color-green-medium;
+  }
+}
+
+.container {
+  width: 100%;
+  max-width: 100%;
+  outline: none;
+
+  &.fixed {
+    position: fixed;
+    bottom: 0;
+  }
+
+  &:not(.fixed) {
+    overflow-y: scroll;
+  }
+}

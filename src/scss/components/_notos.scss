@@ -1,0 +1,22 @@
+div.noto-content {
+  padding-left: $distance-default;
+  padding-right: $distance-default;
+
+  > textarea {
+    width: 100%;
+    border: 0;
+    outline: none;
+    resize: none;
+    background-color: transparent;
+    color: $color-blue-medium;
+    display: none;
+
+    &.editing {
+      display: inline-block;
+    }
+
+    &::placeholder {
+      color: $color-blue-medium;
+    }
+  }
+}

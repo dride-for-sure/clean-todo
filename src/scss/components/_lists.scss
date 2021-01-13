@@ -1,0 +1,69 @@
+div.list {
+  h2 {
+    user-select: none;
+    margin-bottom: 0.4rem;
+    padding-left: $distance-default;
+    padding-right: $distance-default;
+    margin-top: $distance-default * 0.8;
+
+    &:first-of-type {
+      margin-top: 0;
+    }
+  }
+
+  #view-list & h2 {
+    padding-left: $distance-default + 2.175rem;
+  }
+
+  > div.list-item {
+    display: flex;
+    padding: 0.9rem $distance-default 0.7rem;
+
+    div {
+      flex: 1 0 0%;
+      width: 100%;
+      max-width: 100%;
+
+      h4:before {
+        content: '';
+        height: 8px;
+        width: 8px;
+        margin-right: 0.2rem;
+        border-radius: 50%;
+        display: inline-block;
+        background-color: $color-green-medium;
+      }
+    }
+
+    img.btn {
+      flex: 0 0 auto;
+      align-self: center;
+      margin-bottom: 0.3rem;
+    }
+
+    &:hover {
+      background-color: $hover-color-light;
+    }
+  }
+
+  > div.noto {
+    img.btn:first-of-type {
+      flex: 0 0 auto; // grow shrink basis
+      align-self: flex-start;
+      margin: 0.1rem 0.8rem 0 0;
+    }
+
+    div {
+      h4:before {
+        display: none;
+      }
+    }
+
+    &:after {
+      background-image: url(/src/assets/svg/dark/ICON_Arrow-Right.svg);
+    }
+    &:hover {
+      background-color: $hover-color-medium;
+    }
+  }
+}
