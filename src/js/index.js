@@ -1,3 +1,3 @@
-import client from './client/client';
+import client from './client/client'
 
-client();
+client()
