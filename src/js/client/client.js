@@ -7,4 +7,4 @@ import View from './view/view';
 /**
  * Init the MVC
  */
-const app = new Controller(new Model(), new View());
+export default function client() { return (new Controller(new Model(), new View())); }
