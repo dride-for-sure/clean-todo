@@ -1,5 +1,5 @@
 import Task from './task';
-import { uuid } from '../lib';
+import { uuid } from '../utils/helper';
 
 /**
  * Data management

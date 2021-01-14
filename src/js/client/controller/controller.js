@@ -20,23 +20,23 @@ export default class Controller {
      * @param {Array} tasks
      */
 
-    onTaskListChanged = (tasks) => {
-      this.view.displayTasks(tasks);
-    }
+  onTaskListChanged = (tasks) => {
+    this.view.displayTasks(tasks);
+  }
 
-    handleAddToTask = (taskText) => {
-      this.model.addTask(taskText);
-    }
+  handleAddToTask = (taskText) => {
+    this.model.addTask(taskText);
+  }
 
-    handleEditTask = (id, taskText) => {
-      this.model.editTask(id, taskText);
-    }
+  handleEditTask = (id, taskText) => {
+    this.model.editTask(id, taskText);
+  }
 
-    handleDeleteTask = (id) => {
-      this.model.deleteTask(id);
-    }
+  handleDeleteTask = (id) => {
+    this.model.deleteTask(id);
+  }
 
-    handleToogleTask = (id) => {
-      this.model.toogleTask(id);
-    }
+  handleToogleTask = (id) => {
+    this.model.toogleTask(id);
+  }
 }
