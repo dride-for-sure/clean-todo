@@ -15,6 +15,11 @@
     "@babel/polyfill": "^7.12.1",
     "node-sass": "^5.0.0"
   },
+  "prettier": {
+    "singleQuote": true,
+    "semi": false,
+    "trailingComma": "none"
+  },
   "devDependencies": {
     "@babel/cli": "^7.12.10",
     "@babel/core": "^7.12.10",
