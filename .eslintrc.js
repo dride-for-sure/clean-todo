@@ -4,19 +4,19 @@ module.exports = {
     node: true,
     es6: true,
   },
-  extends: [
-    'airbnb-base',
-  ],
-  parser: 'babel-eslint',
+  extends: ["airbnb-base", "prettier"],
+  parser: "babel-eslint",
   globals: {
-    Atomics: 'readonly',
-    SharedArrayBuffer: 'readonly',
+    Atomics: "readonly",
+    SharedArrayBuffer: "readonly",
   },
+  plugins: ["prettier"],
   parserOptions: {
     ecmaVersion: 2018,
-    sourceType: 'module',
+    sourceType: "module",
   },
   rules: {
-    'import/extensions': 'off',
+    "import/extensions": "off",
+    "prettier/prettier": ["error"],
   },
 };
