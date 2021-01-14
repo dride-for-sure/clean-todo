@@ -14,7 +14,7 @@ div.list {
     }
   }
 
-  #view-list & h2 {
+  #notos-view & h2 {
     padding-left: $distance-default + 2.175rem;
   }
 
@@ -72,11 +72,11 @@ div.list {
       }
     }
 
-    #view-settings & {
+    #settings-view & {
       padding: 0.5rem $distance-default 0.3rem;
     }
 
-    #view-search &.noto {
+    #search-view &.noto {
       &:hover {
         background-color: $hover-color-light;
       }
