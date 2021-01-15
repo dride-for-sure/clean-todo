@@ -16,9 +16,9 @@ export const createElement = (tag, selectors) => {
   if (selectors) {
     selectors.split(' ').forEach(selector => {
       if (selector.startsWith('#')) {
-        element.id = selector;
+        element.id = selector.substr(1);
       } else {
-        element.classList.add(selector);
+        element.classList.add(selector.substr(1));
       }
     });
   }

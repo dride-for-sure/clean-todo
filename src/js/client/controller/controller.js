@@ -21,7 +21,7 @@ export default class Controller {
    */
 
   onTaskListChanged = tasks => {
-    this.view.displayTasks(tasks);
+    this.view.displayView(tasks);
   };
 
   handleAddToTask = taskText => {

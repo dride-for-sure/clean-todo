@@ -1,18 +1,17 @@
 import getBtnBar from '../components/btnBar/btnBar';
+import getHeader from '../components/header/header';
 import getListsPredefined from '../components/lists/listsPredefined';
 import getListsUserDefined from '../components/lists/listsUserDefined';
 
-export default function listView() {
+export default function listView(view, title) {
   return `
-  <div class="wrapper" id="list">  
-    <div class="container" tabindex="0">
-      // Header
-      ${getListsUserDefined()}
-    </div>
-    <div class="container fixed-bottom">
-      ${getListsPredefined()}
-      ${getBtnBar('list')}
-    </div>
+  <div class="container" tabindex="0">
+    ${getHeader(view, title)}
+    ${getListsUserDefined()}
+  </div>
+  <div class="container fixed-bottom">
+    ${getListsPredefined()}
+    ${getBtnBar(view)}
   </div>
 `;
 }

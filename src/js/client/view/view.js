@@ -15,10 +15,10 @@ export default class View {
    * @param {Array} tasks
    * @param {String} view - lists, notos, editor, settings, search
    */
-  displayView(tasks) {
-    const view = createElement('div', '#view .wrapper');
-    view.innerHTML = listView();
-    this.body.append(view);
+  displayView(tasks, view = 'lists') {
+    const wrapper = createElement('div', `#${view} .wrapper`);
+    wrapper.innerHTML = listView(view); // parameter is view
+    this.body.append(wrapper);
   }
 
   clearView() {
