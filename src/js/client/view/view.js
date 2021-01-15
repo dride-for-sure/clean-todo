@@ -1,4 +1,7 @@
-import listView from '../container/listview';
+import editor from '../container/editor';
+import lists from '../container/lists';
+import notos from '../container/notos';
+import settings from '../container/settings';
 import { createElement, getElements } from '../utils/helper';
 
 /**
@@ -8,21 +11,116 @@ import { createElement, getElements } from '../utils/helper';
 export default class View {
   constructor() {
     [this.body] = getElements('body');
+
+    // TestData
+    this.data = {
+      settings: {
+        predefinedLists: [
+          { title: 'today', enabled: true },
+          { title: 'week', enabled: true },
+          { title: 'prio', enabled: true },
+          { title: 'all', enabled: true },
+        ],
+      },
+      lists: [
+        {
+          id: 1,
+          title: 'userList1',
+          notos: [
+            {
+              id: 1,
+              list: 'userList1',
+              title: 'nototitleID1',
+              noto: 'contentOfNoto1',
+              due: '2020-04-03',
+              tags: ['tag1', 'tag2'],
+              assigns: [],
+              complete: false,
+            },
+            {
+              id: 2,
+              list: 'userList1',
+              title: 'nototitleID2',
+              noto: 'contentOfNoto2',
+              due: '2021-04-03',
+              tags: ['tag1', 'tag2'],
+              assigns: [],
+              complete: true,
+            },
+            {
+              id: 3,
+              list: 'userList1',
+              title: 'nototitleID3',
+              noto: 'contentOfNoto3',
+              due: undefined,
+              tags: [],
+              assigns: ['test1', 'test2'],
+              complete: false,
+            },
+          ],
+        },
+        {
+          id: 2,
+          title: 'userList2',
+          notos: [
+            {
+              id: 1,
+              list: 'userList2',
+              title: 'nototitleID1',
+              noto: 'contentOfNoto1',
+              due: '2021-04-03',
+              tags: ['tag1', 'tag2'],
+              assigns: [],
+              complete: false,
+            },
+            {
+              id: 2,
+              list: 'userList2',
+              title: 'nototitleID2',
+              noto: 'contentOfNoto2',
+              due: '2021-04-03',
+              tags: ['tag1', 'tag2'],
+              assigns: [],
+              complete: true,
+            },
+          ],
+        },
+        {
+          id: 3,
+          title: 'userList3',
+          notos: [],
+        },
+      ],
+    };
   }
 
   /**
    * Display the view
-   * @param {Array} tasks
+   * @param {Array} data
    * @param {String} view - lists, notos, editor, settings, search
+   * @param {String} id - id of a noto or list
    */
-  displayView(tasks, view = 'lists') {
+  displayView(data, view = 'lists', id = 1) {
+    // this.data = data;
     const wrapper = createElement('div', `#${view} .wrapper`);
-    wrapper.innerHTML = listView(view); // parameter is view
+    let content;
+    if (view === 'lists') {
+      content = lists(this.data, view); // parameter is view
+    } else if (view === 'notos') {
+      content = notos(this.data, view, id);
+    } else if (view === 'editor') {
+      content = editor(this.data, view, id);
+    } else if (view === 'settings') {
+      content = settings(this.data);
+    }
+    wrapper.innerHTML = content;
     this.body.append(wrapper);
   }
 
+  /**
+   * Clear the page (e.g. onDataChanged)
+   */
   clearView() {
-    // Clear the page
     this.body.removeChild(this.body.childNodes[0]);
   }
 }
