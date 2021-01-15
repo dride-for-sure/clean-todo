@@ -1,6 +1,6 @@
-import btnBar from '../components/btnBar/btnBar'
-import getListsPredefined from '../components/lists/listsPredefined'
-import getListsUserDefined from '../components/lists/listsUserDefined'
+import btnBar from '../components/btnBar/btnBar';
+import getListsPredefined from '../components/lists/listsPredefined';
+import getListsUserDefined from '../components/lists/listsUserDefined';
 
 export default function listView() {
   return `
@@ -14,5 +14,5 @@ export default function listView() {
       ${btnBar('list')}
     </div>
   </div>
-`
+`;
 }

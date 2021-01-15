@@ -21,7 +21,7 @@ export default function btnBar(dest) {
 
   let output = ''
   btns.forEach((el) => {
-    output += `<img class="btn" src="${getAsset(el, light)}"`
+    output += `<img class="btn" src="${getAsset(el, light)}>"`
   })
 
   return `<div class="btn-bar">${output}</div>`

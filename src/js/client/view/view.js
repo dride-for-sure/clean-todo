@@ -1,4 +1,4 @@
-import { createElement, getElements } from '../utils/helper'
+import { createElement, getElements } from '../utils/helper';
 
 /**
  * Represent the model visually
@@ -7,13 +7,14 @@ import { createElement, getElements } from '../utils/helper'
 export default class View {
   constructor() {
     // Task html
-    ;[this.app] = getElements('body')
-    this.container = createElement('div', 'container-fluid p-5')
-    this.title = createElement('h1')
-    this.title.innerText = '... .. .'
-    this.taskList = createElement('div', 'container-fluid')
-    this.container.append(this.title, this.taskList)
-    this.app.prepend(this.container)
+    [this.app] = getElements('body');
+    console.log(this.app);
+    this.container = createElement('div', 'container-fluid p-5');
+    this.title = createElement('h1');
+    this.title.innerText = '... .. .';
+    this.taskList = createElement('div', 'container-fluid');
+    this.container.append(this.title, this.taskList);
+    this.app.prepend(this.container);
   }
 
   /**
@@ -23,28 +24,28 @@ export default class View {
   displayTasks(tasks) {
     // Clear the task list
     while (this.taskList.firstChild) {
-      this.taskList.removeChild(this.taskList.firstChild)
+      this.taskList.removeChild(this.taskList.firstChild);
     }
 
     // Display the taskList
     if (tasks.length > 0) {
       // Create ordered list
-      const list = createElement('ol')
+      const list = createElement('ol');
 
       // Iterate over tasks array
-      tasks.forEach((task) => {
+      tasks.forEach(task => {
         // Create list item
-        const li = createElement('li')
+        const li = createElement('li');
         // Create textarea
-        const txt = createElement('textarea')
-        txt.innerText = task.text
+        const txt = createElement('textarea');
+        txt.innerText = task.text;
 
         // Append
-        li.append(txt)
-        list.append(li)
-      })
+        li.append(txt);
+        list.append(li);
+      });
       // Append ordered list to tasklist
-      this.taskList.append(list)
+      this.taskList.append(list);
     }
   }
 }
