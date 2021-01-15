@@ -1,4 +1,4 @@
-import { getElements, createElement } from './lib';
+import { createElement, getElements } from '../utils/helper';
 
 /**
  * Represent the model visually
@@ -8,6 +8,7 @@ export default class View {
   constructor() {
     // Task html
     [this.app] = getElements('body');
+    console.log(this.app);
     this.container = createElement('div', 'container-fluid p-5');
     this.title = createElement('h1');
     this.title.innerText = '... .. .';
@@ -17,9 +18,9 @@ export default class View {
   }
 
   /**
-     * Display the Tasks
-     * @param {Array} tasks
-     */
+   * Display the Tasks
+   * @param {Array} tasks
+   */
   displayTasks(tasks) {
     // Clear the task list
     while (this.taskList.firstChild) {
@@ -32,7 +33,7 @@ export default class View {
       const list = createElement('ol');
 
       // Iterate over tasks array
-      tasks.forEach((task) => {
+      tasks.forEach(task => {
         // Create list item
         const li = createElement('li');
         // Create textarea

@@ -6,21 +6,21 @@
   font-size: $font-size-regular;
   color: $color-light;
 
-  &#view-main {
+  &#list-view {
     background-color: $color-blue-light;
   }
 
-  &#view-list,
-  &#view-noto {
+  &#notos-view,
+  &#notos-editor {
     background-color: $color-grey-light;
     color: $color-blue-medium;
   }
 
-  &#view-settings {
+  &#settings-view {
     background-color: $color-green-medium;
   }
 
-  &#view-search {
+  &#search-view {
     background-color: $color-blue-light;
   }
 }

@@ -1,27 +1,4 @@
-h1,
-h2,
-h3,
-h4 {
-  margin: 0;
-  padding: 0;
-}
-
-h1 {
-  font-family: $font-family-bold;
-  font-size: $font-size-big;
-}
-
-h2 {
-  font-family: $font-family-bold;
-  font-size: $font-size-medium;
-}
-
-h3 {
-  font-family: $font-family-regular;
-  font-size: $font-size-regular;
-}
-
-h4 {
-  font-family: $font-family-regular;
-  font-size: $font-size-small;
+body {
+    font-family: $font-family-default;
+    font-weight: $font-weight-default;
 }
