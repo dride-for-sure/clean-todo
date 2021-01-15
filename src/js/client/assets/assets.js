@@ -8,6 +8,7 @@ import darkDelete from '../../../assets/svg/dark/ICON_Delete.svg';
 import darkDone from '../../../assets/svg/dark/ICON_Done.svg';
 import darkDrag from '../../../assets/svg/dark/ICON_Drag.svg';
 import darkEdit from '../../../assets/svg/dark/ICON_Edit.svg';
+import darkMove from '../../../assets/svg/dark/ICON_Move.svg';
 import darkPlus from '../../../assets/svg/dark/ICON_Plus.svg';
 import darkSearch from '../../../assets/svg/dark/ICON_Search.svg';
 import darkSettingsGlobal from '../../../assets/svg/dark/ICON_Settings_Global.svg';
@@ -26,6 +27,7 @@ import lightDelete from '../../../assets/svg/light/ICON_Delete.svg';
 import lightDone from '../../../assets/svg/light/ICON_Done.svg';
 import lightDrag from '../../../assets/svg/light/ICON_Drag.svg';
 import lightEdit from '../../../assets/svg/light/ICON_Edit.svg';
+import lightMove from '../../../assets/svg/light/ICON_Move.svg';
 import lightPlus from '../../../assets/svg/light/ICON_Plus.svg';
 import lightSearch from '../../../assets/svg/light/ICON_Search.svg';
 import lightSettingsGlobal from '../../../assets/svg/light/ICON_Settings_Global.svg';
@@ -54,6 +56,7 @@ export default function getAsset(type, light) {
       drag: lightDrag,
       edit: lightEdit,
       logo: lightDarklogo,
+      move: lightMove,
       plus: lightPlus,
       search: lightSearch,
       settingsGlobal: lightSettingsGlobal,
@@ -74,6 +77,7 @@ export default function getAsset(type, light) {
       drag: darkDrag,
       edit: darkEdit,
       logo: lightDarklogo,
+      mvoe: darkMove,
       plus: darkPlus,
       search: darkSearch,
       settingsGlobal: darkSettingsGlobal,

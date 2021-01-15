@@ -4,4 +4,69 @@
   padding: 0.75rem $distance-default;
   border-top: 1px solid $green-border;
   background-color: $color-green-medium;
+
+  &.btn-bar-lists,
+  &.btn-bar-notos {
+    &:not(.edit) {
+      > img.btn-back,
+      > img.btn-delete,
+      > img.btn-checked {
+        display: none;
+      }
+    }
+
+    &.edit {
+      flex-direction: row-reverse;
+
+      > img {
+        display: none;
+      }
+
+      > img.btn-checked {
+        display: inline-block;
+      }
+    }
+
+    &.modal {
+      > img {
+        display: none;
+      }
+
+      > img.btn-back,
+      > img.btn-checked {
+        display: inline-block;
+      }
+    }
+  }
+
+  &.btn-bar-editor {
+    &:not(.edit) {
+      > img.btn-back,
+      > img.btn-checked {
+        display: none;
+      }
+    }
+
+    &.edit {
+      flex-direction: row-reverse;
+      > img {
+        display: none;
+      }
+
+      > img.btn-checked {
+        display: inline-block;
+      }
+    }
+
+    &.modal {
+      > img {
+        display: none;
+      }
+
+      > img.btn-back,
+      > img.btn-checked {
+        display: inline-block;
+      }
+    }
+  }
 }
