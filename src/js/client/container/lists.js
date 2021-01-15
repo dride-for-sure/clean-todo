@@ -1,7 +1,7 @@
 import getBtnBar from '../components/btnBar/btnBar';
 import getHeader from '../components/header/header';
-import getListsPredefined from '../components/lists/listsPredefined';
-import getListsUserDefined from '../components/lists/listsUserDefined';
+import getListsPredefined from '../components/lists/getListsPredefined';
+import getListsUserDefined from '../components/lists/getListsUserDefined';
 
 /**
  * Returns lists view
@@ -11,11 +11,11 @@ import getListsUserDefined from '../components/lists/listsUserDefined';
 export default function lists(data, view) {
   return `
   <div class="container" tabindex="0">
-    ${getHeader(view)}
-    ${getListsUserDefined()}
+    ${getHeader(data, view)}
+    ${getListsUserDefined(data)}
   </div>
   <div class="container fixed-bottom">
-    ${getListsPredefined()}
+    ${getListsPredefined(data)}
     ${getBtnBar(view)}
   </div>
 `;
