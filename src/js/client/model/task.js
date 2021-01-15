@@ -2,17 +2,32 @@
  * @class Task
  *
  * A single task
- * @param {string} id - uuidv4
- * @param {string} text
- * @param {string} due - date
- * @param {boolean} complete
+ * @param {String} id - uuidv4
+ * @param {String} list - userList or undefined
+ * @param {String} text
+ * @param {String} due - date
+ * @param {Array} tags
+ * @param {Array} assign
+ * @param {Boolean} complete
  */
 export default class Task {
-  constructor(id, list = undefined, text, due = undefined, complete = false) {
+  constructor(
+    id,
+    list = undefined,
+    title,
+    noto = undefined,
+    due = undefined,
+    tags = [],
+    assign = [],
+    complete = false,
+  ) {
     this.id = id;
     this.list = list;
-    this.text = text;
+    this.title = title;
+    this.noto = noto;
     this.due = due;
+    this.tags = tags;
+    this.assign = assign;
     this.complete = complete;
   }
 }
