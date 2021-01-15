@@ -5,7 +5,7 @@ import getAsset from '../../assets/assets';
  * @param {string} dest - [list, listEditing, notoEditor, modal]
  * @returns {string}
  */
-export default function btnBar(dest) {
+export default function getBtnBar(dest) {
   let btns = [];
   let light = true;
   if (dest === 'list') {

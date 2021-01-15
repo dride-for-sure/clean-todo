@@ -1,3 +1,4 @@
+import listView from '../container/listview';
 import { createElement, getElements } from '../utils/helper';
 
 /**
@@ -6,46 +7,22 @@ import { createElement, getElements } from '../utils/helper';
  */
 export default class View {
   constructor() {
-    // Task html
-    [this.app] = getElements('body');
-    console.log(this.app);
-    this.container = createElement('div', 'container-fluid p-5');
-    this.title = createElement('h1');
-    this.title.innerText = '... .. .';
-    this.taskList = createElement('div', 'container-fluid');
-    this.container.append(this.title, this.taskList);
-    this.app.prepend(this.container);
+    [this.body] = getElements('body');
   }
 
   /**
-   * Display the Tasks
+   * Display the view
    * @param {Array} tasks
+   * @param {String} view - lists, notos, editor, settings, search
    */
-  displayTasks(tasks) {
-    // Clear the task list
-    while (this.taskList.firstChild) {
-      this.taskList.removeChild(this.taskList.firstChild);
-    }
+  displayView(tasks) {
+    const view = createElement('div', '#view .wrapper');
+    view.innerHTML = listView();
+    this.body.append(view);
+  }
 
-    // Display the taskList
-    if (tasks.length > 0) {
-      // Create ordered list
-      const list = createElement('ol');
-
-      // Iterate over tasks array
-      tasks.forEach(task => {
-        // Create list item
-        const li = createElement('li');
-        // Create textarea
-        const txt = createElement('textarea');
-        txt.innerText = task.text;
-
-        // Append
-        li.append(txt);
-        list.append(li);
-      });
-      // Append ordered list to tasklist
-      this.taskList.append(list);
-    }
+  clearView() {
+    // Clear the page
+    this.body.removeChild(this.body.childNodes[0]);
   }
 }
