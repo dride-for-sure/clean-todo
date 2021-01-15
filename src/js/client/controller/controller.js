@@ -16,27 +16,27 @@ export default class Controller {
   }
 
   /**
-     * View notification
-     * @param {Array} tasks
-     */
+   * View notification
+   * @param {Array} tasks
+   */
 
-  onTaskListChanged = (tasks) => {
+  onTaskListChanged = tasks => {
     this.view.displayTasks(tasks);
-  }
+  };
 
-  handleAddToTask = (taskText) => {
+  handleAddToTask = taskText => {
     this.model.addTask(taskText);
-  }
+  };
 
   handleEditTask = (id, taskText) => {
     this.model.editTask(id, taskText);
-  }
+  };
 
-  handleDeleteTask = (id) => {
+  handleDeleteTask = id => {
     this.model.deleteTask(id);
-  }
+  };
 
-  handleToogleTask = (id) => {
+  handleToogleTask = id => {
     this.model.toogleTask(id);
-  }
+  };
 }
