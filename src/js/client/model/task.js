@@ -7,7 +7,7 @@
  * @param {String} text
  * @param {String} due - date
  * @param {Array} tags
- * @param {Array} assign
+ * @param {Array} assigns
  * @param {Boolean} complete
  */
 export default class Task {
@@ -18,7 +18,7 @@ export default class Task {
     noto = undefined,
     due = undefined,
     tags = [],
-    assign = [],
+    assigns = [],
     complete = false,
   ) {
     this.id = id;
@@ -27,7 +27,7 @@ export default class Task {
     this.noto = noto;
     this.due = due;
     this.tags = tags;
-    this.assign = assign;
+    this.assigns = assigns;
     this.complete = complete;
   }
 }
