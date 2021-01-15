@@ -1,6 +1,6 @@
 import getAsset from '../../assets/assets';
-import getList from './getList';
-import { getNoto } from './getNotos';
+import { getList } from '../../utils/getList';
+import { getNoto } from '../../utils/getNotos';
 
 /**
  * Returns the header
