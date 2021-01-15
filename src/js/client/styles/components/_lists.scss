@@ -34,14 +34,25 @@ div.list {
       width: 100%;
       max-width: 100%;
 
-      h4:before {
-        content: '';
-        height: 8px;
-        width: 8px;
-        margin-right: 0.2rem;
-        border-radius: 50%;
-        display: inline-block;
-        background-color: $color-green-medium;
+      h4 {
+        color: $color-green-medium;
+
+        &:before {
+          content: '';
+          height: 8px;
+          width: 8px;
+          margin-right: 0.2rem;
+          border-radius: 50%;
+          display: inline-block;
+          background-color: $color-green-medium;
+        }
+      }
+
+      h4.due {
+        color: $color-red-light;
+        &:before {
+          background-color: $color-red-light;
+        }
       }
     }
 
