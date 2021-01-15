@@ -11,23 +11,14 @@
  * @param {Boolean} complete
  */
 export default class Task {
-  constructor(
-    id,
-    list = undefined,
-    title,
-    noto = undefined,
-    due = undefined,
-    tags = [],
-    assigns = [],
-    complete = false,
-  ) {
+  constructor(id, list, title, noto, due, tags, assigns, complete) {
     this.id = id;
-    this.list = list;
+    this.list = list || undefined;
     this.title = title;
-    this.noto = noto;
-    this.due = due;
-    this.tags = tags;
-    this.assigns = assigns;
-    this.complete = complete;
+    this.noto = noto || undefined;
+    this.due = due || undefined;
+    this.tags = Array.isArray(tags) ? tags : []; // Check explicit if array
+    this.assigns = Array.isArray(assigns) ? assigns : []; // Check explicit if array
+    this.complete = complete || false;
   }
 }

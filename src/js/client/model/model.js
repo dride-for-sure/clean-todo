@@ -1,5 +1,5 @@
+import { uuidv4 } from '../utils/helper';
 import Task from './task';
-import { uuid } from '../utils/helper';
 
 /**
  * Data management
@@ -12,65 +12,89 @@ export default class Model {
   }
 
   /**
-     * Controller notification
-     * @param {Function} handler
-     */
+   * Controller notification
+   * @param {Function} handler
+   */
   bindTaskListChanged(handler) {
     this.onTaskListChanged = handler;
   }
 
   /**
-     * Update localStorage and invoke controller notification
-     */
+   * Update localStorage and invoke controller notification
+   */
   commit() {
     this.onTaskListChanged(this.tasks);
     localStorage.setItem('tasks', JSON.stringify(this.tasks));
   }
 
   /**
-     * Add task to tasks
-     * @param {String} taskText
-     */
-  addTask(taskText) {
-    // Initialize new task object
-    const task = new Task(uuid, taskText, false);
+   * Add task to tasks
+   * @param {String} list
+   * @param {String} title
+   * @param {String} noto
+   * @param {String} due
+   * @param {Array} tags
+   * @param {Array} assigns
+   */
+  addTask(list, title, noto, due, tags, assigns) {
+    // Initialize new task object with uuidv4
+    const id = uuidv4();
+    const taskObj = new Task(id, list, title, noto, due, tags, assigns);
     // Push to tasks array
-    this.tasks.push(task);
+    this.tasks.push(taskObj);
     this.commit();
   }
 
-
   /**
-     * Map through all tasks and update text
-     * @param {String} id
-     * @param {String} updatedTaskText
-     */
-  editTask(id, updatedTaskText) {
-    this.tasks = this.tasks.map((task) => {
-      const updatedTask = task;
-      if (task.id === id) { updatedTask.text = updatedTaskText; }
-      return updatedTask;
+   * Map through all tasks and update obj with matching id
+   * @param {String} id
+   * @param {String} list
+   * @param {String} title
+   * @param {String} noto
+   * @param {String} due
+   * @param {Array} tags
+   * @param {Array} assigns
+   * @param {String} complete
+   */
+  editTask(id, list, title, noto, due, tags, assigns, complete) {
+    this.tasks = this.tasks.map(task => {
+      if (id === task.id) {
+        const taskObj = new Task(
+          id,
+          list,
+          title,
+          noto,
+          due,
+          tags,
+          assigns,
+          complete,
+        );
+        return taskObj;
+      }
+      return task;
     });
     this.commit();
   }
 
   /**
-     * Filter the task and remove task with given id
-     * @param {String} id
-     */
+   * Filter the task and remove task with given id
+   * @param {String} id
+   */
   deleteTask(id) {
-    this.tasks = this.tasks.filter((task) => task.id !== id);
+    this.tasks = this.tasks.filter(task => task.id !== id);
     this.commit();
   }
 
   /**
-     * Toggle task.complete property
-     * @param {String} id
-     */
+   * Toggle task.complete property
+   * @param {String} id
+   */
   toggleTask(id) {
-    this.tasks = this.tasks.map((task) => {
+    this.tasks = this.tasks.map(task => {
       const updatedTask = task;
-      if (task.id === id) { updatedTask.complete = !updatedTask.complete; }
+      if (task.id === id) {
+        updatedTask.complete = !updatedTask.complete;
+      }
       return updatedTask;
     });
     this.commit();
