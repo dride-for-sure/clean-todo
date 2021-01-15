@@ -15,6 +15,7 @@ import darkSettingsLocal from '../../../assets/svg/dark/ICON_Settings_Local.svg'
 import darkShare from '../../../assets/svg/dark/ICON_Share.svg';
 import darkUnchecked from '../../../assets/svg/dark/ICON_Unchecked.svg';
 import darkUndone from '../../../assets/svg/dark/ICON_Undone.svg';
+import lightDarklogo from '../../../assets/svg/ICON_Logo.svg';
 import lightArrowDown from '../../../assets/svg/light/ICON_Arrow-Down.svg';
 import lightArrowLeft from '../../../assets/svg/light/ICON_Arrow-Left.svg';
 import lightArrowRight from '../../../assets/svg/light/ICON_Arrow-Right.svg';
@@ -52,6 +53,7 @@ export default function getAsset(type, light) {
       done: lightDone,
       drag: lightDrag,
       edit: lightEdit,
+      logo: lightDarklogo,
       plus: lightPlus,
       search: lightSearch,
       settingsGlobal: lightSettingsGlobal,
@@ -71,6 +73,7 @@ export default function getAsset(type, light) {
       done: darkDone,
       drag: darkDrag,
       edit: darkEdit,
+      logo: lightDarklogo,
       plus: darkPlus,
       search: darkSearch,
       settingsGlobal: darkSettingsGlobal,
