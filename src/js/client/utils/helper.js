@@ -15,7 +15,11 @@ export const createElement = (tag, selectors) => {
   const element = document.createElement(tag);
   if (selectors) {
     selectors.split(' ').forEach(selector => {
-      element.classList.add(selector);
+      if (selector.startsWith('#')) {
+        element.id = selector;
+      } else {
+        element.classList.add(selector);
+      }
     });
   }
   return element;
