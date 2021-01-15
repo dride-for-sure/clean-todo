@@ -17,12 +17,12 @@ div.header {
       margin-right: 0.8rem;
     }
 
-    #list-view &:nth-of-type(1) {
+    #lists &:nth-of-type(1) {
       margin-bottom: 0.05rem;
     }
   }
 
-  #search-view & {
+  #search & {
     background-color: $color-blue-medium;
     padding: 1.5rem $distance-default 1.3rem;
 
