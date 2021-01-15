@@ -20,7 +20,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 // Config object to export
 module.exports = {
   mode: isDevelopment ? 'development' : 'production',
-  entry: `${srcDir}/js/index.js`,
+  entry: `${srcDir}/js/client/client.js`,
   output: {
     path: distDir,
     filename: isDevelopment ? 'bundle.js' : 'bundle.[contenthash].js' // https://github.com/webpack/loader-utils#interpolatename
