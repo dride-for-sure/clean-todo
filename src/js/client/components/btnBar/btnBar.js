@@ -8,7 +8,7 @@ import getAsset from '../../assets/assets';
 export default function getBtnBar(view) {
   let btns = [];
   if (view === 'lists' || view === 'notos') {
-    btns = ['back', 'plus', 'search', 'edit', 'checked', 'delete'];
+    btns = ['back', 'plus', 'search', 'edit', 'checked'];
   } else if (view === 'editor') {
     btns = ['back', 'plus', 'checked', 'move', 'share', 'delete'];
   }

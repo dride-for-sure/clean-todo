@@ -9,7 +9,6 @@
   &.btn-bar-notos {
     &:not(.edit) {
       > img.btn-back,
-      > img.btn-delete,
       > img.btn-checked {
         display: none;
       }
