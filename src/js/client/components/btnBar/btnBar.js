@@ -1,28 +1,22 @@
-import getAsset from '../../assets/assets'
+import getAsset from '../../assets/assets';
 
 /**
  * Returns the fixed-bottom button bar
- * @param {string} dest - [list, listEditing, notoEditor, modal]
+ * @param {string} view - [lists, notos, editor]
  * @returns {string}
  */
-export default function btnBar(dest) {
-  let btns = []
-  let light = true
-  if (dest === 'list') {
-    btns = ['plus', 'search', 'edit']
-  } else if (dest === 'listEditing') {
-    btns = ['plus', 'checked']
-  } else if (dest === 'notoEditor') {
-    btns = ['plus', 'settingsLocal', 'share', 'delete']
-    light = false
-  } else if (dest === 'modal') {
-    btns = ['back', 'delete']
+export default function btnBar(view) {
+  let btns = [];
+  if (view === 'lists' || view === 'notos') {
+    btns = ['back', 'plus', 'search', 'edit', 'checked'];
+  } else if (view === 'editor') {
+    btns = ['back', 'plus', 'checked', 'move', 'share', 'delete'];
   }
 
-  let output = ''
-  btns.forEach((el) => {
-    output += `<img class="btn" src="${getAsset(el, light)}>"`
-  })
+  let output = '';
+  btns.forEach(el => {
+    output += `<img class="btn btn-${el}" src="${getAsset(el, 'light')}">`;
+  });
 
-  return `<div class="btn-bar">${output}</div>`
+  return `<div class="btn-bar btn-bar-${view}">${output}</div>`;
 }

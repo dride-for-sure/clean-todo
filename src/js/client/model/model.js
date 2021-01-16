@@ -56,19 +56,10 @@ export default class Model {
    * @param {Array} assigns
    * @param {String} complete
    */
-  editTask(id, list, title, noto, due, tags, assigns, complete) {
+  editTask(id, list, title, noto, due, priority, tags, assigns, complete) {
     this.tasks = this.tasks.map(task => {
       if (id === task.id) {
-        const taskObj = new Task(
-          id,
-          list,
-          title,
-          noto,
-          due,
-          tags,
-          assigns,
-          complete,
-        );
+        const taskObj = new Task(id, list, title, noto, due, priority, tags, assigns, complete);
         return taskObj;
       }
       return task;

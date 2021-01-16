@@ -14,7 +14,7 @@ div.list {
     }
   }
 
-  #notos-view & h2 {
+  #notos & h2 {
     padding-left: $distance-default + 2.175rem;
   }
 
@@ -34,14 +34,25 @@ div.list {
       width: 100%;
       max-width: 100%;
 
-      h4:before {
-        content: '';
-        height: 8px;
-        width: 8px;
-        margin-right: 0.2rem;
-        border-radius: 50%;
-        display: inline-block;
-        background-color: $color-green-medium;
+      h4 {
+        color: $color-green-medium;
+
+        &:before {
+          content: '';
+          height: 8px;
+          width: 8px;
+          margin-right: 0.3rem;
+          border-radius: 50%;
+          display: inline-block;
+          background-color: $color-green-medium;
+        }
+      }
+
+      h4.due {
+        color: $color-red-light;
+        &:before {
+          background-color: $color-red-light;
+        }
       }
     }
 
@@ -72,11 +83,11 @@ div.list {
       }
     }
 
-    #settings-view & {
+    #settings & {
       padding: 0.5rem $distance-default 0.3rem;
     }
 
-    #search-view &.noto {
+    #search &.noto {
       &:hover {
         background-color: $hover-color-light;
       }
@@ -92,10 +103,6 @@ div.list {
     .list-item {
       margin: 0.125rem 0;
       background-color: $color-blue-medium;
-    }
-
-    > :first-child {
-      margin-top: 0;
     }
 
     > :last-child {

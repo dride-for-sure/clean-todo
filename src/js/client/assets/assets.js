@@ -8,6 +8,7 @@ import darkDelete from '../../../assets/svg/dark/ICON_Delete.svg';
 import darkDone from '../../../assets/svg/dark/ICON_Done.svg';
 import darkDrag from '../../../assets/svg/dark/ICON_Drag.svg';
 import darkEdit from '../../../assets/svg/dark/ICON_Edit.svg';
+import darkMove from '../../../assets/svg/dark/ICON_Move.svg';
 import darkPlus from '../../../assets/svg/dark/ICON_Plus.svg';
 import darkSearch from '../../../assets/svg/dark/ICON_Search.svg';
 import darkSettingsGlobal from '../../../assets/svg/dark/ICON_Settings_Global.svg';
@@ -15,6 +16,7 @@ import darkSettingsLocal from '../../../assets/svg/dark/ICON_Settings_Local.svg'
 import darkShare from '../../../assets/svg/dark/ICON_Share.svg';
 import darkUnchecked from '../../../assets/svg/dark/ICON_Unchecked.svg';
 import darkUndone from '../../../assets/svg/dark/ICON_Undone.svg';
+import lightDarklogo from '../../../assets/svg/ICON_Logo.svg';
 import lightArrowDown from '../../../assets/svg/light/ICON_Arrow-Down.svg';
 import lightArrowLeft from '../../../assets/svg/light/ICON_Arrow-Left.svg';
 import lightArrowRight from '../../../assets/svg/light/ICON_Arrow-Right.svg';
@@ -25,6 +27,7 @@ import lightDelete from '../../../assets/svg/light/ICON_Delete.svg';
 import lightDone from '../../../assets/svg/light/ICON_Done.svg';
 import lightDrag from '../../../assets/svg/light/ICON_Drag.svg';
 import lightEdit from '../../../assets/svg/light/ICON_Edit.svg';
+import lightMove from '../../../assets/svg/light/ICON_Move.svg';
 import lightPlus from '../../../assets/svg/light/ICON_Plus.svg';
 import lightSearch from '../../../assets/svg/light/ICON_Search.svg';
 import lightSettingsGlobal from '../../../assets/svg/light/ICON_Settings_Global.svg';
@@ -39,8 +42,8 @@ import lightUndone from '../../../assets/svg/light/ICON_Undone.svg';
  * @param {boolean} light - light?
  * @returns {URL}
  */
-export default function getAsset(type, light) {
-  const assets = [
+export default function assets(type, light) {
+  const arr = [
     {
       arrowDown: lightArrowDown,
       arrowLeft: lightArrowLeft,
@@ -52,6 +55,8 @@ export default function getAsset(type, light) {
       done: lightDone,
       drag: lightDrag,
       edit: lightEdit,
+      logo: lightDarklogo,
+      move: lightMove,
       plus: lightPlus,
       search: lightSearch,
       settingsGlobal: lightSettingsGlobal,
@@ -71,6 +76,8 @@ export default function getAsset(type, light) {
       done: darkDone,
       drag: darkDrag,
       edit: darkEdit,
+      logo: lightDarklogo,
+      mvoe: darkMove,
       plus: darkPlus,
       search: darkSearch,
       settingsGlobal: darkSettingsGlobal,
@@ -80,5 +87,5 @@ export default function getAsset(type, light) {
       undone: darkUndone,
     },
   ];
-  return light ? assets[0][type] : assets[1][type];
+  return light ? arr[0][type] : arr[1][type];
 }

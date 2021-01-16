@@ -4,7 +4,7 @@ module.exports = {
     node: true,
     es6: true,
   },
-  extends: ['airbnb-base', 'prettier'],
+  extends: ['airbnb', 'prettier'],
   parser: 'babel-eslint',
   globals: {
     Atomics: 'readonly',
@@ -17,14 +17,6 @@ module.exports = {
   },
   rules: {
     'import/extensions': 'off',
-    'prettier/prettier': [
-      'warn',
-      {
-        singleQuote: true,
-        semi: true,
-        trailingComma: 'all',
-        arrowParens: 'avoid',
-      },
-    ],
+    'prettier/prettier': ['error'],
   },
 };
