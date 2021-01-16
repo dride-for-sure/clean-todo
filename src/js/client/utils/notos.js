@@ -51,7 +51,7 @@ export const notosWithMeta = (notos, meta) => {
 };
 
 /**
- * Return notos that have complete status
+ * Return notos that are incomplete or complete
  * @param {Array} notos
  * @param {Boolean} incomplete
  * @returns {Array}
