@@ -41,7 +41,7 @@ div.list {
           content: '';
           height: 8px;
           width: 8px;
-          margin-right: 0.2rem;
+          margin-right: 0.3rem;
           border-radius: 50%;
           display: inline-block;
           background-color: $color-green-medium;
@@ -103,10 +103,6 @@ div.list {
     .list-item {
       margin: 0.125rem 0;
       background-color: $color-blue-medium;
-    }
-
-    > :first-child {
-      margin-top: 0;
     }
 
     > :last-child {
