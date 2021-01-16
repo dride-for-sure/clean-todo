@@ -5,7 +5,7 @@ import getAsset from '../../assets/assets';
  * @param {string} view - [lists, notos, editor]
  * @returns {string}
  */
-export default function getBtnBar(view) {
+export default function btnBar(view) {
   let btns = [];
   if (view === 'lists' || view === 'notos') {
     btns = ['back', 'plus', 'search', 'edit', 'checked'];
