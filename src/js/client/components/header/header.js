@@ -7,7 +7,7 @@ import { aNoto } from '../../utils/notos';
  * @param {String} view - header for which view [lists, notos, editor, settings]
  * @returns {String}
  */
-export default function header(data, view, id = 1) {
+export default function header(data, view, id) {
   let btnLeft;
   let btnRight;
   let h1;
