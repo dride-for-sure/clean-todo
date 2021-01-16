@@ -42,8 +42,8 @@ import lightUndone from '../../../assets/svg/light/ICON_Undone.svg';
  * @param {boolean} light - light?
  * @returns {URL}
  */
-export default function getAsset(type, light) {
-  const assets = [
+export default function assets(type, light) {
+  const arr = [
     {
       arrowDown: lightArrowDown,
       arrowLeft: lightArrowLeft,
@@ -87,5 +87,5 @@ export default function getAsset(type, light) {
       undone: darkUndone,
     },
   ];
-  return light ? assets[0][type] : assets[1][type];
+  return light ? arr[0][type] : arr[1][type];
 }
