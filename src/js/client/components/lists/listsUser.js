@@ -13,9 +13,9 @@ export default function listsUser(data) {
   let output = '';
 
   listsUserDefined.forEach(list => {
-    const relevantNotos = notosIncomplete(list.notos);
-    const dues = notosWithinRange(relevantNotos, todayEvening());
-    const meta = listsDesc(dues, relevantNotos);
+    const notos = notosIncomplete(list.notos);
+    const dues = notosWithinRange(notos, todayEvening());
+    const meta = listsDesc(dues, notos);
 
     output += `
         <div class="list-item">
