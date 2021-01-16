@@ -127,15 +127,16 @@ export default class View {
    * @param {Array} data
    * @param {String} view - lists, notos, editor, settings, search
    * @param {String} id - id of a noto or list
+   * @param {Boolean} complete
    */
-  displayView(data, view = 'lists', id = 1) {
+  displayView(data, view = 'notos', id = 1, complete = false) {
     // this.data = data;
     const wrapper = createElement('div', `#${view} .wrapper`);
     let content;
     if (view === 'lists') {
       content = lists(this.data, view); // parameter is view
     } else if (view === 'notos') {
-      content = notos(this.data, view, id);
+      content = notos(this.data, view, id, complete);
     } else if (view === 'editor') {
       content = editor(this.data, view, id);
     } else if (view === 'settings') {
