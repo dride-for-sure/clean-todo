@@ -5,7 +5,7 @@
  */
 export const allNotos = data => {
   const notos = [];
-  data.lists.forEach(list => notos.push(...list.notos));
+  data.listsUser.forEach(list => notos.push(...list.notos));
   return notos;
 };
 

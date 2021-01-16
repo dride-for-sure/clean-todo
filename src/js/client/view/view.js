@@ -14,18 +14,36 @@ export default class View {
 
     // TestData
     this.data = {
-      settings: {
-        predefinedLists: [
-          { id: 1, title: 'Today', enabled: true },
-          { id: 2, title: 'Priority', enabled: true },
-          { id: 3, title: 'Within a week', enabled: true },
-          { id: 4, title: 'Without due date', enabled: true },
-          { id: 5, title: 'All Notos', enabled: true },
-        ],
-      },
-      lists: [
+      listsPredefined: [
         {
           id: 1,
+          title: 'Today',
+          enabled: true,
+        },
+        {
+          id: 2,
+          title: 'Priority',
+          enabled: true,
+        },
+        {
+          id: 3,
+          title: 'Within a week',
+          enabled: true,
+        },
+        {
+          id: 4,
+          title: 'Without due date',
+          enabled: true,
+        },
+        {
+          id: 5,
+          title: 'All Notos',
+          enabled: true,
+        },
+      ],
+      listsUser: [
+        {
+          id: '1',
           title: 'userList1',
           notos: [
             {
@@ -75,7 +93,7 @@ export default class View {
           ],
         },
         {
-          id: 2,
+          id: '2',
           title: 'userList2',
           notos: [
             {
@@ -114,7 +132,7 @@ export default class View {
           ],
         },
         {
-          id: 3,
+          id: '3',
           title: 'userList3',
           notos: [],
         },
@@ -129,7 +147,7 @@ export default class View {
    * @param {String} id - id of a noto or list
    * @param {Boolean} complete
    */
-  displayView(data, view = 'notos', id = 1, complete = false) {
+  displayView(data, view = 'notos', id = '1', complete = false) {
     // this.data = data;
     const wrapper = createElement('div', `#${view} .wrapper`);
     let content;

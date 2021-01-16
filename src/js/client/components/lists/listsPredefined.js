@@ -11,7 +11,7 @@ import listsDesc from './listsDesc';
 
 export default function listsPredefined(data) {
   // Check settings for available predefined lists
-  const lists = data.settings.predefinedLists.filter(list => list.enabled === true);
+  const lists = data.listsPredefined.filter(list => list.enabled === true);
   let output = '';
 
   lists.forEach(list => {
