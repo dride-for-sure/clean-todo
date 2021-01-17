@@ -1,7 +1,7 @@
-import assets from '../../assets/assets';
-import { endOfThisWeek, startOfThisWeek, todayEvening } from '../../utils/dates';
-import { allNotos, notosIncomplete, notosWithinRange, notosWithMeta } from '../../utils/notos';
-import listsDesc from './listsDesc';
+import getAssets from '../../assets/assets';
+import { getDateToday, getDateWeekEnd, getDateWeekStart } from '../../utils/dates';
+import { filterNotos, getAllNotos, getNotosWithinRange, getNotosWithMeta } from '../../utils/notos';
+import composeListsDescription from './listsDesc';
 
 /**
  * Returns the fixed-bottom predefined lists
@@ -9,51 +9,50 @@ import listsDesc from './listsDesc';
  * @returns {String}
  */
 
-export default function listsPredefined(data) {
-  // Check settings for available predefined lists
-  const lists = data.settings.predefinedLists.filter(list => list.enabled === true);
-  let output = '';
+export default function composeListsPredefined(data) {
+  const listsPredefined = data.listsPredefined.filter(list => list.enabled === true);
+  const filteredNotos = filterNotos(getAllNotos(data, false));
+  let composed = '';
 
-  lists.forEach(list => {
-    let meta;
-    const incomplete = notosIncomplete(allNotos(data));
+  listsPredefined.forEach(listPredefined => {
+    let composedMeta;
 
-    if (list.id === 1) {
+    if (listPredefined.id === 1) {
       // Today
-      const dues = notosWithinRange(incomplete, todayEvening());
-      meta = listsDesc(dues);
-    } else if (list.id === 2) {
+      const dueNotos = getNotosWithinRange(filteredNotos, getDateToday());
+      composedMeta = composeListsDescription([], dueNotos);
+    } else if (listPredefined.id === 2) {
       // Priority
-      const allPriority = notosWithMeta(incomplete, { priority: true });
-      const duePriority = notosWithinRange(allPriority, todayEvening());
-      meta = listsDesc(duePriority, allPriority);
-    } else if (list.id === 3) {
+      const priorityNotos = getNotosWithMeta(filteredNotos, { priority: true });
+      const duePriorityNotos = getNotosWithinRange(priorityNotos, getDateToday());
+      composedMeta = composeListsDescription(priorityNotos, duePriorityNotos);
+    } else if (listPredefined.id === 3) {
       // Within a week
-      const allWeek = notosWithinRange(incomplete, endOfThisWeek(), startOfThisWeek());
-      const dueWeek = notosWithinRange(allWeek, todayEvening(), startOfThisWeek());
-      meta = listsDesc(dueWeek, allWeek);
-    } else if (list.id === 4) {
+      const weekNotos = getNotosWithinRange(filteredNotos, getDateWeekEnd(), getDateWeekStart());
+      const dueWeekNotos = getNotosWithinRange(weekNotos, getDateToday(), getDateWeekStart());
+      composedMeta = composeListsDescription(weekNotos, dueWeekNotos);
+    } else if (listPredefined.id === 4) {
       // Without due date
-      const withoutDue = notosWithMeta(incomplete, { due: undefined });
-      meta = listsDesc('', withoutDue);
-    } else if (list.id === 5) {
+      const withoutDueNotos = getNotosWithMeta(filteredNotos, { due: undefined });
+      composedMeta = composeListsDescription(withoutDueNotos, []);
+    } else if (listPredefined.id === 5) {
       // All Notos
-      const dues = notosWithinRange(incomplete, todayEvening());
-      meta = listsDesc(dues, incomplete);
+      const dueNotos = getNotosWithinRange(filteredNotos, getDateToday());
+      composedMeta = composeListsDescription(filteredNotos, dueNotos);
     }
 
-    output += `
+    composed += `
     <div class="list list-predefined">
       <div class="list-item">
         <div>
-          <h3>${list.title}</h3>
-          ${meta}
+          <h3>${listPredefined.title}</h3>
+          ${composedMeta}
         </div>
-        <img class="btn" src="${assets('arrowRight', true)}" />
+        <img class="btn" src="${getAssets('arrowRight', true)}" />
       </div>
     </div>
     `;
   });
 
-  return output;
+  return composed;
 }

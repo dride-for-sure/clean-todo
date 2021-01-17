@@ -1,5 +1,5 @@
-import { uuidv4 } from '../utils/helper';
-import Task from './task';
+import { getUuidv4 } from '../utils/helper';
+import Noto from './noto';
 
 /**
  * Data management
@@ -38,8 +38,8 @@ export default class Model {
    */
   addTask(list, title, noto, due, tags, assigns) {
     // Initialize new task object with uuidv4
-    const id = uuidv4();
-    const taskObj = new Task(id, list, title, noto, due, tags, assigns);
+    const id = getUuidv4();
+    const taskObj = new Noto(id, list, title, noto, due, tags, assigns);
     // Push to tasks array
     this.tasks.push(taskObj);
     this.commit();
@@ -59,7 +59,7 @@ export default class Model {
   editTask(id, list, title, noto, due, priority, tags, assigns, complete) {
     this.tasks = this.tasks.map(task => {
       if (id === task.id) {
-        const taskObj = new Task(id, list, title, noto, due, priority, tags, assigns, complete);
+        const taskObj = new Noto(id, list, title, noto, due, priority, tags, assigns, complete);
         return taskObj;
       }
       return task;

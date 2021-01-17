@@ -3,9 +3,9 @@
  * @param {Object} data
  * @returns {Array}
  */
-export const allNotos = data => {
+export const getAllNotos = data => {
   const notos = [];
-  data.lists.forEach(list => notos.push(...list.notos));
+  data.listsUser.forEach(list => notos.push(...list.notos));
   return notos;
 };
 
@@ -14,22 +14,17 @@ export const allNotos = data => {
  * @param {String} id
  * @returns {Object}
  */
-export const aNoto = (data, id) => {
-  const notos = allNotos(data);
-  return notos.find(noto => noto.id === id);
-};
+export const getNoto = (data, id) => getAllNotos(data).find(noto => noto.id === id);
 
 /**
  * Return notos within a date range as array
  * @param {Array} notos
- * @param {Date} startDate
- * @param {Date} endDate
+ * @param {Number} startDate - timestamp
+ * @param {Number} endDate - timestamp
  * @returns {Array}
  */
-export const notosWithinRange = (notos, endDate, startDate = 0) =>
-  notos.filter(
-    noto => new Date(`${noto.due}Z`) <= endDate && new Date(`${noto.due}Z`) >= startDate,
-  );
+export const getNotosWithinRange = (notos, endDate, startDate = 0) =>
+  notos.filter(noto => noto.due <= endDate && noto.due >= startDate);
 
 /**
  * Return notos if matches specific key:value
@@ -37,8 +32,8 @@ export const notosWithinRange = (notos, endDate, startDate = 0) =>
  * @param {Object} meta - {key: value}
  * @returns {Array}
  */
-export const notosWithMeta = (notos, meta) => {
-  const filtered = notos.filter(noto => {
+export const getNotosWithMeta = (notos, meta) =>
+  notos.filter(noto => {
     let match = false;
     Object.keys(meta).forEach(key => {
       if (noto[key] === meta[key]) {
@@ -47,15 +42,20 @@ export const notosWithMeta = (notos, meta) => {
     });
     return match;
   });
-  return filtered;
-};
 
 /**
- * Return notos that have complete status
+ * Return filtered notos array
  * @param {Array} notos
- * @param {Boolean} incomplete
+ * @param {Boolean} complete
  * @returns {Array}
  */
 
-export const notosIncomplete = (notos, incomplete = true) =>
-  notos.filter(noto => noto.complete !== incomplete);
+export const filterNotos = (notos, complete = false) =>
+  notos.filter(noto => noto.complete === complete);
+
+/**
+ * Sort an array by due date
+ * @param {Array} notos
+ * @returns {Array}
+ */
+export const sortNotosByDate = notos => notos.sort((a, b) => a.due - b.due);

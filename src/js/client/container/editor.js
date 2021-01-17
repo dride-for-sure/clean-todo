@@ -1,19 +1,19 @@
-import btnBar from '../components/btnBar/btnBar';
-import header from '../components/header/header';
+import composeBtnBar from '../components/btnBar/btnBar';
+import composeHeader from '../components/header/header';
 
 /**
  * Returns editor view
  * @param {Object} data
  * @param {String} view
  */
-export default function editor(data, view, id) {
+export default function composeEditor(data, view, id) {
   return `
   <div class="container" tabindex="0">
-    ${header(data, view, id)}
+    ${composeHeader(data, view, id)}
     // Notos
   </div>
   <div class="container fixed-bottom">
-    ${btnBar(view)}
+    ${composeBtnBar(view)}
   </div>
 `;
 }

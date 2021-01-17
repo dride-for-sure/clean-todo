@@ -1,38 +1,40 @@
-import assets from '../../assets/assets';
-import { aList } from '../../utils/lists';
-import { aNoto } from '../../utils/notos';
+import getAssets from '../../assets/assets';
+import { getList } from '../../utils/lists';
+import { getNoto } from '../../utils/notos';
 
 /**
  * Returns the header
+ * @param {Object} data
  * @param {String} view - header for which view [lists, notos, editor, settings]
+ * @param {String/Number} id
  * @returns {String}
  */
-export default function header(data, view, id = 1) {
-  let btnLeft;
-  let btnRight;
-  let h1;
+export default function composeHeader(data, view, id) {
+  let buttonLeft;
+  let buttonRight;
+  let title;
 
   if (view === 'lists') {
-    btnLeft = assets('logo', true);
-    btnRight = assets('settingsGlobal', true);
-    h1 = 'Make it so';
+    buttonLeft = getAssets('logo', true);
+    buttonRight = getAssets('settingsGlobal', true);
+    title = 'Make it so';
   } else if (view === 'notos') {
-    btnLeft = assets('arrowLeft', false);
-    btnRight = assets('settingsLocal', false);
-    h1 = aList(data, id).title;
+    buttonLeft = getAssets('arrowLeft', false);
+    buttonRight = getAssets('settingsLocal', false);
+    title = getList(data, id).title;
   } else if (view === 'editor') {
-    btnLeft = assets('arrowLeft', false);
-    h1 = aNoto(data, id).title;
+    buttonLeft = getAssets('arrowLeft', false);
+    title = getNoto(data, id).title;
   } else if (view === 'settings') {
-    btnLeft = assets('arrowDown', false);
-    h1 = 'Settings';
+    buttonLeft = getAssets('arrowDown', false);
+    title = 'Settings';
   }
 
-  let output = `
+  let composed = `
     <div class="header">
-      <img class="btn" src="${btnLeft}" />
-      <h1>${h1}</h1>
+      <img class="btn" src="${buttonLeft}" />
+      <h1>${title}</h1>
   `;
-  output += btnRight ? `<img class="btn" src="${btnRight}" /></div>` : `</div>`;
-  return output;
+  composed += buttonRight ? `<img class="btn" src="${buttonRight}" /></div>` : `</div>`;
+  return composed;
 }

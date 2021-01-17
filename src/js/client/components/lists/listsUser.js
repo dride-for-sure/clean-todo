@@ -1,32 +1,32 @@
-import getAsset from '../../assets/assets';
-import { todayEvening } from '../../utils/dates';
-import { allLists } from '../../utils/lists';
-import { notosIncomplete, notosWithinRange } from '../../utils/notos';
-import listsDesc from './listsDesc';
+import getAssets from '../../assets/assets';
+import { getDateToday } from '../../utils/dates';
+import { getAllLists } from '../../utils/lists';
+import { filterNotos, getNotosWithinRange } from '../../utils/notos';
+import composeListsDescription from './listsDesc';
 
 /**
  * Returns predefined User Lists
  * @returns {string}
  */
-export default function listsUser(data) {
-  const listsUserDefined = allLists(data);
-  let output = '';
+export default function composeListsUser(data) {
+  const listsUserDefined = getAllLists(data);
+  let compsed = '';
 
   listsUserDefined.forEach(list => {
-    const relevantNotos = notosIncomplete(list.notos);
-    const dues = notosWithinRange(relevantNotos, todayEvening());
-    const meta = listsDesc(dues, relevantNotos);
+    const filteredNotos = filterNotos(list.notos, false);
+    const dueNotos = getNotosWithinRange(filteredNotos, getDateToday());
+    const composedMeta = composeListsDescription(filteredNotos, dueNotos);
 
-    output += `
+    compsed += `
         <div class="list-item">
           <div>
             <h3>${list.title}</h3>
-            ${meta}
+            ${composedMeta}
           </div>
-          <img class="btn" src="${getAsset('arrowRight', true)}" />
+          <img class="btn" src="${getAssets('arrowRight', true)}" />
         </div>
     `;
   });
 
-  return `<div class="list"><h2>Your lists</h2>${output}</div>`;
+  return `<div class="list"><h2>Your lists</h2>${compsed}</div>`;
 }

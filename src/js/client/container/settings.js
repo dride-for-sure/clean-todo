@@ -1,14 +1,14 @@
-import header from '../components/header/header';
+import composeHeader from '../components/header/header';
 
 /**
  * Returns settings view
  * @param {Object} data
  * @param {String} view
  */
-export default function settings(data, view) {
+export default function composeSettings(data, view) {
   return `
   <div class="container" tabindex="0">
-    ${header(data, view)}
+    ${composeHeader(data, view)}
     // Settings
   </div>
 `;

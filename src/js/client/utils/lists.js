@@ -3,12 +3,15 @@
  * @param {Object} data
  * @returns {Array}
  */
-export const allLists = data => data.lists;
+export const getAllLists = data => data.listsUser;
 
 /**
  * Return a list object
  * @param {Object} data
- * @param {String} id
+ * @param {String/Number} id - predefinedLists number or userList String
  * @returns {Object}
  */
-export const aList = (data, id) => data.lists.find(list => list.id === id);
+export const getList = (data, id) =>
+  Number.isInteger(id)
+    ? data.listsPredefined.find(list => list.id === id)
+    : data.listsUser.find(list => list.id === id);
