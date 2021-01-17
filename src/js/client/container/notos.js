@@ -1,6 +1,6 @@
-import btnBar from '../components/btnBar/btnBar';
-import header from '../components/header/header';
-import list from '../components/notos/list';
+import composeBtnBar from '../components/btnBar/btnBar';
+import composeHeader from '../components/header/header';
+import composeList from '../components/notos/list';
 
 /**
  * Returns notos view
@@ -8,14 +8,14 @@ import list from '../components/notos/list';
  * @param {String} view
  * @param {String} id
  */
-export default function notos(data, view, id) {
+export default function composeNotos(data, view, id, complete) {
   return `
   <div class="container" tabindex="0">
-    ${header(data, view, id)}
-    ${list(data, id)}
+    ${composeHeader(data, view, id)}
+    ${composeList(data, id, complete)}
   </div>
   <div class="container fixed-bottom">
-    ${btnBar(view)}
+    ${composeBtnBar(view)}
   </div>
 `;
 }

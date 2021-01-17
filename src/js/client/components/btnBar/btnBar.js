@@ -1,22 +1,22 @@
-import getAsset from '../../assets/assets';
+import getAssets from '../../assets/assets';
 
 /**
  * Returns the fixed-bottom button bar
- * @param {string} view - [lists, notos, editor]
- * @returns {string}
+ * @param {String} view - [lists, notos, editor]
+ * @returns {String}
  */
-export default function btnBar(view) {
-  let btns = [];
+export default function composeBtnBar(view) {
+  let buttons = [];
   if (view === 'lists' || view === 'notos') {
-    btns = ['back', 'plus', 'search', 'edit', 'checked'];
+    buttons = ['back', 'plus', 'search', 'edit', 'checked'];
   } else if (view === 'editor') {
-    btns = ['back', 'plus', 'checked', 'move', 'share', 'delete'];
+    buttons = ['back', 'plus', 'checked', 'move', 'share', 'delete'];
   }
 
-  let output = '';
-  btns.forEach(el => {
-    output += `<img class="btn btn-${el}" src="${getAsset(el, 'light')}">`;
+  let composed = '';
+  buttons.forEach(el => {
+    composed += `<img class="btn btn-${el}" src="${getAssets(el, 'light')}">`;
   });
 
-  return `<div class="btn-bar btn-bar-${view}">${output}</div>`;
+  return `<div class="btn-bar btn-bar-${view}">${composed}</div>`;
 }

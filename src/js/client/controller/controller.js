@@ -20,8 +20,8 @@ export default class Controller {
    * @param {Array} tasks
    */
 
-  onTaskListChanged = tasks => {
-    this.view.displayView(tasks);
+  onTaskListChanged = noto => {
+    this.view.display(noto);
   };
 
   handleAddToTask = taskText => {

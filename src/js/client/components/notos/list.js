@@ -1,5 +1,5 @@
-import listPredefined from './listPredefined';
-import listUser from './listUser';
+import composeListPredefined from './listPredefined';
+import composeListUser from './listUser';
 
 /**
  * Return html for list with specific id
@@ -7,14 +7,14 @@ import listUser from './listUser';
  * @param {String} id
  * @param {Boolean} complete
  */
-export default function list(data, id, complete) {
-  let output;
+export default function composeList(data, id, complete) {
+  let composed;
   if (Number.isInteger(id)) {
     // Predefined Lists
-    output = listPredefined(data, id, complete);
+    composed = composeListPredefined(data, id, complete);
   } else {
     // User Lists
-    output = listUser(data, id, complete);
+    composed = composeListUser(data, id, complete);
   }
-  return `<div class="list">${output}</div>`;
+  return `<div class="list">${composed}</div>`;
 }

@@ -1,21 +1,21 @@
-import btnBar from '../components/btnBar/btnBar';
-import header from '../components/header/header';
-import listsPredefined from '../components/lists/listsPredefined';
-import listsUser from '../components/lists/listsUser';
+import composeBtnBar from '../components/btnBar/btnBar';
+import composeHeader from '../components/header/header';
+import composeListsPredefined from '../components/lists/listsPredefined';
+import composeListsUser from '../components/lists/listsUser';
 /**
  * Returns lists view
  * @param {Object} data
  * @param {String} view
  */
-export default function lists(data, view) {
+export default function composeLists(data, view) {
   return `
   <div class="container" tabindex="0">
-    ${header(data, view)}
-    ${listsUser(data)}
+    ${composeHeader(data, view)}
+    ${composeListsUser(data)}
   </div>
   <div class="container fixed-bottom">
-    ${listsPredefined(data)}
-    ${btnBar(view)}
+    ${composeListsPredefined(data)}
+    ${composeBtnBar(view)}
   </div>
 `;
 }
