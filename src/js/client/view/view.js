@@ -55,7 +55,7 @@ export default class View {
               priority: true,
               tags: ['tag1', 'tag2'],
               assigns: [],
-              complete: true,
+              complete: false,
             },
             {
               id: 1,
@@ -180,7 +180,7 @@ export default class View {
    * @param {String} id - id of a noto or list
    * @param {Boolean} complete
    */
-  display(data, view = 'notos', id = 1, complete = true) {
+  display(data, view = 'lists', id = 1, complete = true) {
     // this.data = data;
     const wrapper = createElement('div', `#${view} .wrapper`);
     let content;
