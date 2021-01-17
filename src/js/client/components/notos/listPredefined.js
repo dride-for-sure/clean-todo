@@ -1,5 +1,5 @@
 import { composeListDate, getDateToday } from '../../utils/dates';
-import { filterNotos, getAllNotos, getNotosWithinRange, sortNotosByDate } from '../../utils/notos';
+import { filterNotos, getNotos, getNotosWithinRange, sortNotosByDate } from '../../utils/notos';
 import composeNoto from './noto';
 
 /**
@@ -10,7 +10,7 @@ import composeNoto from './noto';
  * @returns {String}
  */
 export default function composeListPredefined(data, id, complete) {
-  const notos = getAllNotos(data);
+  const notos = getNotos(data);
   let results;
   if (id === 1) {
     // Today

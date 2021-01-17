@@ -1,6 +1,6 @@
 import getAssets from '../../assets/assets';
 import { getDateToday, getDateWeekEnd, getDateWeekStart } from '../../utils/dates';
-import { filterNotos, getAllNotos, getNotosWithinRange, getNotosWithMeta } from '../../utils/notos';
+import { filterNotos, getNotos, getNotosWithinRange, getNotosWithMeta } from '../../utils/notos';
 import composeListsDescription from './listsDesc';
 
 /**
@@ -11,7 +11,7 @@ import composeListsDescription from './listsDesc';
 
 export default function composeListsPredefined(data) {
   const listsPredefined = data.listsPredefined.filter(list => list.enabled === true);
-  const filteredNotos = filterNotos(getAllNotos(data, false));
+  const filteredNotos = filterNotos(getNotos(data, false));
   let composed = '';
 
   listsPredefined.forEach(listPredefined => {

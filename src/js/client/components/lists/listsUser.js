@@ -1,6 +1,6 @@
 import getAssets from '../../assets/assets';
 import { getDateToday } from '../../utils/dates';
-import { getAllLists } from '../../utils/lists';
+import { getLists } from '../../utils/lists';
 import { filterNotos, getNotosWithinRange } from '../../utils/notos';
 import composeListsDescription from './listsDesc';
 
@@ -9,7 +9,7 @@ import composeListsDescription from './listsDesc';
  * @returns {string}
  */
 export default function composeListsUser(data) {
-  const listsUserDefined = getAllLists(data);
+  const listsUserDefined = getLists(data);
   let compsed = '';
 
   listsUserDefined.forEach(list => {
