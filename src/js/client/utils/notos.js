@@ -58,4 +58,4 @@ export const filterNotos = (notos, complete = false) =>
  * @param {Array} notos
  * @returns {Array}
  */
-export const sortNotosByDate = notos => notos.sort((a, b) => a.due - b.due);
+export const sortNotosByDate = notos => notos.sort((a, b) => (a.due || 0) - (b.due || 0));
