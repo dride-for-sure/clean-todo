@@ -81,6 +81,10 @@ div.list {
           display: none;
         }
       }
+
+      &.done {
+        opacity: 0.6;
+      }
     }
 
     #settings & {

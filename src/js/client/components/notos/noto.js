@@ -6,10 +6,11 @@ import composeNotoDescription from './notoDesc';
  * @param {Object} noto
  */
 export default function composeNoto(noto) {
-  const toggleComplete = noto.complete ? 'checked' : 'unchecked';
+  const toggleAsset = noto.complete ? 'done' : 'undone';
+  const toggleClass = noto.complete ? 'done' : '';
   return `
-    <div class="list-item noto">
-      <img class="btn" src="${getAssets(toggleComplete, false)}" />
+    <div class="list-item noto ${toggleClass}">
+      <img class="btn" src="${getAssets(toggleAsset, false)}" />
       <div>
         <h3>${noto.title}</h3>
         <h4>${composeNotoDescription(noto)}</h4>
