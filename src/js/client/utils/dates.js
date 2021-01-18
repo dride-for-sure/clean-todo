@@ -9,6 +9,17 @@ export const getDateToday = () => {
 };
 
 /**
+ * Get yesterday evening timestamp
+ * @returns {Number}
+ */
+export const getDateYesterday = () => {
+  const yesterday = new Date();
+  yesterday.setDate(yesterday.getDate() - 1);
+  yesterday.setHours(23, 59, 59, 999);
+  return yesterday.getTime();
+};
+
+/**
  * Get end of this week timestamp
  * @returns {Number}
  */
