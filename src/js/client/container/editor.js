@@ -5,11 +5,12 @@ import composeHeader from '../components/header/header';
  * Returns editor view
  * @param {Object} data
  * @param {String} view
+ * @param {String} notosId
  */
-export default function composeEditor(data, view, id) {
+export default function composeEditor(data, view, notosId) {
   return `
   <div class="container" tabindex="0">
-    ${composeHeader(data, view, id)}
+    ${composeHeader(data, view, notosId)}
     // Notos
   </div>
   <div class="container fixed-bottom">

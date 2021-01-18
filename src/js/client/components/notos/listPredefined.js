@@ -5,33 +5,34 @@ import composeNoto from './noto';
 /**
  * Return html for predefined list with specific id
  * @param {Object} data
- * @param {Number} id
+ * @param {Number} listId
  * @param {Boolean} complete
  * @returns {String}
  */
-export default function composeListPredefined(data, id, complete) {
+export default function composeListPredefined(data, listId, complete) {
   const notos = getNotos(data);
   let results;
-  if (id === 1) {
+  if (listId === 1) {
     // Today
-    const filtered = complete ? notos : filterNotos(notos, complete);
-    results = getNotosWithinRange(filtered, getDateToday());
-  } else if (id === 2) {
+    // filter Notos for complete?
+    // Range end today
+    const filteredNotos = complete ? notos : filterNotos(notos, complete);
+    results = getNotosWithinRange(filteredNotos, getDateToday());
+  } else if (listId === 2) {
     // Priority
-  } else if (id === 3) {
+    // filter notos for complete?
+    // filter notos for meta {priority: true}
+  } else if (listId === 3) {
     // Within a week
-  } else if (id === 4) {
+    // filter notos for complete?
+    //
+  } else if (listId === 4) {
     // Without due date
-  } else if (id === 5) {
+  } else if (listId === 5) {
     // All Notos
   }
 
   const sort = sortNotosByDate(results);
-
-  // all Tasks due
-  // <h2>today<h2>noto1 noto2...
-  // all Tasks not due
-  // <h2>noto.due</h2> ...
 
   console.log(sort);
   let composed = '';

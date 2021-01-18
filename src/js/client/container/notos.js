@@ -6,13 +6,13 @@ import composeList from '../components/notos/list';
  * Returns notos view
  * @param {Object} data
  * @param {String} view
- * @param {String} id
+ * @param {String} listId
  */
-export default function composeNotos(data, view, id, complete) {
+export default function composeNotos(data, view, listId, complete) {
   return `
   <div class="container" tabindex="0">
-    ${composeHeader(data, view, id)}
-    ${composeList(data, id, complete)}
+    ${composeHeader(data, view, listId)}
+    ${composeList(data, listId, complete)}
   </div>
   <div class="container fixed-bottom">
     ${composeBtnBar(view)}
