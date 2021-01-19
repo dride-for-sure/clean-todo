@@ -14,6 +14,9 @@ export default class View {
 
     // TestData
     this.data = {
+      settings: {
+        collapsable: true,
+      },
       listsPredefined: [
         {
           id: 1,
@@ -49,8 +52,19 @@ export default class View {
             {
               id: 0,
               list: 'userList1',
-              title: 'nototitleID1',
-              noto: 'contentOfNoto1',
+              title: 'nototitleID0',
+              noto: 'contentOfNoto0',
+              due: 1577840461000,
+              priority: true,
+              tags: ['tag1', 'tag2'],
+              assigns: [],
+              complete: true,
+            },
+            {
+              id: 11,
+              list: 'userList1',
+              title: 'nototitleID11',
+              noto: 'contentOfNoto11',
               due: 1577840461000,
               priority: true,
               tags: ['tag1', 'tag2'],
@@ -82,8 +96,8 @@ export default class View {
             {
               id: 3,
               list: 'userList1',
-              title: 'nototitleID2',
-              noto: 'contentOfNoto2',
+              title: 'nototitleID3',
+              noto: 'contentOfNoto3',
               due: 1680570061000,
               priority: false,
               tags: ['tag1', 'tag2'],
@@ -93,8 +107,8 @@ export default class View {
             {
               id: 4,
               list: 'userList1',
-              title: 'nototitleID3',
-              noto: 'contentOfNoto3',
+              title: 'nototitleID4',
+              noto: 'contentOfNoto5',
               due: 1714870861000,
               priority: false,
               tags: [],
@@ -104,8 +118,8 @@ export default class View {
             {
               id: 8,
               list: 'userList1',
-              title: 'nototitleID3',
-              noto: 'contentOfNoto3',
+              title: 'nototitleID8',
+              noto: 'contentOfNoto8',
               due: 1749171661000,
               priority: false,
               tags: [],
@@ -113,11 +127,33 @@ export default class View {
               complete: false,
             },
             {
-              id: 8,
+              id: 9,
               list: 'userList1',
-              title: 'nototitleID3',
-              noto: 'contentOfNoto3',
+              title: 'nototitleID9',
+              noto: 'contentOfNoto9',
               due: undefined,
+              priority: false,
+              tags: [],
+              assigns: ['assign1', 'assign2'],
+              complete: false,
+            },
+            {
+              id: 10,
+              list: 'userList1',
+              title: 'nototitleID10',
+              noto: 'contentOfNoto10',
+              due: 1610898562177,
+              priority: false,
+              tags: [],
+              assigns: ['assign1', 'assign2'],
+              complete: false,
+            },
+            {
+              id: 12,
+              list: 'userList1',
+              title: 'nototitleID10',
+              noto: 'contentOfNoto10',
+              due: 1611097200000,
               priority: false,
               tags: [],
               assigns: ['assign1', 'assign2'],
@@ -167,20 +203,32 @@ export default class View {
         {
           id: '3',
           title: 'userList3',
-          notos: [],
+          notos: [
+            {
+              id: 12,
+              list: 'userList1',
+              title: 'nototitleID12',
+              noto: 'contentOfNoto12',
+              due: 1237840461000,
+              priority: true,
+              tags: ['tag1', 'tag2'],
+              assigns: [],
+              complete: false,
+            },
+          ],
         },
       ],
     };
   }
 
   /**
-   * Display the view
+   * Compose the view
    * @param {Array} data
    * @param {String} view - lists, notos, editor, settings, search
    * @param {String} id - id of a noto or list
    * @param {Boolean} complete
    */
-  display(data, view = 'lists', id = 1, complete = true) {
+  display(data, view = 'notos', id = 4, complete = true) {
     // this.data = data;
     const wrapper = createElement('div', `#${view} .wrapper`);
     let content;
