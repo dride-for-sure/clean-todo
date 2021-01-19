@@ -45,9 +45,9 @@
     z-index: 2;
   }
 
-  &:not(.fixed-bottom),
-  &:not(.fixed-top),
-  &:not(.overlays) {
+  &.scroll {
     overflow-y: scroll;
+    height: calc(100vh - 47px); // <--- this must be calculated automatically!
+    padding-bottom: $distance-default * 0.8;
   }
 }

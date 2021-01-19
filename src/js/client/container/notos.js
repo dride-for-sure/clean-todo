@@ -10,7 +10,7 @@ import composeList from '../components/notos/list';
  */
 export default function composeNotos(data, view, listId, complete) {
   return `
-  <div class="container" tabindex="0">
+  <div class="container scroll" tabindex="0">
     ${composeHeader(data, view, listId)}
     ${composeList(data, listId, complete)}
   </div>
