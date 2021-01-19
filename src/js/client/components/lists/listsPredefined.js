@@ -1,5 +1,5 @@
 import getAssets from '../../assets/assets';
-import { getDateToday, getDateWeekEnd, getDateWeekStart } from '../../utils/dates';
+import { getDateToday, getDateWithinAWeekEnd, getDateYesterday } from '../../utils/dates';
 import { filterNotos, getNotos, getNotosWithinRange, getNotosWithMeta } from '../../utils/notos';
 import composeListsDescription from './listsDesc';
 
@@ -28,8 +28,16 @@ export default function composeListsPredefined(data) {
       composedMeta = composeListsDescription(priorityNotos, duePriorityNotos);
     } else if (listPredefined.id === 3) {
       // Within a week
-      const weekNotos = getNotosWithinRange(filteredNotos, getDateWeekEnd(), getDateWeekStart());
-      const dueWeekNotos = getNotosWithinRange(weekNotos, getDateToday(), getDateWeekStart());
+      const weekNotos = getNotosWithinRange(
+        filteredNotos,
+        getDateWithinAWeekEnd(),
+        getDateYesterday(),
+      );
+      const dueWeekNotos = getNotosWithinRange(
+        weekNotos,
+        getDateWithinAWeekEnd(),
+        getDateYesterday(),
+      );
       composedMeta = composeListsDescription(weekNotos, dueWeekNotos);
     } else if (listPredefined.id === 4) {
       // Without due date

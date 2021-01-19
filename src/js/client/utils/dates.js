@@ -20,21 +20,12 @@ export const getDateYesterday = () => {
 };
 
 /**
- * Get end of this week timestamp
+ * Get end timestamp for 'within a week'
  * @returns {Number}
  */
-export const getDateWeekEnd = () => {
+export const getDateWithinAWeekEnd = () => {
   const today = new Date(getDateToday());
-  return today.setDate(today.getDate() - today.getDay() + 7);
-};
-
-/**
- * Get start of this week timestamp
- * @returns {Number}
- */
-export const getDateWeekStart = () => {
-  const today = new Date(getDateToday());
-  return today.setDate(today.getDate() - today.getDay() + 1);
+  return today.setDate(today.getDate() - today.getDay() + 6);
 };
 
 /**
