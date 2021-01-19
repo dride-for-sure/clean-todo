@@ -3,7 +3,7 @@
  * @param {Object} data
  * @returns {Array}
  */
-export const getAllLists = data => data.listsUser;
+export const getLists = data => data.listsUser;
 
 /**
  * Return a list object

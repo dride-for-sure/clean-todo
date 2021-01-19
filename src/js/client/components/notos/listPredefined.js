@@ -1,51 +1,52 @@
-import { composeListDate, getDateToday } from '../../utils/dates';
-import { filterNotos, getAllNotos, getNotosWithinRange, sortNotosByDate } from '../../utils/notos';
-import composeNoto from './noto';
+import { getDateWithinAWeekEnd, getDateYesterday } from '../../utils/dates';
+import { filterNotos, getNotos, getNotosWithinRange, getNotosWithMeta } from '../../utils/notos';
+import listBlockDueFuture from './listBlockDueFuture';
+import listBlockDueToday from './listBlockDueToday';
+import listBlockWithoutDue from './listBlockWithoutDue';
 
 /**
- * Return html for predefined list with specific id
+ * Compose predefined list with specific id
  * @param {Object} data
- * @param {Number} id
+ * @param {Number} listId
  * @param {Boolean} complete
  * @returns {String}
  */
-export default function composeListPredefined(data, id, complete) {
-  const notos = getAllNotos(data);
-  let results;
-  if (id === 1) {
+export default function composeListPredefined(data, listId, complete) {
+  const notos = getNotos(data);
+  const filteredNotos = complete ? notos : filterNotos(notos, complete);
+
+  let composed = '';
+  if (listId === 1) {
     // Today
-    const filtered = complete ? notos : filterNotos(notos, complete);
-    results = getNotosWithinRange(filtered, getDateToday());
-  } else if (id === 2) {
+    // Range end today
+    composed += listBlockDueToday(filteredNotos, complete);
+  } else if (listId === 2) {
     // Priority
-  } else if (id === 3) {
+    // filter notos for meta {priority: true}
+    const priorityNotos = getNotosWithMeta(filteredNotos, { priority: true });
+    composed += listBlockWithoutDue(priorityNotos);
+    composed += listBlockDueToday(priorityNotos, complete);
+    composed += listBlockDueFuture(priorityNotos);
+  } else if (listId === 3) {
     // Within a week
-  } else if (id === 4) {
+    composed += listBlockDueToday(filteredNotos, complete);
+    // Filter notos up to one week in future
+    const withinAWeekNotos = getNotosWithinRange(
+      filteredNotos,
+      getDateWithinAWeekEnd(),
+      getDateYesterday(),
+    );
+    composed += listBlockDueToday(withinAWeekNotos, complete);
+    composed += listBlockDueFuture(withinAWeekNotos);
+  } else if (listId === 4) {
     // Without due date
-  } else if (id === 5) {
+    composed += listBlockWithoutDue(filteredNotos, false);
+  } else if (listId === 5) {
     // All Notos
+    composed += listBlockWithoutDue(filteredNotos, true);
+    composed += listBlockDueToday(filteredNotos, complete);
+    composed += listBlockDueFuture(filteredNotos);
   }
 
-  const sort = sortNotosByDate(results);
-
-  // all Tasks due
-  // <h2>today<h2>noto1 noto2...
-  // all Tasks not due
-  // <h2>noto.due</h2> ...
-
-  console.log(sort);
-  let composed = '';
-  sort.forEach((obj, i) => {
-    if (i === 0) {
-      // if obj.due = today -> 'today' else listDate(obj.due)
-      const date = composeListDate(obj.due);
-      composed += `<h2>${date}</h2>${composeNoto(obj)}`;
-    } else if (sort[i - 1].due !== sort[i].due) {
-      const date = composeListDate(obj.due);
-      composed += `<h2>${date}</h2>${composeNoto(obj)}`;
-    } else {
-      composed += `${composeNoto(obj)}`;
-    }
-  });
   return composed;
 }

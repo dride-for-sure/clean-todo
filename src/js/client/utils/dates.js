@@ -9,21 +9,23 @@ export const getDateToday = () => {
 };
 
 /**
- * Get end of this week timestamp
+ * Get yesterday evening timestamp
  * @returns {Number}
  */
-export const getDateWeekEnd = () => {
-  const today = new Date(getDateToday());
-  return today.setDate(today.getDate() - today.getDay() + 7);
+export const getDateYesterday = () => {
+  const yesterday = new Date();
+  yesterday.setDate(yesterday.getDate() - 1);
+  yesterday.setHours(23, 59, 59, 999);
+  return yesterday.getTime();
 };
 
 /**
- * Get start of this week timestamp
+ * Get end timestamp for 'within a week'
  * @returns {Number}
  */
-export const getDateWeekStart = () => {
+export const getDateWithinAWeekEnd = () => {
   const today = new Date(getDateToday());
-  return today.setDate(today.getDate() - today.getDay() + 1);
+  return today.setDate(today.getDate() - today.getDay() + 6);
 };
 
 /**

@@ -3,7 +3,7 @@
  * @param {Object} data
  * @returns {Array}
  */
-export const getAllNotos = data => {
+export const getNotos = data => {
   const notos = [];
   data.listsUser.forEach(list => notos.push(...list.notos));
   return notos;
@@ -14,7 +14,7 @@ export const getAllNotos = data => {
  * @param {String} id
  * @returns {Object}
  */
-export const getNoto = (data, id) => getAllNotos(data).find(noto => noto.id === id);
+export const getNoto = (data, id) => getNotos(data).find(noto => noto.id === id);
 
 /**
  * Return notos within a date range as array
@@ -58,4 +58,4 @@ export const filterNotos = (notos, complete = false) =>
  * @param {Array} notos
  * @returns {Array}
  */
-export const sortNotosByDate = notos => notos.sort((a, b) => a.due - b.due);
+export const sortNotosByDate = notos => notos.sort((a, b) => (a.due || 0) - (b.due || 0));
