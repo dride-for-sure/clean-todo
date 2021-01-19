@@ -9,7 +9,7 @@ import composeListsUser from '../components/lists/listsUser';
  */
 export default function composeLists(data, view) {
   return `
-  <div class="container" tabindex="0">
+  <div class="container scroll" tabindex="0">
     ${composeHeader(data, view)}
     ${composeListsUser(data)}
   </div>

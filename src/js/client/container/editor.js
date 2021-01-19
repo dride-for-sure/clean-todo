@@ -9,7 +9,7 @@ import composeHeader from '../components/header/header';
  */
 export default function composeEditor(data, view, notosId) {
   return `
-  <div class="container" tabindex="0">
+  <div class="container scroll" tabindex="0">
     ${composeHeader(data, view, notosId)}
     // Notos
   </div>
