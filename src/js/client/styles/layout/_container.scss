@@ -6,21 +6,21 @@
   font-size: $font-size-regular;
   color: $color-light;
 
-  &#lists {
+  &#lists > .container {
     background-color: $color-blue-light;
   }
 
-  &#notos,
-  &#editor {
+  &#notos > .container,
+  &#editor > .container {
     background-color: $color-grey-light;
     color: $color-blue-medium;
   }
 
-  &#settings {
+  &#settings > .container {
     background-color: $color-green-medium;
   }
 
-  &#search {
+  &#search > .container {
     background-color: $color-blue-light;
   }
 }
